@@ -15,7 +15,7 @@ class LoginDataFlow{
     static public var invalidUsername : Int = 1
     static public var invalidPassword : Int = 2
     
-    class func checkIfValid(username: String, password: String) -> Int{
+    class func checkIfValid(username: String, password: String, completion:@escaping (Int)-> Void){
         
         var ref: FIRDatabaseReference!
         
@@ -23,31 +23,31 @@ class LoginDataFlow{
         
         var userList : NSDictionary!
         
-        var returnCode : Int!
+        var returnCode : Int! = invalidUsername
         
         ref.child("users").child(username).observeSingleEvent(of: .value, with: { (snapshot) in
             
             userList = snapshot.value as? NSDictionary
             
-            if let correctPassword = userList["password"] as! String?{
-                NSLog("entered pass: " + password)
-                NSLog("real pass: " + correctPassword)
-                
-                if(password == String(describing: correctPassword)){
-                    returnCode = validCode
-                }else{
-                    returnCode = invalidPassword
+            if let userDictionary = userList{
+                if let correctPassword = userDictionary["password"] as! String?{
+                    NSLog("entered pass: " + password)
+                    NSLog("real pass: " + String(describing: correctPassword))
+                    
+                    if(password == correctPassword){
+                        returnCode = validCode
+                    }else{
+                        returnCode = invalidPassword
+                    }
                 }
             }
+            
+            completion(returnCode)
             
         }) { (error) in
             print("ERROR: " + error.localizedDescription)
         }
-        
-        if(returnCode != nil){
-            return returnCode
-        }else{
-            return invalidUsername
-        }
     }
+    
+    
 }

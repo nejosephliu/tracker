@@ -34,14 +34,14 @@ class Login: UIViewController {
     
     @IBAction func loginButtonPressed(){
         if(canLogin){
-            let result = LoginDataFlow.checkIfValid(username: usernameTF.text!, password: passwordTF.text!)
-            
-            if(result == LoginDataFlow.validCode){
-                callSegue()
-            }else if(result == LoginDataFlow.invalidUsername){
-                displayErrorAlert(title: "Invalid Username", message: "Username was not found.")
-            }else if(result == LoginDataFlow.invalidPassword){
-                displayErrorAlert(title: "Incorrect Password", message: "Please try again.")
+            LoginDataFlow.checkIfValid(username: usernameTF.text!, password: passwordTF.text!) { (result) -> () in
+                if(result == LoginDataFlow.validCode){
+                    self.callSegue()
+                }else if(result == LoginDataFlow.invalidUsername){
+                    self.displayErrorAlert(title: "Invalid Username", message: "Username was not found.")
+                }else if(result == LoginDataFlow.invalidPassword){
+                    self.displayErrorAlert(title: "Incorrect Password", message: "Please try again.")
+                }
             }
         }
     }
