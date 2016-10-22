@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7C65D99F1DBBDB19000AA4CE /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65D99E1DBBDB19000AA4CE /* ParentViewController.swift */; };
+		7C65D9A51DBBFE82000AA4CE /* LoginDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65D9A41DBBFE82000AA4CE /* LoginDataFlow.swift */; };
+		7C65D9A71DBC09DA000AA4CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C65D9A61DBC09DA000AA4CE /* GoogleService-Info.plist */; };
 		7CFFEE921DBB3F8E00608E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFEE911DBB3F8E00608E62 /* AppDelegate.swift */; };
 		7CFFEE941DBB3F8E00608E62 /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFEE931DBB3F8E00608E62 /* Mark.swift */; };
 		7CFFEE961DBB3F8E00608E62 /* Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFEE951DBB3F8E00608E62 /* Records.swift */; };
@@ -22,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		7C65D99E1DBBDB19000AA4CE /* ParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
+		7C65D9A41DBBFE82000AA4CE /* LoginDataFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDataFlow.swift; sourceTree = "<group>"; };
+		7C65D9A61DBC09DA000AA4CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7C65D9A81DBC0A93000AA4CE /* tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tracker.entitlements; sourceTree = "<group>"; };
 		7CFFEE8E1DBB3F8E00608E62 /* tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFFEE911DBB3F8E00608E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CFFEE931DBB3F8E00608E62 /* Mark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mark.swift; sourceTree = "<group>"; };
@@ -79,6 +84,14 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		7C65D9A31DBBFE6E000AA4CE /* DataFlow */ = {
+			isa = PBXGroup;
+			children = (
+				7C65D9A41DBBFE82000AA4CE /* LoginDataFlow.swift */,
+			);
+			name = DataFlow;
+			sourceTree = "<group>";
+		};
 		7CFFEE851DBB3F8E00608E62 = {
 			isa = PBXGroup;
 			children = (
@@ -102,10 +115,13 @@
 			children = (
 				7CFFEE911DBB3F8E00608E62 /* AppDelegate.swift */,
 				7C65D9A01DBBFA4F000AA4CE /* UI */,
+				7C65D9A31DBBFE6E000AA4CE /* DataFlow */,
 				7CFFEE971DBB3F8E00608E62 /* Main.storyboard */,
 				7CFFEE9C1DBB3F8E00608E62 /* LaunchScreen.storyboard */,
 				7CFFEE9A1DBB3F8E00608E62 /* Assets.xcassets */,
 				7CFFEE9F1DBB3F8E00608E62 /* Info.plist */,
+				7C65D9A61DBC09DA000AA4CE /* GoogleService-Info.plist */,
+				7C65D9A81DBC0A93000AA4CE /* tracker.entitlements */,
 			);
 			path = tracker;
 			sourceTree = "<group>";
@@ -162,7 +178,13 @@
 				TargetAttributes = {
 					7CFFEE8D1DBB3F8E00608E62 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 6CXM5E25MG;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -191,6 +213,7 @@
 			files = (
 				7CFFEEAA1DBB459900608E62 /* Header.xib in Resources */,
 				7CFFEE9E1DBB3F8E00608E62 /* LaunchScreen.storyboard in Resources */,
+				7C65D9A71DBC09DA000AA4CE /* GoogleService-Info.plist in Resources */,
 				7CFFEE9B1DBB3F8E00608E62 /* Assets.xcassets in Resources */,
 				7CFFEE991DBB3F8E00608E62 /* Main.storyboard in Resources */,
 			);
@@ -257,6 +280,7 @@
 				7CFFEE921DBB3F8E00608E62 /* AppDelegate.swift in Sources */,
 				7CFFEE941DBB3F8E00608E62 /* Mark.swift in Sources */,
 				7CFFEEA61DBB401900608E62 /* Login.swift in Sources */,
+				7C65D9A51DBBFE82000AA4CE /* LoginDataFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,9 +402,11 @@
 			baseConfigurationReference = F9AEE431F2A3E3CDE0C093F2 /* Pods-tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = tracker/tracker.entitlements;
+				DEVELOPMENT_TEAM = 6CXM5E25MG;
 				INFOPLIST_FILE = tracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = josephliu.tracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rolccyouth.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -391,9 +417,11 @@
 			baseConfigurationReference = E2743FA27C85A504C072BE66 /* Pods-tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = tracker/tracker.entitlements;
+				DEVELOPMENT_TEAM = 6CXM5E25MG;
 				INFOPLIST_FILE = tracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = josephliu.tracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rolccyouth.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
