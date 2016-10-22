@@ -14,6 +14,8 @@ class Header: UIView {
     @IBOutlet weak var headerView : UIView!
     @IBOutlet weak var pageLabel: UILabel!
     
+    @IBOutlet weak var menuButton: UIButton!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

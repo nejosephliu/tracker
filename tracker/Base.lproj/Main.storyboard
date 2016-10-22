@@ -147,11 +147,18 @@
                                     <action selector="loginButtonPressed" destination="5Gm-4q-mb2" eventType="touchUpInside" id="Q8f-hh-Sp5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMh-Re-xgv">
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="56j-EI-n22" firstAttribute="top" secondItem="CLW-y9-ELJ" secondAttribute="bottom" constant="50" id="A8f-Tc-SOQ"/>
+                            <constraint firstItem="56j-EI-n22" firstAttribute="top" secondItem="CLW-y9-ELJ" secondAttribute="bottom" constant="60" id="A8f-Tc-SOQ"/>
+                            <constraint firstItem="VMh-Re-xgv" firstAttribute="centerX" secondItem="baV-XV-2aO" secondAttribute="centerX" id="HXS-E0-p2L"/>
                             <constraint firstItem="CLW-y9-ELJ" firstAttribute="centerY" secondItem="baV-XV-2aO" secondAttribute="centerY" id="LtP-KB-xcK"/>
+                            <constraint firstItem="JiE-2U-Yiv" firstAttribute="top" secondItem="VMh-Re-xgv" secondAttribute="bottom" constant="60" id="NP0-rK-oZK"/>
                             <constraint firstItem="56j-EI-n22" firstAttribute="centerX" secondItem="baV-XV-2aO" secondAttribute="centerX" id="QHX-iv-aLD"/>
                             <constraint firstItem="CLW-y9-ELJ" firstAttribute="centerX" secondItem="baV-XV-2aO" secondAttribute="centerX" id="Wr8-T8-egg"/>
                             <constraint firstItem="CLW-y9-ELJ" firstAttribute="top" secondItem="JiE-2U-Yiv" secondAttribute="bottom" constant="60" id="frd-Ai-jRC"/>

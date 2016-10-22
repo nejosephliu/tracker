@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Header" customModule="tracker" customModuleProvider="target">
             <connections>
                 <outlet property="headerView" destination="3Wy-H4-qtg" id="yVb-AH-tBL"/>
+                <outlet property="menuButton" destination="FVF-Pb-AVp" id="zLt-79-nYn"/>
                 <outlet property="pageLabel" destination="QA9-tD-WoK" id="rMT-8R-pTk"/>
             </connections>
         </placeholder>
@@ -24,9 +25,18 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVF-Pb-AVp">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Ayn-fR-3h8"/>
+                                <constraint firstAttribute="width" constant="30" id="fe5-Ma-uaQ"/>
+                            </constraints>
+                            <state key="normal" image="first"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.37647058823529411" green="0.70980392156862748" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="FVF-Pb-AVp" firstAttribute="centerY" secondItem="3Wy-H4-qtg" secondAttribute="centerY" constant="10" id="E2N-d0-8eK"/>
+                        <constraint firstAttribute="trailing" secondItem="FVF-Pb-AVp" secondAttribute="trailing" constant="15" id="TYD-2d-2ZG"/>
                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="85" id="esL-wD-w4h"/>
                         <constraint firstItem="QA9-tD-WoK" firstAttribute="centerX" secondItem="3Wy-H4-qtg" secondAttribute="centerX" id="pvr-Zn-x0Y"/>
                         <constraint firstItem="QA9-tD-WoK" firstAttribute="centerY" secondItem="3Wy-H4-qtg" secondAttribute="centerY" constant="10" id="rgD-Ku-auo"/>
@@ -44,4 +54,7 @@
             <point key="canvasLocation" x="26.5" y="97.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="first" width="30" height="30"/>
+    </resources>
 </document>
