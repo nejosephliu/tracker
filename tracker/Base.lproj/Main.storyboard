@@ -120,31 +120,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56j-EI-n22">
-                                <frame key="frameInset" minX="78" minY="491" width="219" height="91"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <state key="normal" title="LOGIN"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="USERNAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JiE-2U-Yiv">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="SYQ-jG-ruc"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CLW-y9-ELJ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="nqn-Xt-l7J"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56j-EI-n22">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0wt-pY-5yH"/>
+                                    <constraint firstAttribute="width" constant="90" id="nnx-m9-eLH"/>
+                                </constraints>
+                                <state key="normal" image="login_inactive"/>
+                                <state key="highlighted" image="login_inactive"/>
                                 <connections>
                                     <action selector="loginButtonPressed" destination="5Gm-4q-mb2" eventType="touchUpInside" id="Q8f-hh-Sp5"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="USERNAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JiE-2U-Yiv">
-                                <frame key="frameInset" minX="37" minY="191" width="301" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CLW-y9-ELJ">
-                                <frame key="frameInset" minX="37" minY="318" width="301" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert" secureTextEntry="YES"/>
-                            </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="56j-EI-n22" firstAttribute="top" secondItem="CLW-y9-ELJ" secondAttribute="bottom" constant="50" id="A8f-Tc-SOQ"/>
+                            <constraint firstItem="CLW-y9-ELJ" firstAttribute="centerY" secondItem="baV-XV-2aO" secondAttribute="centerY" id="LtP-KB-xcK"/>
+                            <constraint firstItem="56j-EI-n22" firstAttribute="centerX" secondItem="baV-XV-2aO" secondAttribute="centerX" id="QHX-iv-aLD"/>
+                            <constraint firstItem="CLW-y9-ELJ" firstAttribute="centerX" secondItem="baV-XV-2aO" secondAttribute="centerX" id="Wr8-T8-egg"/>
+                            <constraint firstItem="CLW-y9-ELJ" firstAttribute="top" secondItem="JiE-2U-Yiv" secondAttribute="bottom" constant="60" id="frd-Ai-jRC"/>
+                            <constraint firstItem="JiE-2U-Yiv" firstAttribute="centerX" secondItem="baV-XV-2aO" secondAttribute="centerX" id="zFr-ui-tVR"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="56j-EI-n22" id="R3e-jA-iaQ"/>
@@ -160,6 +172,7 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="login_inactive" width="150" height="83"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>

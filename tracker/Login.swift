@@ -15,8 +15,13 @@ class Login: UIViewController {
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
+    private var canLogin: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameTF.addTarget(self, action: #selector(textFieldChanged), for: UIControlEvents.editingChanged)
+        passwordTF.addTarget(self, action: #selector(textFieldChanged), for: UIControlEvents.editingChanged)
         
         let gestureRec = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(gestureRec)
@@ -28,7 +33,27 @@ class Login: UIViewController {
     }
     
     @IBAction func loginButtonPressed(){
-        performSegue(withIdentifier: "loginSegue", sender: nil)
+        if(canLogin){
+            LoginDataFlow.checkIfValid(username: usernameTF.text!, password: passwordTF.text!) { (result) -> () in
+                if(result == LoginDataFlow.validCode){
+                    self.callSegue()
+                }else if(result == LoginDataFlow.invalidUsername){
+                    self.displayErrorAlert(title: "Invalid Username", message: "Username was not found.")
+                }else if(result == LoginDataFlow.invalidPassword){
+                    self.displayErrorAlert(title: "Incorrect Password", message: "Please try again.")
+                }
+            }
+        }
+    }
+    
+    func textFieldChanged(){
+        if((usernameTF.text?.characters.count)! > 0 && (passwordTF.text?.characters.count)! > 0){
+            loginButton.setImage(UIImage(named: "login_active"), for: UIControlState.normal)
+            canLogin = true
+        }else{
+            loginButton.setImage(UIImage(named: "login_inactive"), for: UIControlState.normal)
+            canLogin = false
+        }
     }
     
     func dismissKeyboard(){
@@ -40,5 +65,17 @@ class Login: UIViewController {
         }
     }
     
+    func callSegue(){
+        performSegue(withIdentifier: "loginSegue", sender: nil)
+    }
+    
+    func displayErrorAlert(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
