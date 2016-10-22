@@ -15,7 +15,7 @@ class LoginDataFlow{
     static public var invalidUsername : Int = 1
     static public var invalidPassword : Int = 2
     
-    class func checkIfValid(username: String, password: String, completion:@escaping (Int)-> Void){
+    class func checkIfValid(username: String, password: String, completion:@escaping (String, Int)-> Void){
         
         var ref: FIRDatabaseReference!
         
@@ -29,12 +29,17 @@ class LoginDataFlow{
             
             userList = snapshot.value as? NSDictionary
             
+            var correctUsername: String = ""
+            
             if let userDictionary = userList{
                 if let correctPassword = userDictionary["password"] as! String?{
+                    correctUsername = userDictionary["username"] as! String
+                    
                     NSLog("entered pass: " + password)
                     NSLog("real pass: " + String(describing: correctPassword))
                     
                     if(password == correctPassword){
+                        
                         returnCode = validCode
                     }else{
                         returnCode = invalidPassword
@@ -42,7 +47,7 @@ class LoginDataFlow{
                 }
             }
             
-            completion(returnCode)
+            completion(correctUsername, returnCode)
             
         }) { (error) in
             print("ERROR: " + error.localizedDescription)

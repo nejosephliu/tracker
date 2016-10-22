@@ -19,11 +19,18 @@ class Mark: ParentViewController {
         self.view.layoutIfNeeded()
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Mark Attendance")
         
+        NSLog("Current user: " + String(describing: UserDefaults.standard.value(forKey: "current_user")))
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func logout(){
+        UserDefaults.standard.setValue("", forKey: "current_user")
+        UserDefaults.standard.synchronize()
+        performSegue(withIdentifier: "logoutSegue", sender: nil)
     }
 
     

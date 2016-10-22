@@ -34,8 +34,10 @@ class Login: UIViewController {
     
     @IBAction func loginButtonPressed(){
         if(canLogin){
-            LoginDataFlow.checkIfValid(username: usernameTF.text!, password: passwordTF.text!) { (result) -> () in
+            LoginDataFlow.checkIfValid(username: usernameTF.text!, password: passwordTF.text!) { (username, result) -> () in
                 if(result == LoginDataFlow.validCode){
+                    UserDefaults.standard.setValue(username, forKey: "current_user")
+                    UserDefaults.standard.synchronize()
                     self.callSegue()
                 }else if(result == LoginDataFlow.invalidUsername){
                     self.displayErrorAlert(title: "Invalid Username", message: "Username was not found.")

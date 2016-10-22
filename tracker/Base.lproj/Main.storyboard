@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Gm-4q-mb2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -23,6 +23,15 @@
                                     <constraint firstAttribute="height" constant="85" id="JmF-h9-4gb"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9aD-1l-SbL">
+                                <frame key="frameInset" minX="81" minY="201" width="213" height="143"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logout" destination="9pv-A4-QxB" eventType="touchUpInside" id="Nhw-ad-SgG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -34,6 +43,7 @@
                     <tabBarItem key="tabBarItem" title="Mark" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="headerViewContainer" destination="LCR-M2-cng" id="83q-zY-mRu"/>
+                        <segue destination="5Gm-4q-mb2" kind="show" identifier="logoutSegue" id="7fW-1A-sMx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -111,7 +121,7 @@
         <!--Login-->
         <scene sceneID="1SI-6z-e9s">
             <objects>
-                <viewController id="5Gm-4q-mb2" customClass="Login" customModule="tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="5Gm-4q-mb2" customClass="Login" customModule="tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n5F-M0-9ha"/>
                         <viewControllerLayoutGuide type="bottom" id="sgB-Yk-AZn"/>
