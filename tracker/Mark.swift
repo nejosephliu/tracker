@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  FirstViewController.swift
 //  tracker
 //
 //  Created by Joseph Liu on 10/21/16.
@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import SnapKit
 
-class SecondViewController: UIViewController {
-
+class Mark: ParentViewController {
+    
+    @IBOutlet weak var headerViewContainer: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.view.layoutIfNeeded()
+        addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Mark Attendance")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +26,6 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    
 }
 
