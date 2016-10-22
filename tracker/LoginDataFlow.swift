@@ -26,7 +26,7 @@ class LoginDataFlow{
         var returnCode : Int!
         
         ref.child("users").child(username).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
+            
             userList = snapshot.value as? NSDictionary
             
             if let correctPassword = userList["password"] as! String?{
