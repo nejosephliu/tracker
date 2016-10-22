@@ -34,7 +34,7 @@ class Login: UIViewController {
     
     @IBAction func loginButtonPressed(){
         if(canLogin){
-            let result = LoginDataFlow.checkIfValid()
+            let result = LoginDataFlow.checkIfValid(username: usernameTF.text!, password: passwordTF.text!)
             
             if(result == LoginDataFlow.validCode){
                 callSegue()

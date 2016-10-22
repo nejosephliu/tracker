@@ -4,6 +4,6 @@ use_frameworks!
 
 target ‘tracker’ do
     pod 'SnapKit', '~> 3.0'
-    pod ‘Firebase’
+    pod ‘Firebase/Core'
     pod ‘Firebase/Database’
 end

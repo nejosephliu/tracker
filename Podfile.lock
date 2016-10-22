@@ -1,6 +1,4 @@
 PODS:
-  - Firebase (3.7.1):
-    - Firebase/Core (= 3.7.1)
   - Firebase/Core (3.7.1):
     - FirebaseAnalytics (= 3.4.4)
     - FirebaseCore (= 3.4.3)
@@ -26,7 +24,7 @@ PODS:
   - SnapKit (3.0.2)
 
 DEPENDENCIES:
-  - Firebase
+  - Firebase/Core
   - Firebase/Database
   - SnapKit (~> 3.0)
 
@@ -41,6 +39,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: 383db00b9f777c0e02b370f5d16c211f1a07b4d9
+PODFILE CHECKSUM: c76409e5492767121a3d8dc4e241c359f668c0a7
 
 COCOAPODS: 1.1.1

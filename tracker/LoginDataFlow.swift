@@ -15,25 +15,39 @@ class LoginDataFlow{
     static public var invalidUsername : Int = 1
     static public var invalidPassword : Int = 2
     
-    class func checkIfValid() -> Int{
+    class func checkIfValid(username: String, password: String) -> Int{
         
         var ref: FIRDatabaseReference!
         
         ref = FIRDatabase.database().reference()
         
-        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+        var userList : NSDictionary!
+        
+        var returnCode : Int!
+        
+        ref.child("users").child(username).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let value = snapshot.value as? NSDictionary
+            userList = snapshot.value as? NSDictionary
             
-            NSLog("value: " + String(describing: value))
+            if let correctPassword = userList["password"] as! String?{
+                NSLog("entered pass: " + password)
+                NSLog("real pass: " + correctPassword)
+                
+                if(password == String(describing: correctPassword)){
+                    returnCode = validCode
+                }else{
+                    returnCode = invalidPassword
+                }
+            }
             
-            
-            // ...
         }) { (error) in
             print("ERROR: " + error.localizedDescription)
         }
         
-        //return validCode
-        return invalidUsername
+        if(returnCode != nil){
+            return returnCode
+        }else{
+            return invalidUsername
+        }
     }
 }

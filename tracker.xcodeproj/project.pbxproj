@@ -19,7 +19,7 @@
 		7CFFEEA61DBB401900608E62 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFEEA51DBB401900608E62 /* Login.swift */; };
 		7CFFEEA81DBB457900608E62 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFEEA71DBB457900608E62 /* Header.swift */; };
 		7CFFEEAA1DBB459900608E62 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CFFEEA91DBB459900608E62 /* Header.xib */; };
-		8576111CDB36088311E91550 /* Pods_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C092915CB6A6625D2363B2 /* Pods_tracker.framework */; };
+		8576111CDB36088311E91550 /* Pods_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C092915CB6A6625D2363B2 /* Pods_tracker.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -324,6 +324,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -373,6 +374,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -401,6 +403,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9AEE431F2A3E3CDE0C093F2 /* Pods-tracker.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = tracker/tracker.entitlements;
 				DEVELOPMENT_TEAM = 6CXM5E25MG;
@@ -416,6 +419,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2743FA27C85A504C072BE66 /* Pods-tracker.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = tracker/tracker.entitlements;
 				DEVELOPMENT_TEAM = 6CXM5E25MG;
