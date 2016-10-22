@@ -50,6 +50,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C65D9A01DBBFA4F000AA4CE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7C65D9A11DBBFA5E000AA4CE /* HelperViews */,
+				7C65D9A21DBBFA77000AA4CE /* ViewControllers */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		7C65D9A11DBBFA5E000AA4CE /* HelperViews */ = {
+			isa = PBXGroup;
+			children = (
+				7CFFEEA71DBB457900608E62 /* Header.swift */,
+				7CFFEEA91DBB459900608E62 /* Header.xib */,
+			);
+			name = HelperViews;
+			sourceTree = "<group>";
+		};
+		7C65D9A21DBBFA77000AA4CE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7CFFEEA51DBB401900608E62 /* Login.swift */,
+				7C65D99E1DBBDB19000AA4CE /* ParentViewController.swift */,
+				7CFFEE931DBB3F8E00608E62 /* Mark.swift */,
+				7CFFEE951DBB3F8E00608E62 /* Records.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		7CFFEE851DBB3F8E00608E62 = {
 			isa = PBXGroup;
 			children = (
@@ -72,15 +101,10 @@
 			isa = PBXGroup;
 			children = (
 				7CFFEE911DBB3F8E00608E62 /* AppDelegate.swift */,
-				7C65D99E1DBBDB19000AA4CE /* ParentViewController.swift */,
-				7CFFEEA51DBB401900608E62 /* Login.swift */,
-				7CFFEE931DBB3F8E00608E62 /* Mark.swift */,
-				7CFFEE951DBB3F8E00608E62 /* Records.swift */,
-				7CFFEEA71DBB457900608E62 /* Header.swift */,
-				7CFFEEA91DBB459900608E62 /* Header.xib */,
+				7C65D9A01DBBFA4F000AA4CE /* UI */,
 				7CFFEE971DBB3F8E00608E62 /* Main.storyboard */,
-				7CFFEE9A1DBB3F8E00608E62 /* Assets.xcassets */,
 				7CFFEE9C1DBB3F8E00608E62 /* LaunchScreen.storyboard */,
+				7CFFEE9A1DBB3F8E00608E62 /* Assets.xcassets */,
 				7CFFEE9F1DBB3F8E00608E62 /* Info.plist */,
 			);
 			path = tracker;

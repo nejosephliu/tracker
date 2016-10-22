@@ -17,7 +17,9 @@ class Login: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let gestureRec = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(gestureRec)
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,6 +31,14 @@ class Login: UIViewController {
         performSegue(withIdentifier: "loginSegue", sender: nil)
     }
     
+    func dismissKeyboard(){
+        if(usernameTF.isEditing){
+            usernameTF.endEditing(true)
+        }
+        if(passwordTF.isEditing){
+            passwordTF.endEditing(true)
+        }
+    }
     
 }
 
