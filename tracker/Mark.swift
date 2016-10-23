@@ -27,11 +27,11 @@ class Mark: ParentViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func logout(){
+    /*@IBAction func logout(){
         UserDefaults.standard.setValue("", forKey: "current_user")
         UserDefaults.standard.synchronize()
         performSegue(withIdentifier: "logoutSegue", sender: nil)
-    }
+    }*/
 
     
 }
