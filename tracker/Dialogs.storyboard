@@ -18,7 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7e-J9-3bn"/>
+                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7e-J9-3bn">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="meh-zk-Fia">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MENU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSs-vT-Not">
@@ -26,14 +28,23 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2M-8O-BQT">
-                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="20"/>
-                                        <state key="normal" title="CHANGE CELL GROUP">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T2M-8O-BQT">
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment>
+                                                    <string key="content">CHANGE
+CELL GROUP</string>
+                                                    <attributes>
+                                                        <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <font key="NSFont" size="25" name="CourierNewPSMT"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbm-QJ-V5M">
-                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
                                         <state key="normal" title="LOGOUT">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -61,12 +72,12 @@
                             </view>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="wX6-gp-Go9" firstAttribute="top" secondItem="i7e-J9-3bn" secondAttribute="bottom" id="60O-Es-XSV"/>
+                            <constraint firstItem="i7e-J9-3bn" firstAttribute="top" secondItem="Z0c-x9-hsO" secondAttribute="top" id="0Pv-X5-k5y"/>
                             <constraint firstAttribute="trailing" secondItem="i7e-J9-3bn" secondAttribute="trailing" id="JXQ-LA-zxU"/>
+                            <constraint firstAttribute="bottom" secondItem="i7e-J9-3bn" secondAttribute="bottom" id="aS4-5W-c0Q"/>
                             <constraint firstItem="meh-zk-Fia" firstAttribute="centerY" secondItem="Z0c-x9-hsO" secondAttribute="centerY" id="hhb-dk-vHB"/>
                             <constraint firstItem="i7e-J9-3bn" firstAttribute="leading" secondItem="Z0c-x9-hsO" secondAttribute="leading" id="sxr-0t-xSZ"/>
                             <constraint firstItem="meh-zk-Fia" firstAttribute="centerX" secondItem="Z0c-x9-hsO" secondAttribute="centerX" id="uTA-Qx-JKu"/>
-                            <constraint firstItem="i7e-J9-3bn" firstAttribute="top" secondItem="e5c-4n-a3f" secondAttribute="bottom" id="y3P-Yo-dho"/>
                         </constraints>
                     </view>
                     <connections>
