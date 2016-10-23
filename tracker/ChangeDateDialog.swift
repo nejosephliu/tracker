@@ -9,9 +9,17 @@
 import Foundation
 import UIKit
 
+protocol ChangeDateDialogDelegate: class{
+    func changeHeaderToDate(date: String)
+}
+
 class ChangeDateDialog: UIViewController {
     
     @IBOutlet weak var backgroundView: UIView!
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    weak var delegate: ChangeDateDialogDelegate!
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -31,6 +39,16 @@ class ChangeDateDialog: UIViewController {
 
     func dismissDialog(){
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func submitDate(){
+        let components = datePicker.calendar.dateComponents(Set<Calendar.Component>([.year, .month, .day]), from: datePicker.date as Date)
+        
+        let month = components.month!
+        let day = components.day!
+        
+        delegate.changeHeaderToDate(date: "\(month)/\(day)")
+        dismissDialog()
     }
 
 }

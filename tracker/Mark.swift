@@ -58,8 +58,15 @@ class Mark: ParentViewController {
     
     @IBAction func changeDateButtonPressed(){
         let changeDateDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "changeDateDialog") as! ChangeDateDialog
-        //changeDateDialog.delegate = self
+        changeDateDialog.delegate = self
         present(changeDateDialog, animated: true, completion: nil)
+    }
+}
+
+
+extension Mark: ChangeDateDialogDelegate{
+    func changeHeaderToDate(date: String) {
+        changeHeaderText(text: date)
     }
 }
 
@@ -69,6 +76,7 @@ extension Mark: UITableViewDelegate{
         tableView.deselectRow(at: indexPath, animated: false)
     }
 }
+
 
 extension Mark: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -81,14 +89,12 @@ extension Mark: UITableViewDataSource{
         self.membersTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         let cell:UITableViewCell = self.membersTableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
-        
-        
-        
         cell.textLabel?.text = membersArray[indexPath.row]
         
         return cell
     }
-    
 }
+
+
 
 
