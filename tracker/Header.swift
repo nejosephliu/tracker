@@ -9,12 +9,18 @@
 import Foundation
 import UIKit
 
+protocol HeaderDelegate : class {
+    func showMenu()
+}
+
 class Header: UIView {
     
     @IBOutlet weak var headerView : UIView!
     @IBOutlet weak var pageLabel: UILabel!
     
     @IBOutlet weak var menuButton: UIButton!
+    
+    weak var delegate: HeaderDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,5 +45,9 @@ class Header: UIView {
         headerNibView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(self)
         }
+    }
+    
+    @IBAction func menuButtonPressed(){
+        delegate?.showMenu()
     }
 }

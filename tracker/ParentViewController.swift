@@ -28,7 +28,26 @@ class ParentViewController: UIViewController {
         
         headerViewContainer.addSubview(header)
         
+        header.delegate = self
+        
         header.setPageLabel(page: pageLabel)
     }
 
+}
+
+
+extension ParentViewController: HeaderDelegate{
+    func showMenu() {
+        /*let alertController = UIAlertController(title: "Menu!", message: "hi", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)*/
+        
+        let menuDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "menuDialog") as! MenuDialog
+        
+        present(menuDialog, animated: true, completion: nil)
+        
+    }
 }

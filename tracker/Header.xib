@@ -31,6 +31,9 @@
                                 <constraint firstAttribute="width" constant="30" id="fe5-Ma-uaQ"/>
                             </constraints>
                             <state key="normal" image="first"/>
+                            <connections>
+                                <action selector="menuButtonPressed" destination="-1" eventType="touchUpInside" id="23k-IU-2RE"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.37647058823529411" green="0.70980392156862748" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
