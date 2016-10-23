@@ -97,5 +97,78 @@ CELL GROUP</string>
             </objects>
             <point key="canvasLocation" x="-135.19999999999999" y="193.85307346326837"/>
         </scene>
+        <!--Change Date Dialog-->
+        <scene sceneID="X1S-nA-d6p">
+            <objects>
+                <viewController storyboardIdentifier="changeDateDialog" id="ro7-KT-5nd" customClass="ChangeDateDialog" customModule="tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cwo-87-W1O"/>
+                        <viewControllerLayoutGuide type="bottom" id="TCl-lQ-5hv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L8j-O0-7du">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FuF-8W-Xb6">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayz-2t-wRi">
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="NAJ-rD-cNT">
+                                        <date key="date" timeIntervalSinceReferenceDate="498901516.37192798">
+                                            <!--2016-10-23 07:45:16 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wA4-UH-eCx">
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="45"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Au2-Nr-5po">
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
+                                        <state key="normal" title="SUBMIT">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logoutButtonPressed" destination="xDS-Ga-w1R" eventType="touchUpInside" id="aEs-Yh-Odk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="380" id="FGZ-Az-HkT"/>
+                                    <constraint firstItem="NAJ-rD-cNT" firstAttribute="leading" secondItem="ayz-2t-wRi" secondAttribute="leading" constant="15" id="LFV-CP-lne"/>
+                                    <constraint firstItem="wA4-UH-eCx" firstAttribute="centerX" secondItem="ayz-2t-wRi" secondAttribute="centerX" id="W9B-s0-Row"/>
+                                    <constraint firstItem="NAJ-rD-cNT" firstAttribute="centerY" secondItem="ayz-2t-wRi" secondAttribute="centerY" id="dob-Kv-429"/>
+                                    <constraint firstItem="wA4-UH-eCx" firstAttribute="top" secondItem="ayz-2t-wRi" secondAttribute="top" constant="20" id="e0n-IA-B2Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="Au2-Nr-5po" secondAttribute="bottom" constant="20" id="fu2-h3-eul"/>
+                                    <constraint firstItem="Au2-Nr-5po" firstAttribute="centerX" secondItem="ayz-2t-wRi" secondAttribute="centerX" id="jeJ-d2-yqG"/>
+                                    <constraint firstAttribute="trailing" secondItem="NAJ-rD-cNT" secondAttribute="trailing" constant="15" id="qey-TQ-o9G"/>
+                                    <constraint firstAttribute="width" constant="300" id="wP8-bi-Osm"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ayz-2t-wRi" firstAttribute="centerX" secondItem="L8j-O0-7du" secondAttribute="centerX" id="FkO-8t-nZr"/>
+                            <constraint firstItem="FuF-8W-Xb6" firstAttribute="top" secondItem="L8j-O0-7du" secondAttribute="top" id="Wd7-lX-h94"/>
+                            <constraint firstItem="FuF-8W-Xb6" firstAttribute="leading" secondItem="L8j-O0-7du" secondAttribute="leading" id="cQ9-g3-SZf"/>
+                            <constraint firstItem="ayz-2t-wRi" firstAttribute="centerY" secondItem="L8j-O0-7du" secondAttribute="centerY" id="d9p-uu-PvP"/>
+                            <constraint firstAttribute="bottom" secondItem="FuF-8W-Xb6" secondAttribute="bottom" id="wI8-fv-ndW"/>
+                            <constraint firstAttribute="trailing" secondItem="FuF-8W-Xb6" secondAttribute="trailing" id="yHH-Hb-zKt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="FuF-8W-Xb6" id="b2S-80-lKv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TM4-Ts-s6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="608.79999999999995" y="193.85307346326837"/>
+        </scene>
     </scenes>
 </document>

@@ -13,6 +13,8 @@ import SnapKit
 
 class ParentViewController: UIViewController {
     
+    var header: Header!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,13 +26,17 @@ class ParentViewController: UIViewController {
     }
     
     func addHeaderView(headerViewContainer: UIView, pageLabel: String){
-        let header = Header(frame: headerViewContainer.frame)
+        header = Header(frame: headerViewContainer.frame)
         
         headerViewContainer.addSubview(header)
         
         header.delegate = self
         
         header.setPageLabel(page: pageLabel)
+    }
+    
+    func changeHeaderText(text: String){
+        header.setPageLabel(page: text)
     }
 
 }
@@ -41,7 +47,6 @@ extension ParentViewController: HeaderDelegate{
         let menuDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "menuDialog") as! MenuDialog
         menuDialog.delegate = self
         present(menuDialog, animated: true, completion: nil)
-        
     }
 }
 

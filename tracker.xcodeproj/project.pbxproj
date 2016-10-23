@@ -10,6 +10,8 @@
 		7C65D99F1DBBDB19000AA4CE /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65D99E1DBBDB19000AA4CE /* ParentViewController.swift */; };
 		7C65D9A51DBBFE82000AA4CE /* LoginDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65D9A41DBBFE82000AA4CE /* LoginDataFlow.swift */; };
 		7C65D9A71DBC09DA000AA4CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C65D9A61DBC09DA000AA4CE /* GoogleService-Info.plist */; };
+		7CC2D6241DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC2D6231DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift */; };
+		7CC2D6261DBCA28100EA0F86 /* ChangeDateDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC2D6251DBCA28100EA0F86 /* ChangeDateDialog.swift */; };
 		7CEE02371DBC34B000E25A16 /* MenuDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEE02361DBC34B000E25A16 /* MenuDialog.swift */; };
 		7CEE023B1DBC371100E25A16 /* Dialogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CEE023A1DBC371100E25A16 /* Dialogs.storyboard */; };
 		7CFFEE921DBB3F8E00608E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFEE911DBB3F8E00608E62 /* AppDelegate.swift */; };
@@ -29,6 +31,8 @@
 		7C65D9A41DBBFE82000AA4CE /* LoginDataFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDataFlow.swift; sourceTree = "<group>"; };
 		7C65D9A61DBC09DA000AA4CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7C65D9A81DBC0A93000AA4CE /* tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tracker.entitlements; sourceTree = "<group>"; };
+		7CC2D6231DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkTableViewDataFlow.swift; sourceTree = "<group>"; };
+		7CC2D6251DBCA28100EA0F86 /* ChangeDateDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDateDialog.swift; sourceTree = "<group>"; };
 		7CEE02361DBC34B000E25A16 /* MenuDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDialog.swift; sourceTree = "<group>"; };
 		7CEE023A1DBC371100E25A16 /* Dialogs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dialogs.storyboard; sourceTree = "<group>"; };
 		7CFFEE8E1DBB3F8E00608E62 /* tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +78,7 @@
 				7CFFEEA71DBB457900608E62 /* Header.swift */,
 				7CFFEEA91DBB459900608E62 /* Header.xib */,
 				7CEE02361DBC34B000E25A16 /* MenuDialog.swift */,
+				7CC2D6251DBCA28100EA0F86 /* ChangeDateDialog.swift */,
 				7CEE023A1DBC371100E25A16 /* Dialogs.storyboard */,
 			);
 			name = HelperViews;
@@ -94,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				7C65D9A41DBBFE82000AA4CE /* LoginDataFlow.swift */,
+				7CC2D6231DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift */,
 			);
 			name = DataFlow;
 			sourceTree = "<group>";
@@ -284,11 +290,13 @@
 				7CFFEEA81DBB457900608E62 /* Header.swift in Sources */,
 				7CFFEE961DBB3F8E00608E62 /* Records.swift in Sources */,
 				7CEE02371DBC34B000E25A16 /* MenuDialog.swift in Sources */,
+				7CC2D6261DBCA28100EA0F86 /* ChangeDateDialog.swift in Sources */,
 				7C65D99F1DBBDB19000AA4CE /* ParentViewController.swift in Sources */,
 				7CFFEE921DBB3F8E00608E62 /* AppDelegate.swift in Sources */,
 				7CFFEE941DBB3F8E00608E62 /* Mark.swift in Sources */,
 				7CFFEEA61DBB401900608E62 /* Login.swift in Sources */,
 				7C65D9A51DBBFE82000AA4CE /* LoginDataFlow.swift in Sources */,
+				7CC2D6241DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
