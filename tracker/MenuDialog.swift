@@ -17,6 +17,8 @@ class MenuDialog: UIViewController {
     
     @IBOutlet weak var backgroundView: UIView!
     
+    @IBOutlet weak var loggedInLabel: UILabel!
+    
     weak var delegate: MenuDialogDelegate?
     
     required init?(coder aDecoder: NSCoder) {
@@ -30,6 +32,10 @@ class MenuDialog: UIViewController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        
+        if let username = UserDefaults.standard.value(forKey: "current_user") as! String?{
+            loggedInLabel.text = "Logged in as " + username
+        }
         
         let tapGestureRecgonizer = UITapGestureRecognizer(target: self, action: #selector(dismissDialog))
         backgroundView.addGestureRecognizer(tapGestureRecgonizer)

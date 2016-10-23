@@ -52,6 +52,11 @@ CELL GROUP</string>
                                             <action selector="logoutButtonPressed" destination="xDS-Ga-w1R" eventType="touchUpInside" id="PRz-bg-EqQ"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logged in as" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuY-C1-ded">
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -62,7 +67,10 @@ CELL GROUP</string>
                                     <constraint firstAttribute="height" constant="300" id="ONR-JY-JUq"/>
                                     <constraint firstItem="rSs-vT-Not" firstAttribute="centerX" secondItem="meh-zk-Fia" secondAttribute="centerX" id="Vgm-Qu-WTn"/>
                                     <constraint firstItem="T2M-8O-BQT" firstAttribute="centerX" secondItem="meh-zk-Fia" secondAttribute="centerX" id="hH7-As-hVy"/>
+                                    <constraint firstItem="WuY-C1-ded" firstAttribute="top" secondItem="rSs-vT-Not" secondAttribute="bottom" constant="13" id="ppe-Ym-3wk"/>
                                     <constraint firstItem="dbm-QJ-V5M" firstAttribute="top" secondItem="T2M-8O-BQT" secondAttribute="bottom" constant="35" id="rsz-gY-3VT"/>
+                                    <constraint firstItem="WuY-C1-ded" firstAttribute="centerX" secondItem="meh-zk-Fia" secondAttribute="centerX" id="uY3-ds-weC"/>
+                                    <constraint firstItem="T2M-8O-BQT" firstAttribute="top" secondItem="WuY-C1-ded" secondAttribute="bottom" constant="14" id="yIX-2E-yKx"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -82,6 +90,7 @@ CELL GROUP</string>
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="i7e-J9-3bn" id="sVK-nh-leI"/>
+                        <outlet property="loggedInLabel" destination="WuY-C1-ded" id="utL-3K-OIG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="36T-9c-OAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
