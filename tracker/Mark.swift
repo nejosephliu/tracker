@@ -14,7 +14,10 @@ class Mark: ParentViewController {
     @IBOutlet weak var headerViewContainer: UIView!
     @IBOutlet weak var membersTableView: UITableView!
     
+    @IBOutlet weak var countLabel: UILabel!
+    
     var membersArray: [String] = []
+    var selectedMembers: [Bool] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,10 +59,40 @@ class Mark: ParentViewController {
         }
     }
     
+    func updateCountLabel(){
+        let peopleCount = selectedMembers.filter { $0 == true }.count
+        
+        countLabel.text = String(describing: peopleCount)
+    }
+    
+    func clearTable(alert: UIAlertAction!){
+        for row in 0...selectedMembers.count - 1{
+            selectedMembers[row] = false
+        }
+        
+        reloadTableView()
+    }
+    
+    func reloadTableView(){
+        updateCountLabel()
+        membersTableView.reloadData()
+    }
+    
     @IBAction func changeDateButtonPressed(){
         let changeDateDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "changeDateDialog") as! ChangeDateDialog
         changeDateDialog.delegate = self
         present(changeDateDialog, animated: true, completion: nil)
+    }
+    
+    @IBAction func clearButtonPressed(){
+        let alertController = UIAlertController(title: "Are you sure you want to clear?", message: "", preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: "Clear", style: .default, handler: clearTable)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -73,7 +106,15 @@ extension Mark: ChangeDateDialogDelegate{
 
 extension Mark: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if(selectedMembers[indexPath.row] == false){
+            selectedMembers[indexPath.row] = true
+        }else{
+            selectedMembers[indexPath.row] = false
+        }
+        
+        reloadTableView()
     }
 }
 
@@ -84,12 +125,18 @@ extension Mark: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        NSLog("yo: " + String(describing: membersTableView))
+        if(selectedMembers.count <= indexPath.row){
+            selectedMembers.append(false)
+        }
         
-        self.membersTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        let cell: AttendanceTableViewCell = self.membersTableView.dequeueReusableCell(withIdentifier: "custom_cell") as! AttendanceTableViewCell
+        cell.cellLabel.text = membersArray[indexPath.row]
         
-        let cell:UITableViewCell = self.membersTableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
-        cell.textLabel?.text = membersArray[indexPath.row]
+        if(selectedMembers[indexPath.row] == true){
+            cell.showCheckMark()
+        }else{
+            cell.hideCheckMark()
+        }
         
         return cell
     }

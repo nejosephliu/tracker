@@ -126,7 +126,7 @@ CELL GROUP</string>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Au2-Nr-5po">
                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
-                                        <state key="normal" title="SUBMIT">
+                                        <state key="normal" title="CONFIRM">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
