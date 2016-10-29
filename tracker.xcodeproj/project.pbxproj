@@ -11,6 +11,7 @@
 		7C65D99F1DBBDB19000AA4CE /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65D99E1DBBDB19000AA4CE /* ParentViewController.swift */; };
 		7C65D9A51DBBFE82000AA4CE /* LoginDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65D9A41DBBFE82000AA4CE /* LoginDataFlow.swift */; };
 		7C65D9A71DBC09DA000AA4CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C65D9A61DBC09DA000AA4CE /* GoogleService-Info.plist */; };
+		7CB4580F1DC483EA00190FC1 /* AddVisitorDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4580E1DC483EA00190FC1 /* AddVisitorDialog.swift */; };
 		7CC2D6241DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC2D6231DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift */; };
 		7CC2D6261DBCA28100EA0F86 /* ChangeDateDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC2D6251DBCA28100EA0F86 /* ChangeDateDialog.swift */; };
 		7CEE02371DBC34B000E25A16 /* MenuDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEE02361DBC34B000E25A16 /* MenuDialog.swift */; };
@@ -33,6 +34,7 @@
 		7C65D9A41DBBFE82000AA4CE /* LoginDataFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDataFlow.swift; sourceTree = "<group>"; };
 		7C65D9A61DBC09DA000AA4CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7C65D9A81DBC0A93000AA4CE /* tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tracker.entitlements; sourceTree = "<group>"; };
+		7CB4580E1DC483EA00190FC1 /* AddVisitorDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddVisitorDialog.swift; sourceTree = "<group>"; };
 		7CC2D6231DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkTableViewDataFlow.swift; sourceTree = "<group>"; };
 		7CC2D6251DBCA28100EA0F86 /* ChangeDateDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDateDialog.swift; sourceTree = "<group>"; };
 		7CEE02361DBC34B000E25A16 /* MenuDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDialog.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				7CFFEEA91DBB459900608E62 /* Header.xib */,
 				7C26C0121DC4405900A41487 /* AttendanceTableViewCell.swift */,
 				7CEE02361DBC34B000E25A16 /* MenuDialog.swift */,
+				7CB4580E1DC483EA00190FC1 /* AddVisitorDialog.swift */,
 				7CC2D6251DBCA28100EA0F86 /* ChangeDateDialog.swift */,
 				7CEE023A1DBC371100E25A16 /* Dialogs.storyboard */,
 			);
@@ -296,6 +299,7 @@
 				7CC2D6261DBCA28100EA0F86 /* ChangeDateDialog.swift in Sources */,
 				7C65D99F1DBBDB19000AA4CE /* ParentViewController.swift in Sources */,
 				7CFFEE921DBB3F8E00608E62 /* AppDelegate.swift in Sources */,
+				7CB4580F1DC483EA00190FC1 /* AddVisitorDialog.swift in Sources */,
 				7CFFEE941DBB3F8E00608E62 /* Mark.swift in Sources */,
 				7CFFEEA61DBB401900608E62 /* Login.swift in Sources */,
 				7C65D9A51DBBFE82000AA4CE /* LoginDataFlow.swift in Sources */,

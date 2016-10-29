@@ -14,6 +14,8 @@ class Mark: ParentViewController {
     @IBOutlet weak var headerViewContainer: UIView!
     @IBOutlet weak var membersTableView: UITableView!
     
+    @IBOutlet weak var clearButton: UIButton!
+    
     @IBOutlet weak var countLabel: UILabel!
     
     var membersArray: [String] = []
@@ -25,11 +27,13 @@ class Mark: ParentViewController {
         self.view.layoutIfNeeded()
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Mark")
         
-        getData()
+        getListOfMembers()
         
         setDateHeader()
         
         NSLog("Current user: " + String(describing: UserDefaults.standard.value(forKey: "current_user")))
+        
+        reloadTableView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,10 +50,9 @@ class Mark: ParentViewController {
         changeHeaderText(text: dateString)
     }
     
-    func getData(){
+    func getListOfMembers(){
         MarkTableViewDataFlow.getArrayOfMembers(cellGroup: "cup_1") { (arrayOfMembers) -> () in
             for member in arrayOfMembers{
-                NSLog("member: " + String(describing: member))
                 self.membersArray.append(member as! String)
             }
             
@@ -73,8 +76,19 @@ class Mark: ParentViewController {
         reloadTableView()
     }
     
+    func updateClearButton(){
+        let peopleCount = selectedMembers.filter { $0 == true }.count
+        
+        if(peopleCount == 0){
+            clearButton.isEnabled = false
+        }else{
+            clearButton.isEnabled = true
+        }
+    }
+    
     func reloadTableView(){
         updateCountLabel()
+        updateClearButton()
         membersTableView.reloadData()
     }
     
@@ -94,12 +108,24 @@ class Mark: ParentViewController {
         
         present(alertController, animated: true, completion: nil)
     }
+    
+    @IBAction func addVisitorButtonPressed(){
+        let addVisitorDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "addVisitorDialog") as! AddVisitorDialog
+        addVisitorDialog.delegate = self
+        present(addVisitorDialog, animated: true, completion: nil)
+    }
 }
 
 
 extension Mark: ChangeDateDialogDelegate{
     func changeHeaderToDate(date: String) {
         changeHeaderText(text: date)
+    }
+}
+
+extension Mark: AddVisitorDialogDelegate{
+    func addVisitor(visitorName: String) {
+        NSLog("the visitor is: " + visitorName)
     }
 }
 

@@ -122,10 +122,35 @@
                                     <constraint firstItem="RFc-hp-emf" firstAttribute="centerY" secondItem="zVr-A2-zgi" secondAttribute="centerY" id="gy8-rY-p57"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Vg-GM-qis" userLabel="AddVisitorPaddingView">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gM5-kh-Nt5">
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="ADD VISITOR">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="addVisitorButtonPressed" destination="9pv-A4-QxB" eventType="touchUpInside" id="oKS-C7-A8Y"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="gM5-kh-Nt5" firstAttribute="centerX" secondItem="3Vg-GM-qis" secondAttribute="centerX" id="6VR-ew-z5p"/>
+                                    <constraint firstItem="gM5-kh-Nt5" firstAttribute="centerY" secondItem="3Vg-GM-qis" secondAttribute="centerY" id="gAg-Gy-iGk"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lfi-7L-ezr" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="12a-YD-6Fb"/>
+                            <constraint firstItem="cTX-lA-n1P" firstAttribute="leading" secondItem="3Vg-GM-qis" secondAttribute="trailing" id="5uH-to-BNh"/>
                             <constraint firstAttribute="trailing" secondItem="LCR-M2-cng" secondAttribute="trailing" id="CiL-UF-JYt"/>
                             <constraint firstItem="zVr-A2-zgi" firstAttribute="centerY" secondItem="UPO-Zd-3p7" secondAttribute="centerY" id="GSN-gT-QB0"/>
                             <constraint firstItem="cTX-lA-n1P" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="GrV-2o-udg"/>
@@ -142,13 +167,17 @@
                             <constraint firstItem="UPO-Zd-3p7" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="gIk-F4-AoQ"/>
                             <constraint firstItem="UPO-Zd-3p7" firstAttribute="leading" secondItem="mrr-fE-gJW" secondAttribute="trailing" id="h0J-WF-N7T"/>
                             <constraint firstItem="zVr-A2-zgi" firstAttribute="leading" secondItem="UPO-Zd-3p7" secondAttribute="trailing" id="iCq-up-OTJ"/>
+                            <constraint firstItem="3Vg-GM-qis" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="jNG-wJ-FCu"/>
                             <constraint firstItem="mrr-fE-gJW" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="li3-zJ-sfj"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="cTX-lA-n1P" secondAttribute="bottom" constant="14.5" id="qEY-25-X2C"/>
+                            <constraint firstItem="3Vg-GM-qis" firstAttribute="height" secondItem="cTX-lA-n1P" secondAttribute="height" id="vLa-3j-UeR"/>
                             <constraint firstItem="lfi-7L-ezr" firstAttribute="top" secondItem="LCR-M2-cng" secondAttribute="bottom" constant="70" id="wZK-dQ-tEW"/>
+                            <constraint firstItem="3Vg-GM-qis" firstAttribute="centerY" secondItem="cTX-lA-n1P" secondAttribute="centerY" id="z3J-uO-hmq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Mark" image="first" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="clearButton" destination="RFc-hp-emf" id="c7d-Ae-dqN"/>
                         <outlet property="countLabel" destination="jjJ-NX-eAt" id="PVe-91-6GX"/>
                         <outlet property="headerViewContainer" destination="LCR-M2-cng" id="83q-zY-mRu"/>
                         <outlet property="membersTableView" destination="lfi-7L-ezr" id="1FI-l0-exa"/>
