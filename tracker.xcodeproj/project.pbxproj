@@ -13,6 +13,7 @@
 		7C65D9A71DBC09DA000AA4CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C65D9A61DBC09DA000AA4CE /* GoogleService-Info.plist */; };
 		7CB4580F1DC483EA00190FC1 /* AddVisitorDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4580E1DC483EA00190FC1 /* AddVisitorDialog.swift */; };
 		7CB458111DC489A900190FC1 /* ParentDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB458101DC489A800190FC1 /* ParentDialog.swift */; };
+		7CB458131DC48AB300190FC1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB458121DC48AB300190FC1 /* Constants.swift */; };
 		7CC2D6241DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC2D6231DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift */; };
 		7CC2D6261DBCA28100EA0F86 /* ChangeDateDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC2D6251DBCA28100EA0F86 /* ChangeDateDialog.swift */; };
 		7CEE02371DBC34B000E25A16 /* MenuDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEE02361DBC34B000E25A16 /* MenuDialog.swift */; };
@@ -37,6 +38,7 @@
 		7C65D9A81DBC0A93000AA4CE /* tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tracker.entitlements; sourceTree = "<group>"; };
 		7CB4580E1DC483EA00190FC1 /* AddVisitorDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddVisitorDialog.swift; sourceTree = "<group>"; };
 		7CB458101DC489A800190FC1 /* ParentDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentDialog.swift; sourceTree = "<group>"; };
+		7CB458121DC48AB300190FC1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7CC2D6231DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkTableViewDataFlow.swift; sourceTree = "<group>"; };
 		7CC2D6251DBCA28100EA0F86 /* ChangeDateDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDateDialog.swift; sourceTree = "<group>"; };
 		7CEE02361DBC34B000E25A16 /* MenuDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDialog.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				7C65D9A31DBBFE6E000AA4CE /* DataFlow */,
 				7CFFEE971DBB3F8E00608E62 /* Main.storyboard */,
 				7CFFEE9C1DBB3F8E00608E62 /* LaunchScreen.storyboard */,
+				7CB458121DC48AB300190FC1 /* Constants.swift */,
 				7CFFEE9A1DBB3F8E00608E62 /* Assets.xcassets */,
 				7CFFEE9F1DBB3F8E00608E62 /* Info.plist */,
 				7C65D9A61DBC09DA000AA4CE /* GoogleService-Info.plist */,
@@ -307,6 +310,7 @@
 				7CFFEEA61DBB401900608E62 /* Login.swift in Sources */,
 				7C65D9A51DBBFE82000AA4CE /* LoginDataFlow.swift in Sources */,
 				7CB458111DC489A900190FC1 /* ParentDialog.swift in Sources */,
+				7CB458131DC48AB300190FC1 /* Constants.swift in Sources */,
 				7C26C0131DC4405900A41487 /* AttendanceTableViewCell.swift in Sources */,
 				7CC2D6241DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift in Sources */,
 			);
