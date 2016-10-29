@@ -13,36 +13,23 @@ protocol AddVisitorDialogDelegate: class{
     func addVisitor(visitorName: String)
 }
 
-class AddVisitorDialog: UIViewController {
+class AddVisitorDialog: ParentDialog {
     
-    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var loggedInLabel: UILabel!
     @IBOutlet weak var nameTF: UITextField!
-    
     @IBOutlet weak var addButton: UIButton!
     
     weak var delegate: AddVisitorDialogDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        definesPresentationContext = true
-        providesPresentationContextTransitionStyle = true
-        modalPresentationStyle = .overFullScreen
-        modalTransitionStyle = .crossDissolve
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         nameTF.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
         addButton.isEnabled = false
-        
-        let tapGestureRecgonizer = UITapGestureRecognizer(target: self, action: #selector(dismissDialog))
-        backgroundView.addGestureRecognizer(tapGestureRecgonizer)
-    }
-    
-    
-    func dismissDialog(){
-        dismiss(animated: true, completion: nil)
     }
     
     func textFieldDidChange(){

@@ -13,9 +13,7 @@ protocol ChangeDateDialogDelegate: class{
     func changeHeaderToDate(date: String)
 }
 
-class ChangeDateDialog: UIViewController {
-    
-    @IBOutlet weak var backgroundView: UIView!
+class ChangeDateDialog: ParentDialog {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -23,22 +21,10 @@ class ChangeDateDialog: UIViewController {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        definesPresentationContext = true
-        providesPresentationContextTransitionStyle = true
-        modalPresentationStyle = .overFullScreen
-        modalTransitionStyle = .crossDissolve
     }
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        
-        let tapGestureRecgonizer = UITapGestureRecognizer(target: self, action: #selector(dismissDialog))
-        backgroundView.addGestureRecognizer(tapGestureRecgonizer)
-    }
-
-    func dismissDialog(){
-        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func submitDate(){

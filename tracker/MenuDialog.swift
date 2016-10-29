@@ -13,21 +13,13 @@ protocol MenuDialogDelegate: class{
     func logout()
 }
 
-class MenuDialog: UIViewController {
-    
-    @IBOutlet weak var backgroundView: UIView!
-    
+class MenuDialog: ParentDialog {
     @IBOutlet weak var loggedInLabel: UILabel!
     
     weak var delegate: MenuDialogDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        definesPresentationContext = true
-        providesPresentationContextTransitionStyle = true
-        modalPresentationStyle = .overFullScreen
-        modalTransitionStyle = .crossDissolve
     }
     
     override func viewDidLoad(){
@@ -36,18 +28,9 @@ class MenuDialog: UIViewController {
         if let username = UserDefaults.standard.value(forKey: "current_user") as! String?{
             loggedInLabel.text = "Logged in as " + username
         }
-        
-        let tapGestureRecgonizer = UITapGestureRecognizer(target: self, action: #selector(dismissDialog))
-        backgroundView.addGestureRecognizer(tapGestureRecgonizer)
     }
     
     @IBAction func logoutButtonPressed(){
         delegate?.logout()
     }
-    
-    func dismissDialog(){
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
 }
