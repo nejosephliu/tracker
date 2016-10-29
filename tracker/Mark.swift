@@ -21,6 +21,8 @@ class Mark: ParentViewController {
     var membersArray: [String] = []
     var selectedMembers: [Bool] = []
     
+    var visitorsArray: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,10 +56,10 @@ class Mark: ParentViewController {
         MarkTableViewDataFlow.getArrayOfMembers(cellGroup: "cup_1") { (arrayOfMembers) -> () in
             for member in arrayOfMembers{
                 self.membersArray.append(member as! String)
+                self.selectedMembers.append(false)
             }
             
             self.membersArray.sort()
-            
             self.membersTableView.reloadData()
         }
     }
@@ -125,7 +127,9 @@ extension Mark: ChangeDateDialogDelegate{
 
 extension Mark: AddVisitorDialogDelegate{
     func addVisitor(visitorName: String) {
-        NSLog("the visitor is: " + visitorName)
+        visitorsArray.append(visitorName)
+        selectedMembers.append(true)
+        reloadTableView()
     }
 }
 
@@ -134,11 +138,8 @@ extension Mark: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if(selectedMembers[indexPath.row] == false){
-            selectedMembers[indexPath.row] = true
-        }else{
-            selectedMembers[indexPath.row] = false
-        }
+        let row = indexPath.row
+        selectedMembers[row] = !selectedMembers[row]
         
         reloadTableView()
     }
@@ -147,18 +148,24 @@ extension Mark: UITableViewDelegate{
 
 extension Mark: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return membersArray.count
+        return membersArray.count + visitorsArray.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if(selectedMembers.count <= indexPath.row){
-            selectedMembers.append(false)
-        }
+        let row = indexPath.row
         
         let cell: AttendanceTableViewCell = self.membersTableView.dequeueReusableCell(withIdentifier: "custom_cell") as! AttendanceTableViewCell
-        cell.cellLabel.text = membersArray[indexPath.row]
         
-        if(selectedMembers[indexPath.row] == true){
+        if(row < membersArray.count){
+            cell.cellLabel.text = membersArray[row]
+            cell.cellLabel.textColor = UIColor.black
+        }else{
+            cell.cellLabel.text = visitorsArray[row - membersArray.count]
+            cell.cellLabel.textColor = UIColor.blue
+        }
+        
+        if(selectedMembers[row] == true){
             cell.showCheckMark()
         }else{
             cell.hideCheckMark()

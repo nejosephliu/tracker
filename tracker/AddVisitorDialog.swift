@@ -35,6 +35,9 @@ class AddVisitorDialog: UIViewController {
     override func viewDidLoad() {
         nameTF.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
         addButton.isEnabled = false
+        
+        let tapGestureRecgonizer = UITapGestureRecognizer(target: self, action: #selector(dismissDialog))
+        backgroundView.addGestureRecognizer(tapGestureRecgonizer)
     }
     
     
