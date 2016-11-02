@@ -30,6 +30,13 @@ class AddVisitorDialog: ParentDialog {
         
         nameTF.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
         addButton.isEnabled = false
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    func dismissKeyboard(){
+        nameTF.resignFirstResponder()
     }
     
     func textFieldDidChange(){
