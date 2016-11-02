@@ -31,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K42-BJ-Adq" id="8hV-M0-jwi">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxd-qF-4qw">
@@ -124,17 +124,13 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Vg-GM-qis" userLabel="AddVisitorPaddingView">
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gM5-kh-Nt5">
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="ADD VISITOR">
-                                                    <attributes>
-                                                        <font key="NSFont" metaFont="system" size="15"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </state>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gM5-kh-Nt5">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="63.640000000000001" id="B8F-tO-ZUN"/>
+                                            <constraint firstAttribute="height" constant="36.359999999999999" id="yAF-36-swe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                        <state key="normal" image="add_visitor"/>
                                         <connections>
                                             <action selector="addVisitorButtonPressed" destination="9pv-A4-QxB" eventType="touchUpInside" id="oKS-C7-A8Y"/>
                                         </connections>
@@ -326,6 +322,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add_visitor" width="233" height="133"/>
         <image name="change_date" width="300" height="83"/>
         <image name="first" width="30" height="30"/>
         <image name="login_inactive" width="150" height="83"/>

@@ -18,6 +18,8 @@ class Mark: ParentViewController {
     
     @IBOutlet weak var countLabel: UILabel!
     
+    private var currentDate: String?
+    
     var membersArray: [String] = []
     var selectedMembers: [Bool] = []
     
@@ -36,6 +38,8 @@ class Mark: ParentViewController {
         NSLog("Current user: " + String(describing: UserDefaults.standard.value(forKey: "current_user")))
         
         reloadTableView()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,6 +79,8 @@ class Mark: ParentViewController {
             selectedMembers[row] = false
         }
         
+        visitorsArray = []
+        
         reloadTableView()
     }
     
@@ -98,6 +104,10 @@ class Mark: ParentViewController {
         let changeDateDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "changeDateDialog") as! ChangeDateDialog
         changeDateDialog.delegate = self
         present(changeDateDialog, animated: true, completion: nil)
+        
+        if let currentDateString = currentDate{
+            changeDateDialog.setDate(date: currentDateString)
+        }
     }
     
     @IBAction func clearButtonPressed(){
@@ -121,6 +131,7 @@ class Mark: ParentViewController {
 
 extension Mark: ChangeDateDialogDelegate{
     func changeHeaderToDate(date: String) {
+        //set currentDate String
         changeHeaderText(text: date)
     }
 }

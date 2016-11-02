@@ -21,10 +21,20 @@ class ChangeDateDialog: ParentDialog {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
     }
     
     override func viewDidLoad(){
         super.viewDidLoad()
+    }
+    
+    func setDate(date: String){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat =  "MM:dd"
+        
+        let date = dateFormatter.date(from: "12:01")
+        
+        datePicker.date = date!
     }
     
     @IBAction func submitDate(){
