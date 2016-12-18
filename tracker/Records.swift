@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamoFire
 
 class Records: ParentViewController {
 
@@ -18,6 +19,8 @@ class Records: ParentViewController {
         self.view.layoutIfNeeded()
         
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Records")
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

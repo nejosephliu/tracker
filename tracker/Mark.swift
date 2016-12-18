@@ -126,6 +126,29 @@ class Mark: ParentViewController {
         addVisitorDialog.delegate = self
         present(addVisitorDialog, animated: true, completion: nil)
     }
+    
+    @IBAction func submitButtonPressed(){
+        var membersHereArr : [String] = []
+        
+        for i in 0...selectedMembers.count - 1{
+            
+            let isHere = selectedMembers[i]
+            var memberName : String!
+            
+            if i < membersArray.count{
+                memberName = membersArray[i]
+            }else{
+                memberName = visitorsArray[i - membersArray.count]
+            }
+            
+            if isHere {
+                membersHereArr.append(memberName)
+            }
+            
+        }
+        
+        print(membersHereArr)
+    }
 }
 
 
