@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AlamoFire
+import Alamofire
 
 class Records: ParentViewController {
 
@@ -19,8 +19,6 @@ class Records: ParentViewController {
         self.view.layoutIfNeeded()
         
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Records")
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,5 +26,19 @@ class Records: ParentViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func makeRequest(){
+        Alamofire.request("http://localhost:8081/returnHi").responseJSON{ response in
+            let json = response.result.value!
+            
+            let blah = json as! NSArray
+            
+            //NSLog("json: " + String(describing: json))
+            NSLog("blah: " + String(describing: blah))
+        }
+    }
+    
+    @IBAction func requestButtonPressed(){
+        makeRequest()
+    }
 
 }

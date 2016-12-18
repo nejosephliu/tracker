@@ -11,6 +11,7 @@
 		7C65D99F1DBBDB19000AA4CE /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65D99E1DBBDB19000AA4CE /* ParentViewController.swift */; };
 		7C65D9A51DBBFE82000AA4CE /* LoginDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65D9A41DBBFE82000AA4CE /* LoginDataFlow.swift */; };
 		7C65D9A71DBC09DA000AA4CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C65D9A61DBC09DA000AA4CE /* GoogleService-Info.plist */; };
+		7CA6A7D91E060B6C00BD3222 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA6A7D81E060B6C00BD3222 /* Alamofire.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7CB4580F1DC483EA00190FC1 /* AddVisitorDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4580E1DC483EA00190FC1 /* AddVisitorDialog.swift */; };
 		7CB458111DC489A900190FC1 /* ParentDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB458101DC489A800190FC1 /* ParentDialog.swift */; };
 		7CB458131DC48AB300190FC1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB458121DC48AB300190FC1 /* Constants.swift */; };
@@ -36,6 +37,7 @@
 		7C65D9A41DBBFE82000AA4CE /* LoginDataFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDataFlow.swift; sourceTree = "<group>"; };
 		7C65D9A61DBC09DA000AA4CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7C65D9A81DBC0A93000AA4CE /* tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tracker.entitlements; sourceTree = "<group>"; };
+		7CA6A7D81E060B6C00BD3222 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/tracker-daoknimisgeeameagqvhtvnbgdig/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		7CB4580E1DC483EA00190FC1 /* AddVisitorDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddVisitorDialog.swift; sourceTree = "<group>"; };
 		7CB458101DC489A800190FC1 /* ParentDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentDialog.swift; sourceTree = "<group>"; };
 		7CB458121DC48AB300190FC1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CA6A7D91E060B6C00BD3222 /* Alamofire.framework in Frameworks */,
 				8576111CDB36088311E91550 /* Pods_tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +156,7 @@
 		E28DCAACD8AF3E037C7B6A62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7CA6A7D81E060B6C00BD3222 /* Alamofire.framework */,
 				F5C092915CB6A6625D2363B2 /* Pods_tracker.framework */,
 			);
 			name = Frameworks;
@@ -197,7 +201,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Joseph Liu";
 				TargetAttributes = {
 					7CFFEE8D1DBB3F8E00608E62 = {
