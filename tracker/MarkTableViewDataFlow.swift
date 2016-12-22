@@ -30,25 +30,41 @@ class MarkTableViewDataFlow{
         })
     }
     
-    class func getMongoArrayOfMembers(cellGroup: String, completion:@escaping (NSArray)-> Void){
+    class func getMongoArrayOfMembers(cellGroup: String, completion:@escaping ([Member])-> Void){
         Alamofire.request("http://localhost:8081/members-key/" + "0").responseJSON{ response in
             if let json = response.result.value {
-                var arrayOfMembers : [String] = []
-                
                 let responseArr = json as! NSArray
+                var membersArr : [Member] = []
                 
-                /*for individual in responseArr{
+                for individual in responseArr{
                     let individualArr = individual as! NSDictionary
+                    let id = individualArr["_id"] as! String
                     let name = individualArr["name"] as! String
+                    let g_id = individualArr["g_id"] as! Int
+                    let email = individualArr["email"] as! String
                     
-                    arrayOfMembers.append(name)
-                }*/
+                    let individualMember = Member(id: id, name: name, g_id: g_id, email: email)
+                    membersArr.append(individualMember)
+                }
                 
-                //NSLog("hihihi" + String(describing: arrayOfMembers))
-                completion(responseArr)
+                completion(membersArr)
             }
         }
     }
     
+    class func submitMongoAttendance(attendanceArr: [Member]){
+        var attendanceJSON : [NSDictionary] = []
+        
+        for member in attendanceArr{
+            attendanceJSON.append(["id": member.id, "name": member.name, "g_id": member.g_id, "email": member.email])
+            
+            //ADD DATE
+        }
+        
+        let parameters: Parameters = ["attendees": attendanceJSON]
+        Alamofire.request("http://localhost:8081/submit-attendance", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
+            NSLog("hey")
+        }
+    }
     
 }

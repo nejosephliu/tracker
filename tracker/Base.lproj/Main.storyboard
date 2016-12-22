@@ -250,6 +250,14 @@
                                     <action selector="requestAllButtonPressed" destination="8rJ-Kc-sve" eventType="touchUpInside" id="uuN-K9-MFH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Uz-Jt-S6l">
+                                <rect key="frame" x="33" y="244" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SUBMIT POST"/>
+                                <connections>
+                                    <action selector="postButtonPressed" destination="8rJ-Kc-sve" eventType="touchUpInside" id="67D-m6-y5W"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>

@@ -13,6 +13,8 @@ class Records: ParentViewController {
 
     @IBOutlet weak var headerViewContainer: UIView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,8 +42,6 @@ class Records: ParentViewController {
                 if let json = response.result.value {
                     let responseArr = json as! NSArray
                     
-                    //NSLog("Response Array: " + String(describing: responseArr))
-                    
                     for individual in responseArr{
                         let individualArr = individual as! NSDictionary
                         let name = individualArr["name"] as! String
@@ -61,4 +61,23 @@ class Records: ParentViewController {
         makeRequest(key: 0)
     }
 
+    @IBAction func postButtonPressed(){
+        let parameters: Parameters = [
+            "List": [
+                [
+                    "Name" : "John",
+                    "ID": 222,
+                    "email" : "John@gmail.com"
+                ],
+                [
+                    "Name" : "Jane",
+                    "ID": 33,
+                    "email" : "Jane@gmail.com"
+                ]
+            ]
+        ]
+        Alamofire.request("http://localhost:8081/submit-attendance", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
+            NSLog("hey")
+        }
+    }
 }

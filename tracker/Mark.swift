@@ -20,10 +20,13 @@ class Mark: ParentViewController {
     
     private var currentDate: String?
     
-    var membersArray: [String] = []
+    //var membersArray: [String] = []
+    
+    var theMembersArray : [Member] = []
+    
     var selectedMembers: [Bool] = []
     
-    var visitorsArray: [String] = []
+    var visitorsArray: [Member] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,24 +60,14 @@ class Mark: ParentViewController {
     }
     
     func getListOfMembers(){
-        MarkTableViewDataFlow.getArrayOfMembers(cellGroup: "cup_1") { (arrayOfMembers) -> () in
-            for member in arrayOfMembers{
-                self.membersArray.append(member as! String)
-                self.selectedMembers.append(false)
-            }
-            
-            self.membersArray.sort()
-            self.membersTableView.reloadData()
-        }
-        
         MarkTableViewDataFlow.getMongoArrayOfMembers(cellGroup: "cup_1") { (arrayOfMembers) -> () in
-            /*for member in arrayOfMembers{
-                self.membersArray.append(member as! String)
+            
+            for _ in 0...arrayOfMembers.count - 1{
                 self.selectedMembers.append(false)
             }
             
-            self.membersArray.sort()
-            self.membersTableView.reloadData()*/
+            self.theMembersArray = arrayOfMembers
+            self.membersTableView.reloadData()
         }
     }
     
@@ -138,26 +131,26 @@ class Mark: ParentViewController {
     }
     
     @IBAction func submitButtonPressed(){
-        var membersHereArr : [String] = []
+        var membersHereArr : [Member] = []
         
         for i in 0...selectedMembers.count - 1{
             
             let isHere = selectedMembers[i]
-            var memberName : String!
+            var member : Member
             
-            if i < membersArray.count{
-                memberName = membersArray[i]
+            if i < theMembersArray.count{
+                member = theMembersArray[i]
             }else{
-                memberName = visitorsArray[i - membersArray.count]
+                member = visitorsArray[i - theMembersArray.count]
             }
             
             if isHere {
-                membersHereArr.append(memberName)
+                membersHereArr.append(member)
             }
             
         }
         
-        print(membersHereArr)
+        MarkTableViewDataFlow.submitMongoAttendance(attendanceArr: membersHereArr)
     }
 }
 
@@ -171,7 +164,8 @@ extension Mark: ChangeDateDialogDelegate{
 
 extension Mark: AddVisitorDialogDelegate{
     func addVisitor(visitorName: String) {
-        visitorsArray.append(visitorName)
+        let visitorMember = Member(id: NSUUID().uuidString, name: visitorName, g_id: 0, email: "")
+        visitorsArray.append(visitorMember)
         selectedMembers.append(true)
         reloadTableView()
     }
@@ -192,7 +186,7 @@ extension Mark: UITableViewDelegate{
 
 extension Mark: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return membersArray.count + visitorsArray.count
+        return theMembersArray.count + visitorsArray.count
     }
     
     
@@ -201,11 +195,11 @@ extension Mark: UITableViewDataSource{
         
         let cell: AttendanceTableViewCell = self.membersTableView.dequeueReusableCell(withIdentifier: "custom_cell") as! AttendanceTableViewCell
         
-        if(row < membersArray.count){
-            cell.cellLabel.text = membersArray[row]
+        if(row < theMembersArray.count){
+            cell.cellLabel.text = theMembersArray[row].name
             cell.cellLabel.textColor = UIColor.black
         }else{
-            cell.cellLabel.text = visitorsArray[row - membersArray.count]
+            cell.cellLabel.text = visitorsArray[row - theMembersArray.count].name
             cell.cellLabel.textColor = UIColor.blue
         }
         
