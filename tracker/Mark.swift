@@ -66,6 +66,16 @@ class Mark: ParentViewController {
             self.membersArray.sort()
             self.membersTableView.reloadData()
         }
+        
+        MarkTableViewDataFlow.getMongoArrayOfMembers(cellGroup: "cup_1") { (arrayOfMembers) -> () in
+            /*for member in arrayOfMembers{
+                self.membersArray.append(member as! String)
+                self.selectedMembers.append(false)
+            }
+            
+            self.membersArray.sort()
+            self.membersTableView.reloadData()*/
+        }
     }
     
     func updateCountLabel(){

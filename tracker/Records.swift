@@ -26,19 +26,39 @@ class Records: ParentViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func makeRequest(){
-        Alamofire.request("http://localhost:8081/returnHi").responseJSON{ response in
-            let json = response.result.value!
-            
-            let blah = json as! NSArray
-            
-            //NSLog("json: " + String(describing: json))
-            NSLog("blah: " + String(describing: blah))
+    func makeRequest(key : Int){
+        if (key == 0){
+            Alamofire.request("http://localhost:8081/members").responseJSON{ response in
+                let json = response.result.value!
+                
+                let blah = json as! NSArray
+                
+                NSLog("blah: " + String(describing: blah))
+            }
+        }else{
+            Alamofire.request("http://localhost:8081/members-key/" + "0").responseJSON{ response in
+                if let json = response.result.value {
+                    let responseArr = json as! NSArray
+                    
+                    //NSLog("Response Array: " + String(describing: responseArr))
+                    
+                    for individual in responseArr{
+                        let individualArr = individual as! NSDictionary
+                        let name = individualArr["name"] as! String
+                        NSLog("yoyo: " + name)
+                    }
+                }
+            }
         }
     }
+        
     
     @IBAction func requestButtonPressed(){
-        makeRequest()
+        makeRequest(key: 1)
+    }
+    
+    @IBAction func requestAllButtonPressed(){
+        makeRequest(key: 0)
     }
 
 }
