@@ -18,15 +18,13 @@ class Mark: ParentViewController {
     
     @IBOutlet weak var countLabel: UILabel!
     
-    private var currentDate: String?
-    
-    //var membersArray: [String] = []
+    var currentDay : Int!
+    var currentMonth : Int!
+    var currentYear : Int!
     
     var theMembersArray : [Member] = []
-    
-    var selectedMembers: [Bool] = []
-    
     var visitorsArray: [Member] = []
+    var selectedMembers: [Bool] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +39,6 @@ class Mark: ParentViewController {
         NSLog("Current user: " + String(describing: UserDefaults.standard.value(forKey: "current_user")))
         
         reloadTableView()
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,8 +51,11 @@ class Mark: ParentViewController {
         let calendar = NSCalendar.current
         let components = calendar.dateComponents(Set<Calendar.Component>([.year, .month, .day]), from: date as Date)
         
-        let dateString = "\(components.month!)/\(components.day!)"
-        changeHeaderText(text: dateString)
+        currentDay = components.day
+        currentMonth = components.month
+        currentYear = components.year
+        
+        changeHeaderText(text: "\(components.month!)/\(components.day!)")
     }
     
     func getListOfMembers(){
@@ -108,9 +107,7 @@ class Mark: ParentViewController {
         changeDateDialog.delegate = self
         present(changeDateDialog, animated: true, completion: nil)
         
-        if let currentDateString = currentDate{
-            changeDateDialog.setDate(date: currentDateString)
-        }
+        changeDateDialog.setDate(year: currentYear, month: currentMonth, day: currentDay)
     }
     
     @IBAction func clearButtonPressed(){
@@ -150,15 +147,20 @@ class Mark: ParentViewController {
             
         }
         
-        MarkTableViewDataFlow.submitMongoAttendance(attendanceArr: membersHereArr)
+        let dateString = String(describing: currentYear!) + "-" + String(describing:currentMonth!) + "-" + String(describing: currentDay!);
+        
+        MarkTableViewDataFlow.submitMongoAttendance(attendanceArr: membersHereArr, dateString: dateString)
     }
 }
 
 
 extension Mark: ChangeDateDialogDelegate{
-    func changeHeaderToDate(date: String) {
-        //set currentDate String
-        changeHeaderText(text: date)
+    func changeHeaderToDate(year: Int, month : Int, day: Int) {
+        changeHeaderText(text: "\(month)/\(day)")
+        
+        currentDay = day
+        currentMonth = month
+        currentYear = year
     }
 }
 
@@ -212,7 +214,6 @@ extension Mark: UITableViewDataSource{
         return cell
     }
 }
-
 
 
 

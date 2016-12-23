@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol ChangeDateDialogDelegate: class{
-    func changeHeaderToDate(date: String)
+    func changeHeaderToDate(year: Int, month : Int, day: Int)
 }
 
 class ChangeDateDialog: ParentDialog {
@@ -28,11 +28,13 @@ class ChangeDateDialog: ParentDialog {
         super.viewDidLoad()
     }
     
-    func setDate(date: String){
+    func setDate(year: Int, month: Int, day: Int){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat =  "MM:dd"
+        dateFormatter.dateFormat =  "MM/dd/yy"
         
-        let date = dateFormatter.date(from: "12:01")
+        let dateString = String(describing: month) + "/" + String(describing: day) + "/" + String(describing: year)
+        
+        let date = dateFormatter.date(from: dateString)
         
         datePicker.date = date!
     }
@@ -40,10 +42,11 @@ class ChangeDateDialog: ParentDialog {
     @IBAction func submitDate(){
         let components = datePicker.calendar.dateComponents(Set<Calendar.Component>([.year, .month, .day]), from: datePicker.date as Date)
         
+        let year = components.year!
         let month = components.month!
         let day = components.day!
         
-        delegate.changeHeaderToDate(date: "\(month)/\(day)")
+        delegate.changeHeaderToDate(year: year, month: month, day: day)
         dismissDialog()
     }
 

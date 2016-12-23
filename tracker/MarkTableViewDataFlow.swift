@@ -16,20 +16,6 @@ class MarkTableViewDataFlow{
     static public var invalidUsername : Int = 1
     static public var invalidPassword : Int = 2
     
-    class func getArrayOfMembers(cellGroup: String, completion:@escaping (NSArray)-> Void){
-        var ref: FIRDatabaseReference!
-        
-        ref = FIRDatabase.database().reference()
-        
-        var membersList : NSArray!
-        
-        ref.child("cell_groups").child(cellGroup).observeSingleEvent(of: .value, with: { (snapshot) in
-            membersList = snapshot.value as? NSArray
-            
-            completion(membersList)
-        })
-    }
-    
     class func getMongoArrayOfMembers(cellGroup: String, completion:@escaping ([Member])-> Void){
         Alamofire.request("http://localhost:8081/members-key/" + "0").responseJSON{ response in
             if let json = response.result.value {
@@ -52,18 +38,16 @@ class MarkTableViewDataFlow{
         }
     }
     
-    class func submitMongoAttendance(attendanceArr: [Member]){
+    class func submitMongoAttendance(attendanceArr: [Member], dateString: String){
         var attendanceJSON : [NSDictionary] = []
         
         for member in attendanceArr{
-            attendanceJSON.append(["id": member.id, "name": member.name, "g_id": member.g_id, "email": member.email])
-            
-            //ADD DATE
+            attendanceJSON.append(["date": dateString, "member_id": member.id, "name": member.name, "g_id": member.g_id])
         }
         
         let parameters: Parameters = ["attendees": attendanceJSON]
         Alamofire.request("http://localhost:8081/submit-attendance", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
-            NSLog("hey")
+            NSLog("Attendance Submitted")
         }
     }
     

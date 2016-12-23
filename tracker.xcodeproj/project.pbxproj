@@ -18,6 +18,7 @@
 		7CB458131DC48AB300190FC1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB458121DC48AB300190FC1 /* Constants.swift */; };
 		7CC2D6241DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC2D6231DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift */; };
 		7CC2D6261DBCA28100EA0F86 /* ChangeDateDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC2D6251DBCA28100EA0F86 /* ChangeDateDialog.swift */; };
+		7CE5D63E1E0D0B7C00FFCCFB /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE5D63D1E0D0B7C00FFCCFB /* Tester.swift */; };
 		7CEE02371DBC34B000E25A16 /* MenuDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEE02361DBC34B000E25A16 /* MenuDialog.swift */; };
 		7CEE023B1DBC371100E25A16 /* Dialogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CEE023A1DBC371100E25A16 /* Dialogs.storyboard */; };
 		7CFFEE921DBB3F8E00608E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFEE911DBB3F8E00608E62 /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 		7CB458121DC48AB300190FC1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7CC2D6231DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkTableViewDataFlow.swift; sourceTree = "<group>"; };
 		7CC2D6251DBCA28100EA0F86 /* ChangeDateDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDateDialog.swift; sourceTree = "<group>"; };
+		7CE5D63D1E0D0B7C00FFCCFB /* Tester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tester.swift; sourceTree = "<group>"; };
 		7CEE02361DBC34B000E25A16 /* MenuDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDialog.swift; sourceTree = "<group>"; };
 		7CEE023A1DBC371100E25A16 /* Dialogs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dialogs.storyboard; sourceTree = "<group>"; };
 		7CFFEE8E1DBB3F8E00608E62 /* tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +109,7 @@
 				7C65D99E1DBBDB19000AA4CE /* ParentViewController.swift */,
 				7CFFEE931DBB3F8E00608E62 /* Mark.swift */,
 				7CFFEE951DBB3F8E00608E62 /* Records.swift */,
+				7CE5D63D1E0D0B7C00FFCCFB /* Tester.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				7CB458111DC489A900190FC1 /* ParentDialog.swift in Sources */,
 				7CB458131DC48AB300190FC1 /* Constants.swift in Sources */,
 				7C26C0131DC4405900A41487 /* AttendanceTableViewCell.swift in Sources */,
+				7CE5D63E1E0D0B7C00FFCCFB /* Tester.swift in Sources */,
 				7CC2D6241DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

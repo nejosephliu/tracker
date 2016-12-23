@@ -102,14 +102,14 @@
                                 <rect key="frame" x="0.0" y="99.5" width="112.5" height="41.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjJ-NX-eAt">
-                                        <rect key="frame" x="49" y="0.0" width="14.5" height="27.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <rect key="frame" x="48.5" y="0.0" width="15.5" height="28.5"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="present" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwO-UW-krf" userLabel="People">
-                                        <rect key="frame" x="34.5" y="27" width="43.5" height="14.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <rect key="frame" x="29.5" y="26.5" width="55" height="15"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -201,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="801" y="-322"/>
         </scene>
         <!--Records-->
         <scene sceneID="wg7-f3-ORb">
@@ -234,30 +234,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nl4-Zp-D3Y">
-                                <rect key="frame" x="91" y="122" width="193" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="REQUEST MEMBERS OF CG"/>
-                                <connections>
-                                    <action selector="requestButtonPressed" destination="8rJ-Kc-sve" eventType="touchUpInside" id="0oj-xX-wNf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07u-ze-rbA">
-                                <rect key="frame" x="176" y="214" width="99" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="REQUEST ALL"/>
-                                <connections>
-                                    <action selector="requestAllButtonPressed" destination="8rJ-Kc-sve" eventType="touchUpInside" id="uuN-K9-MFH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Uz-Jt-S6l">
-                                <rect key="frame" x="33" y="244" width="100" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="SUBMIT POST"/>
-                                <connections>
-                                    <action selector="postButtonPressed" destination="8rJ-Kc-sve" eventType="touchUpInside" id="67D-m6-y5W"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -277,7 +253,67 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="801" y="397"/>
+        </scene>
+        <!--Tester-->
+        <scene sceneID="OHW-De-54x">
+            <objects>
+                <viewController id="pE3-Vx-E9B" userLabel="Tester" customClass="Tester" customModule="tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yx4-XW-cro"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZGn-VT-U7W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MP0-4u-nFP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WqE-PC-aTm">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="nik-ph-C0Z"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="85" id="xk6-An-Dhp"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTd-UW-dcY">
+                                <rect key="frame" x="91" y="133" width="193" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="REQUEST MEMBERS OF CG"/>
+                                <connections>
+                                    <action selector="requestButtonPressed" destination="pE3-Vx-E9B" eventType="touchUpInside" id="YiW-av-Day"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPt-Bc-k9u">
+                                <rect key="frame" x="100" y="171" width="174" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="REQUEST ALL MEMBERS"/>
+                                <connections>
+                                    <action selector="requestAllButtonPressed" destination="pE3-Vx-E9B" eventType="touchUpInside" id="z7y-LB-bRC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzh-Sc-TfV">
+                                <rect key="frame" x="87" y="218" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="REQUEST ALL ATTENDANCE"/>
+                                <connections>
+                                    <action selector="requestAttendanceButtonPressed" destination="pE3-Vx-E9B" eventType="touchUpInside" id="YsN-K4-ndO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WqE-PC-aTm" firstAttribute="top" secondItem="MP0-4u-nFP" secondAttribute="top" id="HDZ-b8-uQb"/>
+                            <constraint firstAttribute="trailing" secondItem="WqE-PC-aTm" secondAttribute="trailing" id="XJV-nk-teq"/>
+                            <constraint firstItem="WqE-PC-aTm" firstAttribute="leading" secondItem="MP0-4u-nFP" secondAttribute="leading" id="xB6-xW-Uuu"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Tester" id="s9b-NE-7sC"/>
+                    <connections>
+                        <outlet property="headerViewContainer" destination="WqE-PC-aTm" id="A29-OL-iCi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aam-J5-kic" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="801" y="1064"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -292,11 +328,12 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="pE3-Vx-E9B" kind="relationship" relationship="viewControllers" id="jFk-uF-ZGC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-68" y="396"/>
         </scene>
         <!--Login-->
         <scene sceneID="1SI-6z-e9s">
@@ -368,7 +405,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWl-TZ-CLU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-778.39999999999998" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="-68" y="-322"/>
         </scene>
     </scenes>
     <resources>
