@@ -21,7 +21,7 @@ class Records: ParentViewController {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Records")
-        
+        changeToByDate()
         segmentedControl.addTarget(self, action: #selector(controlChanged), for: UIControlEvents.valueChanged)
         
     }
@@ -33,6 +33,10 @@ class Records: ParentViewController {
     
     func controlChanged(){
         NSLog("STATE: " + String(describing: segmentedControl.selectedSegmentIndex))
+        changeToByDate()
+    }
+    
+    func changeToByDate(){
         RecordDataFlow.getMongoArrayOfDates(cellGroupId: 0) { (arrayOfDates) -> () in
             NSLog(String(describing: arrayOfDates))
             
@@ -43,24 +47,21 @@ class Records: ParentViewController {
                 
                 NSLog("date array: " + String(describing: dateArr))
                 
-                    RecordDataFlow.getMongoMembersArrayByDate(dateId: dateId) { (arrayOfMemberIds) -> () in
-                        
-                        var arrayOfMembers : [Member] = []
-                        
-                        for memberId in arrayOfMemberIds{
-                            RecordDataFlow.getMongoMemberInfoById(memberId: memberId){ (memberObj) -> () in
-                                NSLog("date: " + dateArr[1] + " | member: " + memberObj.description())
-                                arrayOfMembers.append(memberObj)
-                            }
+                RecordDataFlow.getMongoMembersArrayByDate(dateId: dateId) { (arrayOfMemberIds) -> () in
+                    
+                    var arrayOfMembers : [Member] = []
+                    
+                    let attendanceObj = Attendance(dateId: dateId, dateString: dateArr[1])
+                    
+                    for memberId in arrayOfMemberIds{
+                        RecordDataFlow.getMongoMemberInfoById(memberId: memberId){ (memberObj) -> () in
+                            attendanceObj.membersArr.append(memberObj)
+                            self.tableView.reloadData()
                         }
-                        
-                        let attendanceObj = Attendance(dateId: dateId, dateString: dateArr[1], membersArr: arrayOfMembers)
-                        NSLog("the count: " + String(describing: attendanceObj.membersArr))
-                        self.arrayOfAttendanceDates.append(attendanceObj)
-                        
-                        self.tableView.reloadData()
                     }
-                
+                    
+                    self.arrayOfAttendanceDates.append(attendanceObj)
+                }
             }
         }
     }

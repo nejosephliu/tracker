@@ -13,10 +13,10 @@ class Attendance {
     var dateString: String!
     var membersArr: [Member]
     
-    init(dateId: String, dateString: String, membersArr: [Member]){
+    init(dateId: String, dateString: String){
         self.dateId = dateId
         self.dateString = dateString
-        self.membersArr = membersArr
+        self.membersArr = []
     }
     
     func getCount() -> Int{
