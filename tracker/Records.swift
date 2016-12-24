@@ -23,7 +23,6 @@ class Records: ParentViewController {
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Records")
         changeToByDate()
         segmentedControl.addTarget(self, action: #selector(controlChanged), for: UIControlEvents.valueChanged)
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,18 +43,15 @@ class Records: ParentViewController {
             
             for dateArr in arrayOfDates{
                 let dateId = dateArr[0]
-                
-                NSLog("date array: " + String(describing: dateArr))
+                let dateString = dateArr[1]
                 
                 RecordDataFlow.getMongoMembersArrayByDate(dateId: dateId) { (arrayOfMemberIds) -> () in
-                    
-                    var arrayOfMembers : [Member] = []
-                    
-                    let attendanceObj = Attendance(dateId: dateId, dateString: dateArr[1])
+                    let attendanceObj = Attendance(dateId: dateId, dateString: dateString)
                     
                     for memberId in arrayOfMemberIds{
                         RecordDataFlow.getMongoMemberInfoById(memberId: memberId){ (memberObj) -> () in
                             attendanceObj.membersArr.append(memberObj)
+                            self.arrayOfAttendanceDates.sort { $0.dateString < $1.dateString }
                             self.tableView.reloadData()
                         }
                     }
@@ -70,6 +66,9 @@ class Records: ParentViewController {
 extension Records: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let attendanceObj = arrayOfAttendanceDates[indexPath.row]
+        attendanceObj.printArr()
     }
 }
 
