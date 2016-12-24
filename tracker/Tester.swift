@@ -56,6 +56,14 @@ class Tester: ParentViewController {
                 
                 NSLog("blah: " + String(describing: blah))
             }
+        }else if(key == 3){
+            Alamofire.request(Constants.baseURL + "dates").responseJSON{ response in
+                let json = response.result.value!
+                
+                let blah = json as! NSArray
+                
+                NSLog("blah: " + String(describing: blah))
+            }
         }
     }
     
@@ -70,5 +78,9 @@ class Tester: ParentViewController {
     
     @IBAction func requestAttendanceButtonPressed(){
         makeRequest(key: 2)
+    }
+    
+    @IBAction func requestDatesButtonPressed(){
+        makeRequest(key: 3)
     }
 }

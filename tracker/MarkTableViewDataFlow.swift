@@ -11,13 +11,8 @@ import Firebase
 import Alamofire
 
 class MarkTableViewDataFlow{
-    
-    static public var validCode : Int = 0
-    static public var invalidUsername : Int = 1
-    static public var invalidPassword : Int = 2
-    
-    class func getMongoArrayOfMembers(cellGroup: String, completion:@escaping ([Member])-> Void){
-        Alamofire.request("http://localhost:8081/members-key/" + "0").responseJSON{ response in
+    class func getMongoArrayOfMembers(cellGroupId: Int, completion:@escaping ([Member])-> Void){
+        Alamofire.request(Constants.baseURL + "members-key/" + "0").responseJSON{ response in
             if let json = response.result.value {
                 let responseArr = json as! NSArray
                 var membersArr : [Member] = []
@@ -41,13 +36,24 @@ class MarkTableViewDataFlow{
     class func submitMongoAttendance(attendanceArr: [Member], dateString: String){
         var attendanceJSON : [NSDictionary] = []
         
-        for member in attendanceArr{
-            attendanceJSON.append(["date": dateString, "member_id": member.id, "name": member.name, "g_id": member.g_id])
-        }
-        
-        let parameters: Parameters = ["attendees": attendanceJSON]
-        Alamofire.request("http://localhost:8081/submit-attendance", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
-            NSLog("Attendance Submitted")
+        //change cell group
+        let dateParameters: Parameters = ["dateString": ["dateString": dateString, "g_id": 0]]
+        Alamofire.request(Constants.baseURL + "create-attendance-record", method: .post, parameters: dateParameters, encoding: JSONEncoding.default).responseJSON { (response) in
+            
+            if let dateID = response.result.value{
+                let dateIDString = dateID as! NSArray
+                
+                if let dateIDString = dateIDString.firstObject{
+                    for member in attendanceArr{
+                        attendanceJSON.append(["date_id": dateIDString, "date": dateString, "member_id": member.id, "name": member.name, "g_id": member.g_id])
+                    }
+                    
+                    let parameters: Parameters = ["attendees": attendanceJSON]
+                    Alamofire.request(Constants.baseURL + "submit-attendance", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
+                        NSLog("Attendance Submitted")
+                    }
+                }
+            }
         }
     }
     

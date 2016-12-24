@@ -59,7 +59,7 @@ class Mark: ParentViewController {
     }
     
     func getListOfMembers(){
-        MarkTableViewDataFlow.getMongoArrayOfMembers(cellGroup: "cup_1") { (arrayOfMembers) -> () in
+        MarkTableViewDataFlow.getMongoArrayOfMembers(cellGroupId: 0) { (arrayOfMembers) -> () in
             
             for _ in 0...arrayOfMembers.count - 1{
                 self.selectedMembers.append(false)

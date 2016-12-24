@@ -6,7 +6,6 @@
 //  Copyright © 2016 Joseph Liu. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class AttendanceTableViewCell: UITableViewCell{
