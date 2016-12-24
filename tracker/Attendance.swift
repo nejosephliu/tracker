@@ -9,11 +9,13 @@
 import UIKit
 
 class Attendance {
-    var date : String!
+    var dateId : String!
+    var dateString: String!
     var membersArr: [Member]
     
-    init(date: String, membersArr: [Member]){
-        self.date = date
+    init(dateId: String, dateString: String, membersArr: [Member]){
+        self.dateId = dateId
+        self.dateString = dateString
         self.membersArr = membersArr
     }
     
@@ -21,4 +23,9 @@ class Attendance {
         return membersArr.count
     }
     
+    func printArr(){
+        for member in membersArr{
+            NSLog(dateString + " | Name: " + member.name)
+        }
+    }
 }

@@ -15,6 +15,8 @@ class Records: ParentViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl : UISegmentedControl!
     
+    var arrayOfAttendanceDates : [Attendance] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
@@ -22,8 +24,6 @@ class Records: ParentViewController {
         
         segmentedControl.addTarget(self, action: #selector(controlChanged), for: UIControlEvents.valueChanged)
         
-        
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +35,33 @@ class Records: ParentViewController {
         NSLog("STATE: " + String(describing: segmentedControl.selectedSegmentIndex))
         RecordDataFlow.getMongoArrayOfDates(cellGroupId: 0) { (arrayOfDates) -> () in
             NSLog(String(describing: arrayOfDates))
+            
+            self.arrayOfAttendanceDates = []
+            
+            for dateArr in arrayOfDates{
+                let dateId = dateArr[0]
+                
+                NSLog("date array: " + String(describing: dateArr))
+                
+                    RecordDataFlow.getMongoMembersArrayByDate(dateId: dateId) { (arrayOfMemberIds) -> () in
+                        
+                        var arrayOfMembers : [Member] = []
+                        
+                        for memberId in arrayOfMemberIds{
+                            RecordDataFlow.getMongoMemberInfoById(memberId: memberId){ (memberObj) -> () in
+                                NSLog("date: " + dateArr[1] + " | member: " + memberObj.description())
+                                arrayOfMembers.append(memberObj)
+                            }
+                        }
+                        
+                        let attendanceObj = Attendance(dateId: dateId, dateString: dateArr[1], membersArr: arrayOfMembers)
+                        NSLog("the count: " + String(describing: attendanceObj.membersArr))
+                        self.arrayOfAttendanceDates.append(attendanceObj)
+                        
+                        self.tableView.reloadData()
+                    }
+                
+            }
         }
     }
 }
@@ -47,11 +74,13 @@ extension Records: UITableViewDelegate{
 
 extension Records: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell_group_cell")
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell_group_cell") as! CellGroupTableViewCell
+        cell.dateLabel.text = arrayOfAttendanceDates[indexPath.row].dateString
+        cell.countLabel.text = String(describing: arrayOfAttendanceDates[indexPath.row].getCount())
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return arrayOfAttendanceDates.count
     }
 }
