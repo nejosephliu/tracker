@@ -12,6 +12,7 @@ import Alamofire
 class Records: ParentViewController {
 
     @IBOutlet weak var headerViewContainer: UIView!
+    @IBOutlet weak var averageLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl : UISegmentedControl!
     
@@ -30,9 +31,32 @@ class Records: ParentViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func reloadTableView(){
+        self.tableView.reloadData()
+        
+        updateAverage()
+    }
+    
+    func updateAverage(){
+        var sum : Int = 0
+        
+        for attendanceObj in arrayOfAttendanceDates{
+            sum += attendanceObj.getCount()
+        }
+        
+        let average = Float(sum) / Float(arrayOfAttendanceDates.count)
+        averageLabel.text = "AVERAGE ATTENDANCE: " + String(describing: Int(average.rounded()))
+    }
+    
     func controlChanged(){
-        NSLog("STATE: " + String(describing: segmentedControl.selectedSegmentIndex))
-        changeToByDate()
+        let state = segmentedControl.selectedSegmentIndex
+        NSLog("STATE: " + String(describing: state))
+        
+        if(state == 0){
+            changeToByDate()
+        }else{
+            NSLog("Change to By Member")
+        }
     }
     
     func changeToByDate(){
@@ -52,7 +76,7 @@ class Records: ParentViewController {
                         RecordDataFlow.getMongoMemberInfoById(memberId: memberId){ (memberObj) -> () in
                             attendanceObj.membersArr.append(memberObj)
                             self.arrayOfAttendanceDates.sort { $0.dateString < $1.dateString }
-                            self.tableView.reloadData()
+                            self.reloadTableView()
                         }
                     }
                     
@@ -68,7 +92,9 @@ extension Records: UITableViewDelegate{
         tableView.deselectRow(at: indexPath, animated: true)
         
         let attendanceObj = arrayOfAttendanceDates[indexPath.row]
-        attendanceObj.printArr()
+        let alertController = UIAlertController(title: attendanceObj.dateString, message: attendanceObj.getMembers(), preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertController, animated: true)
     }
 }
 

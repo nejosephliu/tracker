@@ -249,7 +249,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p9S-hU-GZD" id="hHj-ZH-cn9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/11/16" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWc-Jv-pUM">
@@ -308,6 +308,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Records" image="second" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="averageLabel" destination="Te2-Kg-zOC" id="fMv-uj-reC"/>
                         <outlet property="headerViewContainer" destination="c9L-vj-ZQX" id="3L9-M4-fpB"/>
                         <outlet property="segmentedControl" destination="bAk-Od-78c" id="yr9-N0-uWA"/>
                         <outlet property="tableView" destination="xvV-iv-jjD" id="rFM-eE-HMs"/>

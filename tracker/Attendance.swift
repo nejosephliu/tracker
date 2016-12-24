@@ -28,4 +28,13 @@ class Attendance {
             NSLog(dateString + " | Name: " + member.name)
         }
     }
+    
+    func getMembers() -> String{
+        var str = ""
+        for member in membersArr{
+            str += member.name + "\n"
+        }
+        
+        return str.substring(to: str.index(str.endIndex, offsetBy: -1))
+    }
 }
