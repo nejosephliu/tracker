@@ -60,13 +60,19 @@ class Mark: ParentViewController {
     
     func getListOfMembers(){
         MarkTableViewDataFlow.getMongoArrayOfMembers(cellGroupId: 0) { (arrayOfMembers) -> () in
-            
-            for _ in 0...arrayOfMembers.count - 1{
-                self.selectedMembers.append(false)
+            if(arrayOfMembers.count == 0){
+                let alert = UIAlertController(title: "Cannot get members", message: "Please check your connection to the internet.  ", preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                alert.addAction(cancelAction)
+                self.present(alert, animated: true, completion: nil)
+            }else{
+                for _ in 0...arrayOfMembers.count - 1{
+                    self.selectedMembers.append(false)
+                }
+                
+                self.theMembersArray = arrayOfMembers
+                self.membersTableView.reloadData()
             }
-            
-            self.theMembersArray = arrayOfMembers
-            self.membersTableView.reloadData()
         }
     }
     
