@@ -25,6 +25,13 @@ class Records: ParentViewController {
         changeToByDate()
         segmentedControl.addTarget(self, action: #selector(controlChanged), for: UIControlEvents.valueChanged)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if(segmentedControl.selectedSegmentIndex == 0){
+            //changeToByDate()
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
