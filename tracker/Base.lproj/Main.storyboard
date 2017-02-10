@@ -316,7 +316,69 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800.79999999999995" y="396.25187406296857"/>
+            <point key="canvasLocation" x="801" y="403"/>
+        </scene>
+        <!--Groups-->
+        <scene sceneID="Qre-YU-KHN">
+            <objects>
+                <viewController id="MpK-Pe-0V6" customClass="Groups" customModule="tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F1x-dW-it3"/>
+                        <viewControllerLayoutGuide type="bottom" id="5J4-rI-gkj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lc8-wL-pDq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5x-ip-y0f">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="4XG-Ub-OgW"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="5P1-ys-DKj">
+                                <rect key="frame" x="156" y="105" width="63.5" height="36.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63.640000000000001" id="lfb-A7-TzR"/>
+                                    <constraint firstAttribute="height" constant="36.359999999999999" id="zUm-3Z-jPr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" image="create_group"/>
+                                <connections>
+                                    <action selector="addVisitorButtonPressed" destination="9pv-A4-QxB" eventType="touchUpInside" id="jt6-r8-9YO"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DuX-NW-UJE">
+                                <rect key="frame" x="0.0" y="191.5" width="375" height="426.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DuX-NW-UJE" firstAttribute="leading" secondItem="lc8-wL-pDq" secondAttribute="leading" id="0Ie-Ic-IEb"/>
+                            <constraint firstItem="5J4-rI-gkj" firstAttribute="top" secondItem="DuX-NW-UJE" secondAttribute="bottom" id="60y-uP-wtJ"/>
+                            <constraint firstItem="q5x-ip-y0f" firstAttribute="leading" secondItem="lc8-wL-pDq" secondAttribute="leading" id="ACw-gx-vdr"/>
+                            <constraint firstItem="DuX-NW-UJE" firstAttribute="top" secondItem="5P1-ys-DKj" secondAttribute="bottom" constant="50" id="NZv-0P-NWy"/>
+                            <constraint firstAttribute="trailing" secondItem="q5x-ip-y0f" secondAttribute="trailing" id="UtR-Sn-a6J"/>
+                            <constraint firstAttribute="trailing" secondItem="DuX-NW-UJE" secondAttribute="trailing" id="WuG-Um-3W6"/>
+                            <constraint firstItem="q5x-ip-y0f" firstAttribute="top" secondItem="lc8-wL-pDq" secondAttribute="top" id="bqf-ox-Jtk"/>
+                            <constraint firstItem="5P1-ys-DKj" firstAttribute="centerX" secondItem="lc8-wL-pDq" secondAttribute="centerX" id="eG7-rV-T6j"/>
+                            <constraint firstItem="5P1-ys-DKj" firstAttribute="top" secondItem="q5x-ip-y0f" secondAttribute="bottom" constant="20" id="qB1-7o-wli"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Groups" id="Khm-8e-C4c"/>
+                    <connections>
+                        <outlet property="headerViewContainer" destination="q5x-ip-y0f" id="96h-Gu-oOV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gWD-Pb-1N2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="801" y="1158"/>
         </scene>
         <!--Tester-->
         <scene sceneID="OHW-De-54x">
@@ -388,7 +450,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aam-J5-kic" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="1064"/>
+            <point key="canvasLocation" x="-68" y="1158"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -403,6 +465,7 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="MpK-Pe-0V6" kind="relationship" relationship="viewControllers" id="Yun-uX-PHo"/>
                         <segue destination="pE3-Vx-E9B" kind="relationship" relationship="viewControllers" id="jFk-uF-ZGC"/>
                     </connections>
                 </tabBarController>
@@ -486,6 +549,7 @@
     <resources>
         <image name="add_visitor" width="233" height="133"/>
         <image name="change_date" width="300" height="83"/>
+        <image name="create_group" width="233" height="133"/>
         <image name="first" width="30" height="30"/>
         <image name="login_inactive" width="150" height="83"/>
         <image name="second" width="30" height="30"/>

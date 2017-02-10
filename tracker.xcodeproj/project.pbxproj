@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C0CEFA71E4E3762002980BB /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0CEFA61E4E3762002980BB /* Groups.swift */; };
 		7C26C0131DC4405900A41487 /* AttendanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26C0121DC4405900A41487 /* AttendanceTableViewCell.swift */; };
 		7C65D99F1DBBDB19000AA4CE /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65D99E1DBBDB19000AA4CE /* ParentViewController.swift */; };
 		7C65D9A51DBBFE82000AA4CE /* LoginDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65D9A41DBBFE82000AA4CE /* LoginDataFlow.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C0CEFA61E4E3762002980BB /* Groups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		7C26C0121DC4405900A41487 /* AttendanceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceTableViewCell.swift; sourceTree = "<group>"; };
 		7C65D99E1DBBDB19000AA4CE /* ParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
 		7C65D9A41DBBFE82000AA4CE /* LoginDataFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDataFlow.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				7CFFEE931DBB3F8E00608E62 /* Mark.swift */,
 				7CFFEE951DBB3F8E00608E62 /* Records.swift */,
 				7CE5D63D1E0D0B7C00FFCCFB /* Tester.swift */,
+				7C0CEFA61E4E3762002980BB /* Groups.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				7C7CACC21E0E133C009F0CDB /* Attendance.swift in Sources */,
 				7CFFEEA81DBB457900608E62 /* Header.swift in Sources */,
 				7CFFEE961DBB3F8E00608E62 /* Records.swift in Sources */,
+				7C0CEFA71E4E3762002980BB /* Groups.swift in Sources */,
 				7CEE02371DBC34B000E25A16 /* MenuDialog.swift in Sources */,
 				7CC2D6261DBCA28100EA0F86 /* ChangeDateDialog.swift in Sources */,
 				7C70BE461E0C7C7100320EA1 /* Member.swift in Sources */,
