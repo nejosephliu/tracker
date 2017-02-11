@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class Login: UIViewController {
     
     @IBOutlet weak var loginButton : UIButton!
     
-    @IBOutlet weak var usernameTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
     private var canLogin: Bool = false
@@ -20,11 +22,24 @@ class Login: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        usernameTF.addTarget(self, action: #selector(textFieldChanged), for: UIControlEvents.editingChanged)
+        
+        
+        emailTF.addTarget(self, action: #selector(textFieldChanged), for: UIControlEvents.editingChanged)
         passwordTF.addTarget(self, action: #selector(textFieldChanged), for: UIControlEvents.editingChanged)
         
         let gestureRec = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(gestureRec)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        LoginDataFlow.checkIfLoggedIn() { (loggedIn) -> ()
+            in
+            if(loggedIn){
+                self.callSegue()
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,22 +49,23 @@ class Login: UIViewController {
     
     @IBAction func loginButtonPressed(){
         if(canLogin){
-            LoginDataFlow.checkIfValid(username: usernameTF.text!, password: passwordTF.text!) { (username, result) -> () in
-                if(result == LoginDataFlow.validCode){
-                    UserDefaults.standard.setValue(username, forKey: "current_user")
-                    UserDefaults.standard.synchronize()
+            LoginDataFlow.checkIfValid(email: emailTF.text!, password: passwordTF.text!) {(error) -> ()
+                in
+                if(error == ""){
                     self.callSegue()
-                }else if(result == LoginDataFlow.invalidUsername){
-                    self.displayErrorAlert(title: "Invalid Username", message: "Username was not found.")
-                }else if(result == LoginDataFlow.invalidPassword){
-                    self.displayErrorAlert(title: "Incorrect Password", message: "Please try again.")
+                }else{
+                    let alert = UIAlertController(title: "Error!", message: error, preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                    alert.addAction(okAction)
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
+
         }
     }
     
     func textFieldChanged(){
-        if((usernameTF.text?.characters.count)! > 0 && (passwordTF.text?.characters.count)! > 0){
+        if((emailTF.text?.characters.count)! > 0 && (passwordTF.text?.characters.count)! > 0){
             loginButton.setImage(UIImage(named: "login_active"), for: UIControlState.normal)
             canLogin = true
         }else{
@@ -59,8 +75,8 @@ class Login: UIViewController {
     }
     
     func dismissKeyboard(){
-        if(usernameTF.isEditing){
-            usernameTF.endEditing(true)
+        if(emailTF.isEditing){
+            emailTF.endEditing(true)
         }
         if(passwordTF.isEditing){
             passwordTF.endEditing(true)

@@ -486,7 +486,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="USERNAME" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JiE-2U-Yiv">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="EMAIL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JiE-2U-Yiv">
                                 <rect key="frame" x="37.5" y="228.5" width="300" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="SYQ-jG-ruc"/>
@@ -536,9 +536,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailTF" destination="JiE-2U-Yiv" id="pw7-tp-zFr"/>
                         <outlet property="loginButton" destination="56j-EI-n22" id="R3e-jA-iaQ"/>
                         <outlet property="passwordTF" destination="CLW-y9-ELJ" id="L0d-R6-a0m"/>
-                        <outlet property="usernameTF" destination="JiE-2U-Yiv" id="Ocv-Dk-nrY"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="loginSegue" id="LbU-JH-rUV"/>
                     </connections>
                 </viewController>

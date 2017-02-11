@@ -52,8 +52,12 @@ extension ParentViewController: HeaderDelegate{
 
 extension ParentViewController: MenuDialogDelegate{
     func logout(){
-        UserDefaults.standard.setValue("", forKey: "current_user")
+        /*UserDefaults.standard.setValue("", forKey: "current_user")
         UserDefaults.standard.synchronize()
-        performSegue(withIdentifier: "logoutSegue", sender: nil)
+        performSegue(withIdentifier: "logoutSegue", sender: nil)*/
+        
+        LoginDataFlow.logout {
+            self.performSegue(withIdentifier: "logoutSegue", sender: nil)
+        }
     }
 }

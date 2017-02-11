@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 
 class LoginDataFlow{
     
@@ -15,44 +16,26 @@ class LoginDataFlow{
     static public var invalidUsername : Int = 1
     static public var invalidPassword : Int = 2
     
-    class func checkIfValid(username: String, password: String, completion:@escaping (String, Int)-> Void){
-        
-        var ref: FIRDatabaseReference!
-        
-        ref = FIRDatabase.database().reference()
-        
-        var userList : NSDictionary!
-        
-        var returnCode : Int! = invalidUsername
-        
-        ref.child("users").child(username).observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            userList = snapshot.value as? NSDictionary
-            
-            var correctUsername: String = ""
-            
-            if let userDictionary = userList{
-                if let correctPassword = userDictionary["password"] as! String?{
-                    correctUsername = userDictionary["username"] as! String
-                    
-                    NSLog("entered pass: " + password)
-                    NSLog("real pass: " + String(describing: correctPassword))
-                    
-                    if(password == correctPassword){
-                        
-                        returnCode = validCode
-                    }else{
-                        returnCode = invalidPassword
-                    }
-                }
+    class func checkIfValid(email: String, password: String, completion:@escaping (String)-> Void){
+        FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+            if user != nil {
+                completion("")
+            }else{
+                completion((error?.localizedDescription)!)
             }
-            
-            completion(correctUsername, returnCode)
-            
-        }) { (error) in
-            print("ERROR: " + error.localizedDescription)
         }
     }
     
+    class func checkIfLoggedIn(completion:@escaping (Bool)-> Void){
+        if (FIRAuth.auth()?.currentUser) != nil{
+            completion(true)
+        }else{
+            completion(false)
+        }
+    }
     
+    class func logout(completion:@escaping ()-> Void){
+        try! FIRAuth.auth()!.signOut()
+        completion()
+    }
 }
