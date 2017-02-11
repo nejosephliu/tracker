@@ -26,7 +26,9 @@ class Groups: ParentViewController {
     }
     
     @IBAction func createGroupPressed(_ sender: Any) {
-        
+        let createGroupDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "createGroupDialog") as! CreateGroupDialog
+        //createGroupDialog.delegate = self
+        present(createGroupDialog, animated: true, completion: nil)
     }
 }
 
