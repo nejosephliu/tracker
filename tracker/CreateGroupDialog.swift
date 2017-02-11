@@ -9,13 +9,17 @@
 import Foundation
 import UIKit
 
+protocol CreateGroupDialogDelegate: class{
+    func createGroup(groupName: String)
+}
+
 class CreateGroupDialog: ParentDialog {
     
     @IBOutlet weak var loggedInLabel: UILabel!
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var createButton: UIButton!
     
-    //weak var delegate: AddVisitorDialogDelegate?
+    weak var delegate: CreateGroupDialogDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -42,7 +46,7 @@ class CreateGroupDialog: ParentDialog {
     }
     
     @IBAction func createButtonPressed(){
-        //delegate?.addVisitor(visitorName: nameTF.text!)
+        delegate?.createGroup(groupName: nameTF.text!)
         dismissDialog()
     }
 }

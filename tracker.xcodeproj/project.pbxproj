@@ -94,9 +94,9 @@
 				7CEE023A1DBC371100E25A16 /* Dialogs.storyboard */,
 				7CB458101DC489A800190FC1 /* ParentDialog.swift */,
 				7CEE02361DBC34B000E25A16 /* MenuDialog.swift */,
+				7CC2D6251DBCA28100EA0F86 /* ChangeDateDialog.swift */,
 				7CB4580E1DC483EA00190FC1 /* AddVisitorDialog.swift */,
 				7C5064E11E4EF65B0072972A /* CreateGroupDialog.swift */,
-				7CC2D6251DBCA28100EA0F86 /* ChangeDateDialog.swift */,
 			);
 			name = Dialogs;
 			sourceTree = "<group>";
