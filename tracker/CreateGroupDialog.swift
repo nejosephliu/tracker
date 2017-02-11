@@ -46,7 +46,10 @@ class CreateGroupDialog: ParentDialog {
     }
     
     @IBAction func createButtonPressed(){
+        dismiss(animated: true, completion: create)
+    }
+    
+    func create(){
         delegate?.createGroup(groupName: nameTF.text!)
-        dismissDialog()
     }
 }

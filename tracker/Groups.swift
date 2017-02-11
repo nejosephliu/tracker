@@ -14,6 +14,8 @@ class Groups: ParentViewController {
     @IBOutlet weak var headerViewContainer: UIView!
     @IBOutlet weak var groupsTableView: UITableView!
     
+    var newGroupName: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
@@ -30,11 +32,19 @@ class Groups: ParentViewController {
         createGroupDialog.delegate = self
         present(createGroupDialog, animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "editGroupSegue"){
+            let editGroupViewController = segue.destination as! EditGroup
+            editGroupViewController.setGroupName(name: newGroupName)
+        }
+    }
 }
 
 extension Groups: CreateGroupDialogDelegate{
     func createGroup(groupName: String) {
-        print("Group created: " + groupName)
+        newGroupName = groupName
+        performSegue(withIdentifier: "editGroupSegue", sender: self)
     }
 }
 

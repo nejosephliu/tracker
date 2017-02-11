@@ -375,11 +375,70 @@
                     <connections>
                         <outlet property="groupsTableView" destination="DuX-NW-UJE" id="mbN-l7-LAk"/>
                         <outlet property="headerViewContainer" destination="q5x-ip-y0f" id="96h-Gu-oOV"/>
+                        <segue destination="YNX-ns-RP3" kind="show" identifier="editGroupSegue" id="tWn-sC-t3y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWD-Pb-1N2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="800.79999999999995" y="1157.2713643178411"/>
+        </scene>
+        <!--Edit Group-->
+        <scene sceneID="hyg-Jn-2xd">
+            <objects>
+                <viewController id="YNX-ns-RP3" customClass="EditGroup" customModule="tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JbN-qd-HPr"/>
+                        <viewControllerLayoutGuide type="bottom" id="bii-qe-pBR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AvQ-7x-9dv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Amt-7F-snW">
+                                <rect key="frame" x="0.0" y="146" width="375" height="521"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vfq-Zn-9AC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="igF-Ep-Llj"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GROUP NAME:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ll-T5-eNi">
+                                <rect key="frame" x="98.5" y="100" width="178.5" height="31"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Amt-7F-snW" secondAttribute="trailing" id="1nS-o5-XmU"/>
+                            <constraint firstItem="5ll-T5-eNi" firstAttribute="top" secondItem="Vfq-Zn-9AC" secondAttribute="bottom" constant="15" id="3ai-rm-v3e"/>
+                            <constraint firstItem="5ll-T5-eNi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AvQ-7x-9dv" secondAttribute="leadingMargin" constant="5" id="55G-uB-yMC"/>
+                            <constraint firstAttribute="trailing" secondItem="Vfq-Zn-9AC" secondAttribute="trailing" id="Dnh-85-Npz"/>
+                            <constraint firstAttribute="bottom" secondItem="Amt-7F-snW" secondAttribute="bottom" id="Kqs-Gj-63U"/>
+                            <constraint firstItem="Amt-7F-snW" firstAttribute="top" secondItem="5ll-T5-eNi" secondAttribute="bottom" constant="15" id="Ol2-Dg-8bs"/>
+                            <constraint firstItem="Vfq-Zn-9AC" firstAttribute="top" secondItem="AvQ-7x-9dv" secondAttribute="top" id="SdH-na-5eE"/>
+                            <constraint firstItem="Vfq-Zn-9AC" firstAttribute="leading" secondItem="AvQ-7x-9dv" secondAttribute="leading" id="fr9-Cg-jSt"/>
+                            <constraint firstItem="Amt-7F-snW" firstAttribute="leading" secondItem="AvQ-7x-9dv" secondAttribute="leading" id="j0w-pz-DZl"/>
+                            <constraint firstItem="5ll-T5-eNi" firstAttribute="centerX" secondItem="AvQ-7x-9dv" secondAttribute="centerX" id="kYD-2U-UBT"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="5ll-T5-eNi" secondAttribute="trailing" constant="5" id="taL-X6-dWu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="groupNameLabel" destination="5ll-T5-eNi" id="Mlq-JQ-BAF"/>
+                        <outlet property="headerViewContainer" destination="Vfq-Zn-9AC" id="vBO-VB-oei"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cag-tS-kjg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1708" y="1156.3718140929536"/>
         </scene>
         <!--Tester-->
         <scene sceneID="OHW-De-54x">
