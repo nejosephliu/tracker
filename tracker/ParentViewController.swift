@@ -11,13 +11,13 @@ import Foundation
 import UIKit
 import SnapKit
 
+
 class ParentViewController: UIViewController {
     
     var header: Header!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func didReceiveMemoryWarning() {

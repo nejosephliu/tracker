@@ -8,5 +8,6 @@ target ‘tracker’ do
     pod ‘Firebase/Database’
     pod ‘Firebase/Auth’
     pod 'Alamofire', '~> 4.0'
-    
+    pod 'DropDown', '~> 2'
+   
 end

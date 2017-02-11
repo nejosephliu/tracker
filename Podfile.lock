@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.0.1)
+  - DropDown (2)
   - Firebase/Auth (3.7.1):
     - Firebase/Core
     - FirebaseAuth (= 3.0.5)
@@ -35,6 +36,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - DropDown (~> 2)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -42,6 +44,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
   Firebase: be473484f0d515e72ffd04acf22f981773c23e58
   FirebaseAnalytics: 0533a00b681e08fd0b2cd0444b7ddf0ef9fd7a1a
   FirebaseAuth: 75a062bbf2d3c97d1e6e55bbc110e13a6853e25d
@@ -54,6 +57,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: 5c7b1455f615189b98fc8b018fcd78fe72c1a540
+PODFILE CHECKSUM: 4a005863450ff6622f024689e700a92e685a4b4f
 
 COCOAPODS: 1.1.1

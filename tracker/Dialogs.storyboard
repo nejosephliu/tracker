@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -44,22 +44,54 @@
                                             <action selector="logoutButtonPressed" destination="xDS-Ga-w1R" eventType="touchUpInside" id="PRz-bg-EqQ"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logged in as" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuY-C1-ded">
-                                        <rect key="frame" x="76" y="141.5" width="108.5" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logged in as" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuY-C1-ded">
+                                        <rect key="frame" x="76" y="86" width="108.5" height="17"/>
                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Group:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wP2-9O-CJO">
+                                        <rect key="frame" x="67" y="118" width="127" height="17"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhr-ut-nYD">
+                                        <rect key="frame" x="20" y="155" width="220" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zqj-n5-2dx">
+                                                <rect key="frame" x="-0.5" y="-0.5" width="220" height="40"/>
+                                                <connections>
+                                                    <action selector="dropdownPressed" destination="xDS-Ga-w1R" eventType="touchUpInside" id="jJG-gj-fln"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="Zqj-n5-2dx" firstAttribute="top" secondItem="jhr-ut-nYD" secondAttribute="top" id="2gh-vd-rYH"/>
+                                            <constraint firstAttribute="trailing" secondItem="Zqj-n5-2dx" secondAttribute="trailing" id="RpV-Rp-Btg"/>
+                                            <constraint firstAttribute="bottom" secondItem="Zqj-n5-2dx" secondAttribute="bottom" id="Wop-18-kDr"/>
+                                            <constraint firstItem="Zqj-n5-2dx" firstAttribute="leading" secondItem="jhr-ut-nYD" secondAttribute="leading" id="cT6-it-581"/>
+                                            <constraint firstAttribute="height" constant="40" id="u8k-gC-jfK"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="jhr-ut-nYD" secondAttribute="trailing" constant="20" id="0zp-Gm-0rx"/>
+                                    <constraint firstItem="wP2-9O-CJO" firstAttribute="top" secondItem="WuY-C1-ded" secondAttribute="bottom" constant="15" id="38A-1B-1vH"/>
+                                    <constraint firstItem="wP2-9O-CJO" firstAttribute="centerX" secondItem="meh-zk-Fia" secondAttribute="centerX" id="3wh-3d-hm2"/>
                                     <constraint firstAttribute="width" constant="260" id="4Rv-UP-FpT"/>
                                     <constraint firstItem="dbm-QJ-V5M" firstAttribute="centerX" secondItem="meh-zk-Fia" secondAttribute="centerX" id="5od-5Y-fO3"/>
                                     <constraint firstItem="rSs-vT-Not" firstAttribute="top" secondItem="meh-zk-Fia" secondAttribute="top" constant="20" id="BMI-Yo-Md9"/>
+                                    <constraint firstItem="WuY-C1-ded" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="meh-zk-Fia" secondAttribute="leading" constant="5" id="IEt-NG-nP2"/>
+                                    <constraint firstItem="jhr-ut-nYD" firstAttribute="leading" secondItem="meh-zk-Fia" secondAttribute="leading" constant="20" id="Ki0-T4-zqW"/>
+                                    <constraint firstItem="jhr-ut-nYD" firstAttribute="top" secondItem="wP2-9O-CJO" secondAttribute="bottom" constant="20" id="Nby-ID-5o2"/>
                                     <constraint firstAttribute="height" constant="300" id="ONR-JY-JUq"/>
                                     <constraint firstAttribute="bottom" secondItem="dbm-QJ-V5M" secondAttribute="bottom" constant="20" id="Twe-fO-7Av"/>
                                     <constraint firstItem="rSs-vT-Not" firstAttribute="centerX" secondItem="meh-zk-Fia" secondAttribute="centerX" id="Vgm-Qu-WTn"/>
-                                    <constraint firstItem="WuY-C1-ded" firstAttribute="centerY" secondItem="meh-zk-Fia" secondAttribute="centerY" id="isl-63-qzQ"/>
+                                    <constraint firstItem="WuY-C1-ded" firstAttribute="top" secondItem="rSs-vT-Not" secondAttribute="bottom" constant="15" id="bO1-Mo-qtN"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WuY-C1-ded" secondAttribute="trailing" constant="5" id="cBf-WM-q0K"/>
                                     <constraint firstItem="WuY-C1-ded" firstAttribute="centerX" secondItem="meh-zk-Fia" secondAttribute="centerX" id="uY3-ds-weC"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -80,6 +112,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="i7e-J9-3bn" id="sVK-nh-leI"/>
+                        <outlet property="dropdownView" destination="jhr-ut-nYD" id="XBN-z5-PKa"/>
                         <outlet property="loggedInLabel" destination="WuY-C1-ded" id="utL-3K-OIG"/>
                     </connections>
                 </viewController>

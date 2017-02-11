@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import DropDown
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,14 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
         
-        if let currentUser = UserDefaults.standard.value(forKey: "current_user") as! String?{
-            NSLog("the cur: " + currentUser)
-            if(currentUser == ""){
-                startAtLogin()
-            }
-        }else{
-            startAtLogin()
-        }
+        DropDown.startListeningToKeyboard()
+        
+        startAtLogin()
         
         return true
     }

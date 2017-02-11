@@ -371,7 +371,7 @@
                             <constraint firstItem="5P1-ys-DKj" firstAttribute="top" secondItem="q5x-ip-y0f" secondAttribute="bottom" constant="20" id="qB1-7o-wli"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Groups" id="Khm-8e-C4c"/>
+                    <tabBarItem key="tabBarItem" title="Groups" image="first" id="Khm-8e-C4c"/>
                     <connections>
                         <outlet property="groupsTableView" destination="DuX-NW-UJE" id="mbN-l7-LAk"/>
                         <outlet property="headerViewContainer" destination="q5x-ip-y0f" id="96h-Gu-oOV"/>
@@ -422,14 +422,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REd-zV-I9i">
-                                <rect key="frame" x="113" y="378.5" width="149" height="30"/>
+                                <rect key="frame" x="113" y="378.5" width="149" height="88"/>
                                 <state key="normal" title="REQUEST ALL DATES"/>
                                 <connections>
                                     <action selector="requestDatesButtonPressed" destination="pE3-Vx-E9B" eventType="touchUpInside" id="wX0-gT-1js"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hM1-zp-ciq">
+                                <rect key="frame" x="44" y="511" width="287" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="HZU-MQ-4aa"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="REd-zV-I9i" firstAttribute="centerX" secondItem="MP0-4u-nFP" secondAttribute="centerX" id="5qG-vF-3U5"/>
                             <constraint firstItem="uzh-Sc-TfV" firstAttribute="centerY" secondItem="MP0-4u-nFP" secondAttribute="centerY" id="8Ns-dl-yMF"/>
@@ -438,14 +445,19 @@
                             <constraint firstItem="GPt-Bc-k9u" firstAttribute="centerX" secondItem="MP0-4u-nFP" secondAttribute="centerX" id="G3D-cE-qSk"/>
                             <constraint firstItem="WqE-PC-aTm" firstAttribute="top" secondItem="MP0-4u-nFP" secondAttribute="top" id="HDZ-b8-uQb"/>
                             <constraint firstItem="REd-zV-I9i" firstAttribute="top" secondItem="uzh-Sc-TfV" secondAttribute="bottom" constant="30" id="NNE-AM-D4d"/>
+                            <constraint firstItem="ZGn-VT-U7W" firstAttribute="top" secondItem="hM1-zp-ciq" secondAttribute="bottom" constant="37" id="Q9J-SK-bkZ"/>
+                            <constraint firstItem="hM1-zp-ciq" firstAttribute="leading" secondItem="MP0-4u-nFP" secondAttribute="leadingMargin" constant="28" id="QlW-Qu-2Uj"/>
                             <constraint firstAttribute="trailing" secondItem="WqE-PC-aTm" secondAttribute="trailing" id="XJV-nk-teq"/>
                             <constraint firstItem="uzh-Sc-TfV" firstAttribute="centerX" secondItem="MP0-4u-nFP" secondAttribute="centerX" id="ioK-4F-wbS"/>
+                            <constraint firstItem="hM1-zp-ciq" firstAttribute="top" secondItem="REd-zV-I9i" secondAttribute="bottom" constant="44.5" id="ix5-oi-amt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hM1-zp-ciq" secondAttribute="trailing" constant="28" id="jw2-SG-mw7"/>
                             <constraint firstItem="GPt-Bc-k9u" firstAttribute="top" secondItem="eTd-UW-dcY" secondAttribute="bottom" constant="30" id="pqT-dx-ufI"/>
                             <constraint firstItem="WqE-PC-aTm" firstAttribute="leading" secondItem="MP0-4u-nFP" secondAttribute="leading" id="xB6-xW-Uuu"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tester" image="first" id="s9b-NE-7sC"/>
                     <connections>
+                        <outlet property="dropView" destination="hM1-zp-ciq" id="GJX-a2-gYV"/>
                         <outlet property="headerViewContainer" destination="WqE-PC-aTm" id="A29-OL-iCi"/>
                     </connections>
                 </viewController>

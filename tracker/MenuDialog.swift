@@ -8,26 +8,47 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
+import DropDown
 
 protocol MenuDialogDelegate: class{
     func logout()
 }
 
 class MenuDialog: ParentDialog {
+    
     @IBOutlet weak var loggedInLabel: UILabel!
+    @IBOutlet weak var dropdownView: UIView!
+    
+    let dropdown = DropDown()
     
     weak var delegate: MenuDialogDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        
     }
     
     override func viewDidLoad(){
         super.viewDidLoad()
         
-        if let username = UserDefaults.standard.value(forKey: "current_user") as! String?{
-            loggedInLabel.text = "Logged in as " + username
+        if let email = FIRAuth.auth()?.currentUser?.email{
+            loggedInLabel.text = "Logged in as " + email
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        dropdown.dataSource = ["Car", "Motorcycle", "Truck"]
+        dropdown.anchorView = dropdownView
+        
+        dropdown.bottomOffset = CGPoint(x: 0, y:(dropdown.anchorView?.plainView.bounds.height)!)
+    }
+    
+    @IBAction func dropdownPressed() {
+        print("yoyo")
+        dropdown.show()
     }
     
     @IBAction func logoutButtonPressed(){
