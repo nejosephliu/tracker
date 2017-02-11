@@ -16,7 +16,6 @@ class CellGroupTableViewCell: UITableViewCell{
     override init(style: UITableViewCellStyle, reuseIdentifier: String!){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         dateLabel.text = "12/11"
-        NSLog("init")
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -13,9 +13,7 @@ class Mark: ParentViewController {
     
     @IBOutlet weak var headerViewContainer: UIView!
     @IBOutlet weak var membersTableView: UITableView!
-    
     @IBOutlet weak var clearButton: UIButton!
-    
     @IBOutlet weak var countLabel: UILabel!
     
     var currentDay : Int!
@@ -137,10 +135,8 @@ class Mark: ParentViewController {
         var membersHereArr : [Member] = []
         
         for i in 0...selectedMembers.count - 1{
-            
             let isHere = selectedMembers[i]
             var member : Member
-            
             if i < theMembersArray.count{
                 member = theMembersArray[i]
             }else{
@@ -150,7 +146,6 @@ class Mark: ParentViewController {
             if isHere {
                 membersHereArr.append(member)
             }
-            
         }
         
         let dateString = String(describing: currentYear!) + "-" + String(describing:currentMonth!) + "-" + String(describing: currentDay!);

@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
 
 class Login: UIViewController {
     
@@ -21,8 +19,6 @@ class Login: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         emailTF.addTarget(self, action: #selector(textFieldChanged), for: UIControlEvents.editingChanged)
         passwordTF.addTarget(self, action: #selector(textFieldChanged), for: UIControlEvents.editingChanged)
@@ -60,7 +56,6 @@ class Login: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                 }
             }
-
         }
     }
     

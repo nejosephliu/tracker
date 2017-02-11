@@ -40,7 +40,6 @@ class Records: ParentViewController {
     
     func reloadTableView(){
         self.tableView.reloadData()
-        
         updateAverage()
     }
     

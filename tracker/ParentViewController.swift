@@ -27,20 +27,15 @@ class ParentViewController: UIViewController {
     
     func addHeaderView(headerViewContainer: UIView, pageLabel: String){
         header = Header(frame: headerViewContainer.frame)
-        
         headerViewContainer.addSubview(header)
-        
         header.delegate = self
-        
         header.setPageLabel(page: pageLabel)
     }
     
     func changeHeaderText(text: String){
         header.setPageLabel(page: text)
     }
-
 }
-
 
 extension ParentViewController: HeaderDelegate{
     func showMenu() {
@@ -52,10 +47,6 @@ extension ParentViewController: HeaderDelegate{
 
 extension ParentViewController: MenuDialogDelegate{
     func logout(){
-        /*UserDefaults.standard.setValue("", forKey: "current_user")
-        UserDefaults.standard.synchronize()
-        performSegue(withIdentifier: "logoutSegue", sender: nil)*/
-        
         LoginDataFlow.logout {
             self.performSegue(withIdentifier: "logoutSegue", sender: nil)
         }

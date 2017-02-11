@@ -16,9 +16,7 @@ class Groups: ParentViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.layoutIfNeeded()
-        
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "My Groups")
     }
     

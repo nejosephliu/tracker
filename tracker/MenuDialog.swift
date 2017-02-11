@@ -47,7 +47,6 @@ class MenuDialog: ParentDialog {
     }
     
     @IBAction func dropdownPressed() {
-        print("yoyo")
         dropdown.show()
     }
     
