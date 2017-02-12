@@ -21,7 +21,7 @@ class EditGroup: ParentViewController{
         self.view.layoutIfNeeded()
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Edit Group")
         header.backDelegate = self
-        showHeaderBackButton()
+        header.showBackButton()
         
         if let groupName = groupName{
             groupNameLabel.text = "GROUP NAME: " + groupName
@@ -45,14 +45,17 @@ class EditGroup: ParentViewController{
         if(segue.identifier == "backToGroupsSegue"){
             let destinationVC = segue.destination as! UITabBarController
             destinationVC.selectedIndex = 2
-            
         }
+    }
+    
+    @IBAction func submitButtonPressed(){
+        
     }
 }
 
 extension EditGroup: HeaderBackDelegate{
     func backButtonPressed(){
-        let alert = UIAlertController(title: "Are you sure?", message: "You will lose all changes to the current group.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Are you sure?", message: "You will lose all changes.", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Yes", style: .default, handler: goBack)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(ok)

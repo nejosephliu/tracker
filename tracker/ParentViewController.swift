@@ -32,10 +32,6 @@ class ParentViewController: UIViewController {
         header.setPageLabel(page: pageLabel)
     }
     
-    func showHeaderBackButton(){
-        header.showBackButton()
-    }
-    
     func changeHeaderText(text: String){
         header.setPageLabel(page: text)
     }

@@ -395,7 +395,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Amt-7F-snW">
-                                <rect key="frame" x="0.0" y="146" width="375" height="521"/>
+                                <rect key="frame" x="0.0" y="146" width="375" height="401.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
@@ -415,19 +415,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QmD-sF-IQY">
+                                <rect key="frame" x="137.5" y="562" width="100" height="41.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41.5" id="YCb-04-Rja"/>
+                                    <constraint firstAttribute="width" constant="100" id="ac0-5q-Zs3"/>
+                                </constraints>
+                                <state key="normal" image="submit"/>
+                                <connections>
+                                    <action selector="submitButtonPressed" destination="YNX-ns-RP3" eventType="touchUpInside" id="rTE-d9-H3u"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Amt-7F-snW" secondAttribute="trailing" id="1nS-o5-XmU"/>
                             <constraint firstItem="5ll-T5-eNi" firstAttribute="top" secondItem="Vfq-Zn-9AC" secondAttribute="bottom" constant="15" id="3ai-rm-v3e"/>
+                            <constraint firstItem="QmD-sF-IQY" firstAttribute="top" secondItem="Amt-7F-snW" secondAttribute="bottom" constant="14.5" id="3c9-ez-GK8"/>
                             <constraint firstItem="5ll-T5-eNi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AvQ-7x-9dv" secondAttribute="leadingMargin" constant="5" id="55G-uB-yMC"/>
                             <constraint firstAttribute="trailing" secondItem="Vfq-Zn-9AC" secondAttribute="trailing" id="Dnh-85-Npz"/>
-                            <constraint firstAttribute="bottom" secondItem="Amt-7F-snW" secondAttribute="bottom" id="Kqs-Gj-63U"/>
                             <constraint firstItem="Amt-7F-snW" firstAttribute="top" secondItem="5ll-T5-eNi" secondAttribute="bottom" constant="15" id="Ol2-Dg-8bs"/>
                             <constraint firstItem="Vfq-Zn-9AC" firstAttribute="top" secondItem="AvQ-7x-9dv" secondAttribute="top" id="SdH-na-5eE"/>
+                            <constraint firstItem="QmD-sF-IQY" firstAttribute="centerX" secondItem="AvQ-7x-9dv" secondAttribute="centerX" id="bvu-qA-eQK"/>
                             <constraint firstItem="Vfq-Zn-9AC" firstAttribute="leading" secondItem="AvQ-7x-9dv" secondAttribute="leading" id="fr9-Cg-jSt"/>
                             <constraint firstItem="Amt-7F-snW" firstAttribute="leading" secondItem="AvQ-7x-9dv" secondAttribute="leading" id="j0w-pz-DZl"/>
                             <constraint firstItem="5ll-T5-eNi" firstAttribute="centerX" secondItem="AvQ-7x-9dv" secondAttribute="centerX" id="kYD-2U-UBT"/>
+                            <constraint firstItem="bii-qe-pBR" firstAttribute="top" secondItem="QmD-sF-IQY" secondAttribute="bottom" constant="14.5" id="nSk-mg-1qc"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="5ll-T5-eNi" secondAttribute="trailing" constant="5" id="taL-X6-dWu"/>
                         </constraints>
                     </view>
@@ -439,7 +452,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cag-tS-kjg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1892" y="718"/>
+            <point key="canvasLocation" x="1892" y="717.39130434782612"/>
         </scene>
         <!--Tester-->
         <scene sceneID="OHW-De-54x">
