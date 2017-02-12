@@ -13,14 +13,19 @@ protocol HeaderDelegate : class {
     func showMenu()
 }
 
+protocol HeaderBackDelegate : class {
+    func backButtonPressed()
+}
+
 class Header: UIView {
     
     @IBOutlet weak var headerView : UIView!
     @IBOutlet weak var pageLabel: UILabel!
-    
     @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     weak var delegate: HeaderDelegate?
+    weak var backDelegate: HeaderBackDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,6 +41,10 @@ class Header: UIView {
         pageLabel.text = page
     }
     
+    func showBackButton(){
+        backButton.isHidden = false
+    }
+    
     func loadViewFromNib() {
         let headerNib = UINib(nibName: String(describing: type(of: self)), bundle: nil).instantiate(withOwner: self, options: nil)
         let headerNibView = headerNib.first as! UIView
@@ -49,5 +58,9 @@ class Header: UIView {
     
     @IBAction func menuButtonPressed(){
         delegate?.showMenu()
+    }
+    
+    @IBAction func backButtonPressed(){
+        backDelegate?.backButtonPressed()
     }
 }

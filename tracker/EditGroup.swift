@@ -20,6 +20,8 @@ class EditGroup: ParentViewController{
         super.viewDidLoad()
         self.view.layoutIfNeeded()
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Edit Group")
+        header.backDelegate = self
+        showHeaderBackButton()
         
         if let groupName = groupName{
             groupNameLabel.text = "GROUP NAME: " + groupName
@@ -33,5 +35,28 @@ class EditGroup: ParentViewController{
     func setGroupName(name: String){
         print("the!! name is: " + name)
         groupName = name
+    }
+    
+    func goBack(alert: UIAlertAction){
+        performSegue(withIdentifier: "backToGroupsSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "backToGroupsSegue"){
+            let destinationVC = segue.destination as! UITabBarController
+            destinationVC.selectedIndex = 2
+            
+        }
+    }
+}
+
+extension EditGroup: HeaderBackDelegate{
+    func backButtonPressed(){
+        let alert = UIAlertController(title: "Are you sure?", message: "You will lose all changes to the current group.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Yes", style: .default, handler: goBack)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
     }
 }
