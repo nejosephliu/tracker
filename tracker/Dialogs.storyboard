@@ -476,7 +476,6 @@
                                     <constraint firstItem="vHK-Bu-LCW" firstAttribute="centerX" secondItem="PCM-f0-HOn" secondAttribute="centerX" id="8jz-To-ecB"/>
                                     <constraint firstAttribute="trailing" secondItem="GhH-tc-GVJ" secondAttribute="trailing" id="Jwc-yY-aML"/>
                                     <constraint firstAttribute="width" constant="260" id="LLT-El-zgf"/>
-                                    <constraint firstItem="jMv-rc-4GP" firstAttribute="top" secondItem="81Y-cQ-dlb" secondAttribute="bottom" id="M74-qV-1GC"/>
                                     <constraint firstItem="Nv1-4g-LdW" firstAttribute="top" secondItem="vHK-Bu-LCW" secondAttribute="bottom" constant="15" id="UvU-sD-Eyz"/>
                                     <constraint firstAttribute="height" constant="250" id="WDf-gn-8dd"/>
                                     <constraint firstItem="GhH-tc-GVJ" firstAttribute="top" secondItem="Nv1-4g-LdW" secondAttribute="bottom" id="eTl-b7-l88"/>
@@ -484,6 +483,7 @@
                                     <constraint firstItem="Nv1-4g-LdW" firstAttribute="centerX" secondItem="PCM-f0-HOn" secondAttribute="centerX" id="msZ-7a-mbr"/>
                                     <constraint firstAttribute="bottom" secondItem="jMv-rc-4GP" secondAttribute="bottom" constant="15" id="pch-lc-FaG"/>
                                     <constraint firstItem="vHK-Bu-LCW" firstAttribute="top" secondItem="PCM-f0-HOn" secondAttribute="top" constant="20" id="slZ-iL-SpY"/>
+                                    <constraint firstItem="jMv-rc-4GP" firstAttribute="top" secondItem="81Y-cQ-dlb" secondAttribute="bottom" id="ubh-dC-Fgb"/>
                                     <constraint firstItem="GhH-tc-GVJ" firstAttribute="leading" secondItem="PCM-f0-HOn" secondAttribute="leading" id="vWF-XQ-SAu"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -500,9 +500,11 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="81Y-cQ-dlb" id="xTK-as-1iO"/>
+                        <outlet property="addMemberLabel" destination="vHK-Bu-LCW" id="fIb-Qh-6kF"/>
                         <outlet property="addMoreButton" destination="jMv-rc-4GP" id="0tt-9W-NSp"/>
                         <outlet property="backgroundView" destination="B0H-1Q-1aU" id="eVf-d4-JDb"/>
                         <outlet property="nameTF" destination="uyK-N3-v0e" id="ckt-EM-rTo"/>
+                        <outlet property="viewHeightConstraint" destination="ubh-dC-Fgb" id="zPf-56-pf4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0o-8W-jna" userLabel="First Responder" sceneMemberID="firstResponder"/>

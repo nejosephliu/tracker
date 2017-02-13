@@ -76,6 +76,15 @@ extension EditGroup: HeaderBackDelegate{
 extension EditGroup: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let addMemberDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "addMemberDialog") as! AddMemberDialog
+        addMemberDialog.delegate = self
+        present(addMemberDialog, animated: true, completion: nil)
+        let cell = tableView.cellForRow(at: indexPath) as! AddMemberTableViewCell
+        
+        if let name = cell.nameLabel.text{
+            addMemberDialog.changeEditingExisting(name: name, index: indexPath.row)
+        }
     }
 }
 
@@ -94,8 +103,13 @@ extension EditGroup: UITableViewDelegate{
  }
 
 extension EditGroup: AddMemberDialogDelegate{
-    func addMember(memberName: String) {
-        membersArr.append(memberName)
+    func addMember(memberName: String, index: Int) {
+        if(index == -1){
+            membersArr.append(memberName)
+        }else{
+            membersArr[index] = memberName
+        }
+        
         tableView.reloadData()
     }
 }
