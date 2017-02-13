@@ -52,7 +52,12 @@ class EditGroup: ParentViewController{
     }
     
     @IBAction func submitButtonPressed(){
-        
+        EditGroupDataFlow.createGroup(groupName: groupName){ (result) -> () in
+            print("im back w/ result: " + String(describing: result))
+            EditGroupDataFlow.addMembers(memberArr: self.membersArr, groupID: result){ () -> () in
+                
+            }
+        }
     }
     
     @IBAction func addMembers(){

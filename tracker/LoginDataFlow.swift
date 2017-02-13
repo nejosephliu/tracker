@@ -19,6 +19,7 @@ class LoginDataFlow{
     class func checkIfValid(email: String, password: String, completion:@escaping (String)-> Void){
         FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
             if user != nil {
+                UserDefaults.standard.setValue(user?.uid, forKey: "uid")
                 completion("")
             }else{
                 completion((error?.localizedDescription)!)
@@ -36,6 +37,7 @@ class LoginDataFlow{
     
     class func logout(completion:@escaping ()-> Void){
         try! FIRAuth.auth()!.signOut()
+        UserDefaults.standard.setValue(nil, forKey: "uid")
         completion()
     }
 }

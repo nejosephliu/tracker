@@ -29,7 +29,6 @@ class RecordDataFlow{
                 
                 completion(arrayOfDates)
             }
-            
         }
     }
     
