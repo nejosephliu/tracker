@@ -14,10 +14,12 @@
 		7C65D9A51DBBFE82000AA4CE /* LoginDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65D9A41DBBFE82000AA4CE /* LoginDataFlow.swift */; };
 		7C65D9A71DBC09DA000AA4CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C65D9A61DBC09DA000AA4CE /* GoogleService-Info.plist */; };
 		7C675B7A1E0DAA6000E79E8D /* RecordDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C675B791E0DAA6000E79E8D /* RecordDataFlow.swift */; };
+		7C6C09251E521BD800A4F067 /* AddMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6C09241E521BD800A4F067 /* AddMemberTableViewCell.swift */; };
 		7C70BE461E0C7C7100320EA1 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C70BE451E0C7C7100320EA1 /* Member.swift */; };
 		7C7CACC01E0E0D5E009F0CDB /* CellGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CACBF1E0E0D5E009F0CDB /* CellGroupTableViewCell.swift */; };
 		7C7CACC21E0E133C009F0CDB /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CACC11E0E133C009F0CDB /* Attendance.swift */; };
 		7CA6A7D91E060B6C00BD3222 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA6A7D81E060B6C00BD3222 /* Alamofire.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7CA8642C1E510036002744C0 /* AddMemberDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA8642B1E510036002744C0 /* AddMemberDialog.swift */; };
 		7CB170A51E4F06320075864F /* EditGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB170A41E4F06320075864F /* EditGroup.swift */; };
 		7CB4580F1DC483EA00190FC1 /* AddVisitorDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4580E1DC483EA00190FC1 /* AddVisitorDialog.swift */; };
 		7CB458111DC489A900190FC1 /* ParentDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB458101DC489A800190FC1 /* ParentDialog.swift */; };
@@ -48,10 +50,12 @@
 		7C65D9A61DBC09DA000AA4CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7C65D9A81DBC0A93000AA4CE /* tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tracker.entitlements; sourceTree = "<group>"; };
 		7C675B791E0DAA6000E79E8D /* RecordDataFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordDataFlow.swift; sourceTree = "<group>"; };
+		7C6C09241E521BD800A4F067 /* AddMemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberTableViewCell.swift; sourceTree = "<group>"; };
 		7C70BE451E0C7C7100320EA1 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		7C7CACBF1E0E0D5E009F0CDB /* CellGroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellGroupTableViewCell.swift; sourceTree = "<group>"; };
 		7C7CACC11E0E133C009F0CDB /* Attendance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
 		7CA6A7D81E060B6C00BD3222 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/tracker-daoknimisgeeameagqvhtvnbgdig/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		7CA8642B1E510036002744C0 /* AddMemberDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberDialog.swift; sourceTree = "<group>"; };
 		7CB170A41E4F06320075864F /* EditGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditGroup.swift; sourceTree = "<group>"; };
 		7CB4580E1DC483EA00190FC1 /* AddVisitorDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddVisitorDialog.swift; sourceTree = "<group>"; };
 		7CB458101DC489A800190FC1 /* ParentDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentDialog.swift; sourceTree = "<group>"; };
@@ -93,12 +97,13 @@
 		7C5064DF1E4EF62F0072972A /* Dialogs */ = {
 			isa = PBXGroup;
 			children = (
-				7CEE023A1DBC371100E25A16 /* Dialogs.storyboard */,
 				7CB458101DC489A800190FC1 /* ParentDialog.swift */,
 				7CEE02361DBC34B000E25A16 /* MenuDialog.swift */,
 				7CC2D6251DBCA28100EA0F86 /* ChangeDateDialog.swift */,
 				7CB4580E1DC483EA00190FC1 /* AddVisitorDialog.swift */,
 				7C5064E11E4EF65B0072972A /* CreateGroupDialog.swift */,
+				7CA8642B1E510036002744C0 /* AddMemberDialog.swift */,
+				7CEE023A1DBC371100E25A16 /* Dialogs.storyboard */,
 			);
 			name = Dialogs;
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 			children = (
 				7C26C0121DC4405900A41487 /* AttendanceTableViewCell.swift */,
 				7C7CACBF1E0E0D5E009F0CDB /* CellGroupTableViewCell.swift */,
+				7C6C09241E521BD800A4F067 /* AddMemberTableViewCell.swift */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -249,7 +255,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Joseph Liu";
 				TargetAttributes = {
 					7CFFEE8D1DBB3F8E00608E62 = {
@@ -354,6 +360,7 @@
 				7C7CACC21E0E133C009F0CDB /* Attendance.swift in Sources */,
 				7CFFEEA81DBB457900608E62 /* Header.swift in Sources */,
 				7CFFEE961DBB3F8E00608E62 /* Records.swift in Sources */,
+				7C6C09251E521BD800A4F067 /* AddMemberTableViewCell.swift in Sources */,
 				7C0CEFA71E4E3762002980BB /* Groups.swift in Sources */,
 				7CEE02371DBC34B000E25A16 /* MenuDialog.swift in Sources */,
 				7CC2D6261DBCA28100EA0F86 /* ChangeDateDialog.swift in Sources */,
@@ -366,6 +373,7 @@
 				7CFFEEA61DBB401900608E62 /* Login.swift in Sources */,
 				7CB170A51E4F06320075864F /* EditGroup.swift in Sources */,
 				7C675B7A1E0DAA6000E79E8D /* RecordDataFlow.swift in Sources */,
+				7CA8642C1E510036002744C0 /* AddMemberDialog.swift in Sources */,
 				7C65D9A51DBBFE82000AA4CE /* LoginDataFlow.swift in Sources */,
 				7CB458111DC489A900190FC1 /* ParentDialog.swift in Sources */,
 				7CB458131DC48AB300190FC1 /* Constants.swift in Sources */,

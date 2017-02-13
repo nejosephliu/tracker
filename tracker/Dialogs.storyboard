@@ -399,5 +399,115 @@
             </objects>
             <point key="canvasLocation" x="2101.5999999999999" y="193.85307346326837"/>
         </scene>
+        <!--Add Member Dialog-->
+        <scene sceneID="2VL-pL-fJO">
+            <objects>
+                <viewController storyboardIdentifier="addMemberDialog" id="9jV-cf-w8m" customClass="AddMemberDialog" customModule="tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aSb-dJ-Xx4"/>
+                        <viewControllerLayoutGuide type="bottom" id="n7w-MN-TEg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pV0-9W-wKq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.20000000298023224" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B0H-1Q-1aU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCM-f0-HOn">
+                                <rect key="frame" x="57" y="208" width="260" height="250"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD MEMBER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHK-Bu-LCW">
+                                        <rect key="frame" x="33.5" y="20" width="193" height="37"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81Y-cQ-dlb">
+                                        <rect key="frame" x="107" y="153" width="46" height="41"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
+                                        <state key="normal" title="ADD">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addButtonPressed" destination="9jV-cf-w8m" eventType="touchUpInside" id="w50-GB-pWU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMv-rc-4GP">
+                                        <rect key="frame" x="70" y="194" width="121" height="41"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
+                                        <state key="normal" title="ADD MORE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addMoreButtonPressed" destination="9jV-cf-w8m" eventType="touchUpInside" id="vsQ-5x-6u9"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nv1-4g-LdW">
+                                        <rect key="frame" x="92.5" y="72" width="75.5" height="28.5"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GhH-tc-GVJ" userLabel="TextFieldPaddingView">
+                                        <rect key="frame" x="0.0" y="100.5" width="260" height="47.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uyK-N3-v0e">
+                                                <rect key="frame" x="10" y="9" width="240" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="uyK-N3-v0e" firstAttribute="centerX" secondItem="GhH-tc-GVJ" secondAttribute="centerX" id="1mz-9N-heF"/>
+                                            <constraint firstItem="uyK-N3-v0e" firstAttribute="leading" secondItem="GhH-tc-GVJ" secondAttribute="leading" constant="10" id="SC3-ld-XOb"/>
+                                            <constraint firstItem="uyK-N3-v0e" firstAttribute="centerY" secondItem="GhH-tc-GVJ" secondAttribute="centerY" id="mr0-jD-UOf"/>
+                                            <constraint firstAttribute="trailing" secondItem="uyK-N3-v0e" secondAttribute="trailing" constant="10" id="vcc-bW-9tl"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="81Y-cQ-dlb" firstAttribute="centerX" secondItem="PCM-f0-HOn" secondAttribute="centerX" id="4SY-3j-TUN"/>
+                                    <constraint firstItem="81Y-cQ-dlb" firstAttribute="top" secondItem="GhH-tc-GVJ" secondAttribute="bottom" constant="5" id="6aZ-eG-bJt"/>
+                                    <constraint firstItem="vHK-Bu-LCW" firstAttribute="centerX" secondItem="PCM-f0-HOn" secondAttribute="centerX" id="8jz-To-ecB"/>
+                                    <constraint firstAttribute="trailing" secondItem="GhH-tc-GVJ" secondAttribute="trailing" id="Jwc-yY-aML"/>
+                                    <constraint firstAttribute="width" constant="260" id="LLT-El-zgf"/>
+                                    <constraint firstItem="jMv-rc-4GP" firstAttribute="top" secondItem="81Y-cQ-dlb" secondAttribute="bottom" id="M74-qV-1GC"/>
+                                    <constraint firstItem="Nv1-4g-LdW" firstAttribute="top" secondItem="vHK-Bu-LCW" secondAttribute="bottom" constant="15" id="UvU-sD-Eyz"/>
+                                    <constraint firstAttribute="height" constant="250" id="WDf-gn-8dd"/>
+                                    <constraint firstItem="GhH-tc-GVJ" firstAttribute="top" secondItem="Nv1-4g-LdW" secondAttribute="bottom" id="eTl-b7-l88"/>
+                                    <constraint firstItem="jMv-rc-4GP" firstAttribute="centerX" secondItem="PCM-f0-HOn" secondAttribute="centerX" id="i3e-XY-SPy"/>
+                                    <constraint firstItem="Nv1-4g-LdW" firstAttribute="centerX" secondItem="PCM-f0-HOn" secondAttribute="centerX" id="msZ-7a-mbr"/>
+                                    <constraint firstAttribute="bottom" secondItem="jMv-rc-4GP" secondAttribute="bottom" constant="15" id="pch-lc-FaG"/>
+                                    <constraint firstItem="vHK-Bu-LCW" firstAttribute="top" secondItem="PCM-f0-HOn" secondAttribute="top" constant="20" id="slZ-iL-SpY"/>
+                                    <constraint firstItem="GhH-tc-GVJ" firstAttribute="leading" secondItem="PCM-f0-HOn" secondAttribute="leading" id="vWF-XQ-SAu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="PCM-f0-HOn" firstAttribute="centerX" secondItem="pV0-9W-wKq" secondAttribute="centerX" id="ANg-ld-UK6"/>
+                            <constraint firstItem="PCM-f0-HOn" firstAttribute="centerY" secondItem="pV0-9W-wKq" secondAttribute="centerY" id="NE2-zq-9zx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="81Y-cQ-dlb" id="xTK-as-1iO"/>
+                        <outlet property="addMoreButton" destination="jMv-rc-4GP" id="0tt-9W-NSp"/>
+                        <outlet property="backgroundView" destination="B0H-1Q-1aU" id="eVf-d4-JDb"/>
+                        <outlet property="nameTF" destination="uyK-N3-v0e" id="ckt-EM-rTo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x0o-8W-jna" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2855" y="194"/>
+        </scene>
     </scenes>
 </document>

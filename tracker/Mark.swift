@@ -167,7 +167,7 @@ extension Mark: ChangeDateDialogDelegate{
 
 extension Mark: AddVisitorDialogDelegate{
     func addVisitor(visitorName: String) {
-        let visitorMember = Member(id: NSUUID().uuidString, name: visitorName, g_id: 0, email: "")
+        let visitorMember = Member(id: NSUUID().uuidString, name: visitorName, g_id: 0)
         visitorsArray.append(visitorMember)
         selectedMembers.append(true)
         reloadTableView()

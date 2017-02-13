@@ -13,8 +13,11 @@ class EditGroup: ParentViewController{
     
     @IBOutlet weak var headerViewContainer: UIView!
     @IBOutlet weak var groupNameLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     var groupName: String!
+    
+    var membersArr : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +54,12 @@ class EditGroup: ParentViewController{
     @IBAction func submitButtonPressed(){
         
     }
+    
+    @IBAction func addMembers(){
+        let addMemberDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "addMemberDialog") as! AddMemberDialog
+        addMemberDialog.delegate = self
+        present(addMemberDialog, animated: true, completion: nil)
+    }
 }
 
 extension EditGroup: HeaderBackDelegate{
@@ -61,5 +70,32 @@ extension EditGroup: HeaderBackDelegate{
         alert.addAction(ok)
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension EditGroup: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+
+ extension EditGroup: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return membersArr.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        let cell: AddMemberTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "add_member_cell") as! AddMemberTableViewCell
+        cell.nameLabel?.text = membersArr[indexPath.row]
+        return cell
+    }
+ }
+
+extension EditGroup: AddMemberDialogDelegate{
+    func addMember(memberName: String) {
+        membersArr.append(memberName)
+        tableView.reloadData()
     }
 }

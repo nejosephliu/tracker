@@ -12,13 +12,11 @@ class Member {
     var id : String
     var name : String
     var g_id : Int
-    var email : String
     
-    init(id: String, name : String, g_id : Int, email : String){
+    init(id: String, name : String, g_id : Int){
         self.id = id
         self.name = name
         self.g_id = g_id
-        self.email = email
     }
     
     func description() -> String {

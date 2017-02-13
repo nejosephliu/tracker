@@ -22,9 +22,8 @@ class MarkTableViewDataFlow{
                     let id = individualArr["_id"] as! String
                     let name = individualArr["name"] as! String
                     let g_id = individualArr["g_id"] as! Int
-                    let email = individualArr["email"] as! String
                     
-                    let individualMember = Member(id: id, name: name, g_id: g_id, email: email)
+                    let individualMember = Member(id: id, name: name, g_id: g_id)
                     membersArr.append(individualMember)
                 }
                 

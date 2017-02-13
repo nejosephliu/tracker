@@ -58,9 +58,9 @@ class RecordDataFlow{
                 let id = memberIndividualArr["_id"] as! String
                 let name = memberIndividualArr["name"] as! String
                 let g_id = memberIndividualArr["g_id"] as! Int
-                let email = memberIndividualArr["email"] as! String
+
                 
-                let individualMember = Member(id: id, name: name, g_id: g_id, email: email)
+                let individualMember = Member(id: id, name: name, g_id: g_id)
                 
                 completion(individualMember)
             }
