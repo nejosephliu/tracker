@@ -23,12 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         startAtLogin()
         
-        GroupsDataFlow.updateUserGroupArray(){
-            () in
-            if(UserDefaults.standard.value(forKey: "currentGroup") == nil){
-                GroupsDataFlow.setDefaultCurrentGroup()
-            }
-        }
+        
         
         return true
     }

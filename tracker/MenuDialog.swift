@@ -23,6 +23,8 @@ class MenuDialog: ParentDialog {
     
     let dropdown = DropDown()
     
+    var groupArr: [Group] = []
+    
     weak var delegate: MenuDialogDelegate?
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,7 +45,13 @@ class MenuDialog: ParentDialog {
         dropdown.direction = .bottom
         dropdown.textFont = UIFont(name: "Courier New", size: 15)!
         
-        let groupArr = GroupsDataFlow.getLocalGroupArray()
+        dropdown.selectionAction = { [unowned self] (index: Int, item: String) in
+            print("Selected item: \(item) at index: \(index)")
+            self.updateCurrentGroup(index: index)
+            self.updateCurrentGroupLabel()
+        }
+        
+        groupArr = GroupsDataFlow.getLocalGroupArray()
         populateDropDown(groupArr: groupArr)
     }
     
@@ -59,6 +67,13 @@ class MenuDialog: ParentDialog {
             groupStrArr.append(group.name)
         }
         dropdown.dataSource = groupStrArr
+    }
+    
+    func updateCurrentGroup(index: Int){
+        let group = groupArr[index]
+        
+        UserDefaults.standard.setValue(NSKeyedArchiver.archivedData(withRootObject: group), forKey: "currentGroup")
+        UserDefaults.standard.synchronize()
     }
     
     func updateCurrentGroupLabel(){

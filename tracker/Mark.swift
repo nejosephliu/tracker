@@ -38,12 +38,12 @@ class Mark: ParentViewController {
         
         reloadTableView()
         
-//        GroupsDataFlow.updateUserGroupArray(){
-//            () in
-//            if(UserDefaults.standard.value(forKey: "currentGroup") == nil){
-//                GroupsDataFlow.setDefaultCurrentGroup()
-//            }
-//        }
+        GroupsDataFlow.updateUserGroupArray(){
+            () in
+            if(UserDefaults.standard.value(forKey: "currentGroup") == nil){
+                GroupsDataFlow.setDefaultCurrentGroup()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
