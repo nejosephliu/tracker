@@ -20,6 +20,7 @@ class LoginDataFlow{
         FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
             if user != nil {
                 UserDefaults.standard.setValue(user?.uid, forKey: "uid")
+                UserDefaults.standard.synchronize()
                 completion("")
             }else{
                 completion((error?.localizedDescription)!)

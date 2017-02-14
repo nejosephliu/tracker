@@ -37,6 +37,13 @@ class Mark: ParentViewController {
         NSLog("Current user: " + String(describing: UserDefaults.standard.value(forKey: "current_user")))
         
         reloadTableView()
+        
+//        GroupsDataFlow.updateUserGroupArray(){
+//            () in
+//            if(UserDefaults.standard.value(forKey: "currentGroup") == nil){
+//                GroupsDataFlow.setDefaultCurrentGroup()
+//            }
+//        }
     }
 
     override func didReceiveMemoryWarning() {

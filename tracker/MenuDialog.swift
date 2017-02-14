@@ -19,6 +19,7 @@ class MenuDialog: ParentDialog {
     
     @IBOutlet weak var loggedInLabel: UILabel!
     @IBOutlet weak var dropdownView: UIView!
+    @IBOutlet weak var selectedGroupLabel: UILabel!
     
     let dropdown = DropDown()
     
@@ -26,8 +27,6 @@ class MenuDialog: ParentDialog {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        
     }
     
     override func viewDidLoad(){
@@ -36,14 +35,38 @@ class MenuDialog: ParentDialog {
         if let email = FIRAuth.auth()?.currentUser?.email{
             loggedInLabel.text = "Logged in as " + email
         }
+        
+        updateCurrentGroupLabel()
+        
+        dropdown.anchorView = dropdownView
+        dropdown.bottomOffset = CGPoint(x: 0, y:(dropdown.anchorView?.plainView.bounds.height)!)
+        dropdown.direction = .bottom
+        dropdown.textFont = UIFont(name: "Courier New", size: 15)!
+        
+        let groupArr = GroupsDataFlow.getLocalGroupArray()
+        populateDropDown(groupArr: groupArr)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        dropdown.dataSource = ["Car", "Motorcycle", "Truck"]
-        dropdown.anchorView = dropdownView
         
-        dropdown.bottomOffset = CGPoint(x: 0, y:(dropdown.anchorView?.plainView.bounds.height)!)
+        
+    }
+    
+    func populateDropDown(groupArr: [Group]){
+        var groupStrArr : [String] = []
+        for group in groupArr{
+            groupStrArr.append(group.name)
+        }
+        dropdown.dataSource = groupStrArr
+    }
+    
+    func updateCurrentGroupLabel(){
+        if let currentGroupObj = NSKeyedUnarchiver.unarchiveObject(with: UserDefaults.standard.object(forKey: "currentGroup") as! Data){
+            let currentGroup = currentGroupObj as! Group
+            
+            selectedGroupLabel.text = currentGroup.name
+        }
     }
     
     @IBAction func dropdownPressed() {

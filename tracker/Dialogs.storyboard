@@ -65,10 +65,18 @@
                                                     <action selector="dropdownPressed" destination="xDS-Ga-w1R" eventType="touchUpInside" id="jJG-gj-fln"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Is4-GP-oOH">
+                                                <rect key="frame" x="10" y="11.5" width="45.5" height="17"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="Is4-GP-oOH" firstAttribute="centerY" secondItem="jhr-ut-nYD" secondAttribute="centerY" id="1Eo-pz-0fC"/>
                                             <constraint firstItem="Zqj-n5-2dx" firstAttribute="top" secondItem="jhr-ut-nYD" secondAttribute="top" id="2gh-vd-rYH"/>
+                                            <constraint firstItem="Is4-GP-oOH" firstAttribute="leading" secondItem="jhr-ut-nYD" secondAttribute="leading" constant="10" id="OXn-QT-eU5"/>
                                             <constraint firstAttribute="trailing" secondItem="Zqj-n5-2dx" secondAttribute="trailing" id="RpV-Rp-Btg"/>
                                             <constraint firstAttribute="bottom" secondItem="Zqj-n5-2dx" secondAttribute="bottom" id="Wop-18-kDr"/>
                                             <constraint firstItem="Zqj-n5-2dx" firstAttribute="leading" secondItem="jhr-ut-nYD" secondAttribute="leading" id="cT6-it-581"/>
@@ -114,6 +122,7 @@
                         <outlet property="backgroundView" destination="i7e-J9-3bn" id="sVK-nh-leI"/>
                         <outlet property="dropdownView" destination="jhr-ut-nYD" id="XBN-z5-PKa"/>
                         <outlet property="loggedInLabel" destination="WuY-C1-ded" id="utL-3K-OIG"/>
+                        <outlet property="selectedGroupLabel" destination="Is4-GP-oOH" id="OMQ-vy-vPm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="36T-9c-OAk" userLabel="First Responder" sceneMemberID="firstResponder"/>

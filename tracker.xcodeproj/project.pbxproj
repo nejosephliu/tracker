@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7C0CEFA71E4E3762002980BB /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0CEFA61E4E3762002980BB /* Groups.swift */; };
+		7C236A1F1E5378A300C488D4 /* GroupsDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C236A1E1E5378A300C488D4 /* GroupsDataFlow.swift */; };
+		7C236A211E537A6F00C488D4 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C236A201E537A6F00C488D4 /* Group.swift */; };
 		7C26C0131DC4405900A41487 /* AttendanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26C0121DC4405900A41487 /* AttendanceTableViewCell.swift */; };
 		7C5064E21E4EF65B0072972A /* CreateGroupDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5064E11E4EF65B0072972A /* CreateGroupDialog.swift */; };
 		7C65D99F1DBBDB19000AA4CE /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65D99E1DBBDB19000AA4CE /* ParentViewController.swift */; };
@@ -44,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		7C0CEFA61E4E3762002980BB /* Groups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
+		7C236A1E1E5378A300C488D4 /* GroupsDataFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsDataFlow.swift; sourceTree = "<group>"; };
+		7C236A201E537A6F00C488D4 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		7C26C0121DC4405900A41487 /* AttendanceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceTableViewCell.swift; sourceTree = "<group>"; };
 		7C5064E11E4EF65B0072972A /* CreateGroupDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupDialog.swift; sourceTree = "<group>"; };
 		7C65D99E1DBBDB19000AA4CE /* ParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 				7CC2D6231DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift */,
 				7C675B791E0DAA6000E79E8D /* RecordDataFlow.swift */,
 				7C8671C81E5230B3000A3EE0 /* EditGroupDataFlow.swift */,
+				7C236A1E1E5378A300C488D4 /* GroupsDataFlow.swift */,
 			);
 			name = DataFlow;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 			children = (
 				7C70BE451E0C7C7100320EA1 /* Member.swift */,
 				7C7CACC11E0E133C009F0CDB /* Attendance.swift */,
+				7C236A201E537A6F00C488D4 /* Group.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				7CEE02371DBC34B000E25A16 /* MenuDialog.swift in Sources */,
 				7CC2D6261DBCA28100EA0F86 /* ChangeDateDialog.swift in Sources */,
 				7C70BE461E0C7C7100320EA1 /* Member.swift in Sources */,
+				7C236A211E537A6F00C488D4 /* Group.swift in Sources */,
 				7C65D99F1DBBDB19000AA4CE /* ParentViewController.swift in Sources */,
 				7CFFEE921DBB3F8E00608E62 /* AppDelegate.swift in Sources */,
 				7CB4580F1DC483EA00190FC1 /* AddVisitorDialog.swift in Sources */,
@@ -383,6 +390,7 @@
 				7CB458131DC48AB300190FC1 /* Constants.swift in Sources */,
 				7C26C0131DC4405900A41487 /* AttendanceTableViewCell.swift in Sources */,
 				7C7CACC01E0E0D5E009F0CDB /* CellGroupTableViewCell.swift in Sources */,
+				7C236A1F1E5378A300C488D4 /* GroupsDataFlow.swift in Sources */,
 				7CE5D63E1E0D0B7C00FFCCFB /* Tester.swift in Sources */,
 				7CC2D6241DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift in Sources */,
 			);
