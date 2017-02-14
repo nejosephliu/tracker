@@ -33,8 +33,8 @@ class EditGroupDataFlow{
         
         let parameters: Parameters = ["members": membersJSON]
         
-        Alamofire.request(Constants.baseURL + "submit-members", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
-            NSLog("Attendance Submitted")
-        }
+        _ = Alamofire.request(Constants.baseURL + "submit-members", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        
+        completion()
     }
 }

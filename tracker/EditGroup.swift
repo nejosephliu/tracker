@@ -55,7 +55,7 @@ class EditGroup: ParentViewController{
         EditGroupDataFlow.createGroup(groupName: groupName){ (result) -> () in
             print("im back w/ result: " + String(describing: result))
             EditGroupDataFlow.addMembers(memberArr: self.membersArr, groupID: result){ () -> () in
-                
+                self.performSegue(withIdentifier: "backToGroupsSegue", sender: self)
             }
         }
     }
