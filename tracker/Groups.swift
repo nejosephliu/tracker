@@ -14,12 +14,19 @@ class Groups: ParentViewController {
     @IBOutlet weak var headerViewContainer: UIView!
     @IBOutlet weak var groupsTableView: UITableView!
     
+    var groupArr : [Group] = []
+    
     var newGroupName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "My Groups")
+        
+        GroupsDataFlow.updateUserGroupArray { 
+            self.groupArr = GroupsDataFlow.getLocalGroupArray()
+            self.groupsTableView.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,14 +61,15 @@ extension Groups: UITableViewDelegate{
     }
 }
 
-/*
+
 extension Groups: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return groupArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let cell: GroupTableViewCell = self.groupsTableView.dequeueReusableCell(withIdentifier: "group_cell") as! GroupTableViewCell
+        cell.nameLabel.text = groupArr[indexPath.row].name
+        return cell
     }
-    
-}*/
+}
