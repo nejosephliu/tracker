@@ -29,7 +29,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lfi-7L-ezr">
-                                <rect key="frame" x="0.0" y="155" width="375" height="393"/>
+                                <rect key="frame" x="0.0" y="195.5" width="375" height="352.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="custom_cell" id="K42-BJ-Adq" customClass="AttendanceTableViewCell" customModule="tracker" customModuleProvider="target">
@@ -77,7 +77,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTX-lA-n1P">
-                                <rect key="frame" x="137.5" y="562" width="100" height="41.5"/>
+                                <rect key="frame" x="138" y="562" width="100" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41.5" id="FWv-4u-FLa"/>
                                     <constraint firstAttribute="width" constant="100" id="rai-ab-SdB"/>
@@ -88,7 +88,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPO-Zd-3p7">
-                                <rect key="frame" x="112.5" y="99.5" width="150" height="41.5"/>
+                                <rect key="frame" x="112.5" y="140" width="150" height="41.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="EvF-p1-3Fd"/>
                                     <constraint firstAttribute="height" constant="41.5" id="zjG-m0-nbX"/>
@@ -99,7 +99,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrr-fE-gJW" userLabel="CountPaddingView">
-                                <rect key="frame" x="0.0" y="99.5" width="112.5" height="41.5"/>
+                                <rect key="frame" x="0.0" y="140" width="112.5" height="41.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjJ-NX-eAt">
                                         <rect key="frame" x="48.5" y="0.0" width="15.5" height="28.5"/>
@@ -123,7 +123,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVr-A2-zgi" userLabel="ClearPaddingView">
-                                <rect key="frame" x="262.5" y="99.5" width="112.5" height="41.5"/>
+                                <rect key="frame" x="262.5" y="140" width="112.5" height="41.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFc-hp-emf">
                                         <rect key="frame" x="30.5" y="5" width="52" height="32"/>
@@ -141,10 +141,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Vg-GM-qis" userLabel="AddVisitorPaddingView">
-                                <rect key="frame" x="0.0" y="562" width="137.5" height="41.5"/>
+                                <rect key="frame" x="0.0" y="562" width="138" height="42"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gM5-kh-Nt5">
-                                        <rect key="frame" x="37" y="2.5" width="63.5" height="36.5"/>
+                                        <rect key="frame" x="37" y="3" width="64" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="63.640000000000001" id="B8F-tO-ZUN"/>
                                             <constraint firstAttribute="height" constant="36.359999999999999" id="yAF-36-swe"/>
@@ -162,13 +162,21 @@
                                     <constraint firstItem="gM5-kh-Nt5" firstAttribute="centerY" secondItem="3Vg-GM-qis" secondAttribute="centerY" id="gAg-Gy-iGk"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CUPERTINO 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocL-F9-JRD">
+                                <rect key="frame" x="98" y="99" width="178.5" height="31"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lfi-7L-ezr" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="12a-YD-6Fb"/>
+                            <constraint firstItem="ocL-F9-JRD" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="386-r0-BE0"/>
                             <constraint firstItem="cTX-lA-n1P" firstAttribute="leading" secondItem="3Vg-GM-qis" secondAttribute="trailing" id="5uH-to-BNh"/>
                             <constraint firstAttribute="trailing" secondItem="LCR-M2-cng" secondAttribute="trailing" id="CiL-UF-JYt"/>
                             <constraint firstItem="zVr-A2-zgi" firstAttribute="centerY" secondItem="UPO-Zd-3p7" secondAttribute="centerY" id="GSN-gT-QB0"/>
+                            <constraint firstItem="lfi-7L-ezr" firstAttribute="top" secondItem="UPO-Zd-3p7" secondAttribute="bottom" constant="14" id="GcM-fc-dWd"/>
                             <constraint firstItem="cTX-lA-n1P" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="GrV-2o-udg"/>
                             <constraint firstItem="zVr-A2-zgi" firstAttribute="height" secondItem="UPO-Zd-3p7" secondAttribute="height" id="GvF-xs-V9S"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="lfi-7L-ezr" secondAttribute="bottom" constant="70" id="LA5-Fj-0pd"/>
@@ -186,8 +194,9 @@
                             <constraint firstItem="3Vg-GM-qis" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="jNG-wJ-FCu"/>
                             <constraint firstItem="mrr-fE-gJW" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="li3-zJ-sfj"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="cTX-lA-n1P" secondAttribute="bottom" constant="14.5" id="qEY-25-X2C"/>
+                            <constraint firstItem="ocL-F9-JRD" firstAttribute="top" secondItem="LCR-M2-cng" secondAttribute="bottom" constant="14" id="u1O-Bg-spY"/>
+                            <constraint firstItem="UPO-Zd-3p7" firstAttribute="top" secondItem="ocL-F9-JRD" secondAttribute="bottom" constant="10" id="vJR-Su-2cc"/>
                             <constraint firstItem="3Vg-GM-qis" firstAttribute="height" secondItem="cTX-lA-n1P" secondAttribute="height" id="vLa-3j-UeR"/>
-                            <constraint firstItem="lfi-7L-ezr" firstAttribute="top" secondItem="LCR-M2-cng" secondAttribute="bottom" constant="70" id="wZK-dQ-tEW"/>
                             <constraint firstItem="3Vg-GM-qis" firstAttribute="centerY" secondItem="cTX-lA-n1P" secondAttribute="centerY" id="z3J-uO-hmq"/>
                         </constraints>
                     </view>
@@ -195,6 +204,7 @@
                     <connections>
                         <outlet property="clearButton" destination="RFc-hp-emf" id="c7d-Ae-dqN"/>
                         <outlet property="countLabel" destination="jjJ-NX-eAt" id="PVe-91-6GX"/>
+                        <outlet property="groupNameLabel" destination="ocL-F9-JRD" id="aae-y1-Xj1"/>
                         <outlet property="headerViewContainer" destination="LCR-M2-cng" id="83q-zY-mRu"/>
                         <outlet property="membersTableView" destination="lfi-7L-ezr" id="1FI-l0-exa"/>
                         <segue destination="5Gm-4q-mb2" kind="show" identifier="logoutSegue" id="7fW-1A-sMx"/>

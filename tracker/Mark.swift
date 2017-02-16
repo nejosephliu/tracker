@@ -15,6 +15,7 @@ class Mark: ParentViewController {
     @IBOutlet weak var membersTableView: UITableView!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var groupNameLabel: UILabel!
     
     var currentDay : Int!
     var currentMonth : Int!
@@ -43,6 +44,7 @@ class Mark: ParentViewController {
             if(UserDefaults.standard.value(forKey: "currentGroup") == nil){
                 GroupsDataFlow.setDefaultCurrentGroup()
                 self.currentGroupID = GroupsDataFlow.getCurrentGroupID()
+                self.groupNameLabel.text = GroupsDataFlow.getCurrentGroupName()
             }
             self.getListOfMembers()
         }
@@ -55,9 +57,8 @@ class Mark: ParentViewController {
         
         if(currentGroupID != newGroupID){
             currentGroupID = newGroupID
-            
+            groupNameLabel.text = GroupsDataFlow.getCurrentGroupName()
             getListOfMembers()
-            
             reloadTableView()
         }
     }
