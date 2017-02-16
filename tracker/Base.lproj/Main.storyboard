@@ -228,8 +228,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AVERAGE ATTENDANCE: 20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Te2-Kg-zOC">
-                                <rect key="frame" x="88.5" y="136" width="198.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AVERAGE ATTENDANCE: N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Te2-Kg-zOC">
+                                <rect key="frame" x="84" y="136" width="207.5" height="17"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -309,6 +309,7 @@
                     <tabBarItem key="tabBarItem" title="Records" image="second" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="averageLabel" destination="Te2-Kg-zOC" id="fMv-uj-reC"/>
+                        <outlet property="groupNameLabel" destination="GCu-Gc-5ln" id="fHw-4M-vBB"/>
                         <outlet property="headerViewContainer" destination="c9L-vj-ZQX" id="3L9-M4-fpB"/>
                         <outlet property="segmentedControl" destination="bAk-Od-78c" id="yr9-N0-uWA"/>
                         <outlet property="tableView" destination="xvV-iv-jjD" id="rFM-eE-HMs"/>

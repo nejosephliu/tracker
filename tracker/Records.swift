@@ -13,6 +13,7 @@ class Records: ParentViewController {
 
     @IBOutlet weak var headerViewContainer: UIView!
     @IBOutlet weak var averageLabel: UILabel!
+    @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl : UISegmentedControl!
     
@@ -22,12 +23,16 @@ class Records: ParentViewController {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Records")
+        
         changeToByDate()
         segmentedControl.addTarget(self, action: #selector(controlChanged), for: UIControlEvents.valueChanged)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        groupNameLabel.text = GroupsDataFlow.getCurrentGroupName()
+        
         if(segmentedControl.selectedSegmentIndex == 0){
             //changeToByDate()
         }
