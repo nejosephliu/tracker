@@ -11,9 +11,9 @@ import UIKit
 class Member {
     var id : String
     var name : String
-    var g_id : Int
+    var g_id : String
     
-    init(id: String, name : String, g_id : Int){
+    init(id: String, name : String, g_id : String){
         self.id = id
         self.name = name
         self.g_id = g_id

@@ -45,6 +45,24 @@ class GroupsDataFlow {
         return NSKeyedUnarchiver.unarchiveObject(with: UserDefaults.standard.object(forKey: "groups") as! Data) as! [Group]
     }
     
+    class func setCurrentGroup(group: Group){
+        UserDefaults.standard.setValue(NSKeyedArchiver.archivedData(withRootObject: group), forKey: "currentGroup")
+        UserDefaults.standard.synchronize()
+    }
+    
+    
+    class func getCurrentGroup() -> Group{
+        return NSKeyedUnarchiver.unarchiveObject(with: UserDefaults.standard.object(forKey: "currentGroup") as! Data) as! Group
+    }
+    
+    class func getCurrentGroupID() -> String{
+        return getCurrentGroup().id
+    }
+    
+    class func getCurrentGroupName() -> String{
+        return getCurrentGroup().name
+    }
+    
     class func setDefaultCurrentGroup(){
         let arr = getLocalGroupArray()
         

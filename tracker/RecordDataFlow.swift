@@ -12,7 +12,7 @@ import Alamofire
 
 class RecordDataFlow{
     class func getMongoArrayOfDates(cellGroupId: Int, completion:@escaping ([[String]])-> Void){
-        Alamofire.request(Constants.baseURL + "dates/" + "0").responseJSON{ response in
+        Alamofire.request(Constants.baseURL + "dates/" + GroupsDataFlow.getCurrentGroupID()).responseJSON{ response in
             
             if let dateJson = response.result.value {
                 
@@ -56,7 +56,7 @@ class RecordDataFlow{
                 let memberIndividualArr = memberResponseArr.firstObject as! NSDictionary
                 let id = memberIndividualArr["_id"] as! String
                 let name = memberIndividualArr["name"] as! String
-                let g_id = memberIndividualArr["g_id"] as! Int
+                let g_id = memberIndividualArr["g_id"] as! String
 
                 
                 let individualMember = Member(id: id, name: name, g_id: g_id)

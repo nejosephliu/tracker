@@ -51,4 +51,9 @@ extension ParentViewController: MenuDialogDelegate{
             self.performSegue(withIdentifier: "logoutSegue", sender: nil)
         }
     }
+    
+    func callViewWillAppear(){
+        self.viewDidAppear(false)
+        print("callin view did appearin")
+    }
 }

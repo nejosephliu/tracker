@@ -24,13 +24,13 @@ class Mark: ParentViewController {
     var visitorsArray: [Member] = []
     var selectedMembers: [Bool] = []
     
+    var currentGroupID : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.layoutIfNeeded()
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Mark")
-        
-        getListOfMembers()
         
         setDateHeader()
         
@@ -42,7 +42,23 @@ class Mark: ParentViewController {
             () in
             if(UserDefaults.standard.value(forKey: "currentGroup") == nil){
                 GroupsDataFlow.setDefaultCurrentGroup()
+                self.currentGroupID = GroupsDataFlow.getCurrentGroupID()
             }
+            self.getListOfMembers()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let newGroupID = GroupsDataFlow.getCurrentGroupID()
+        
+        if(currentGroupID != newGroupID){
+            currentGroupID = newGroupID
+            
+            getListOfMembers()
+            
+            reloadTableView()
         }
     }
 
@@ -174,7 +190,7 @@ extension Mark: ChangeDateDialogDelegate{
 
 extension Mark: AddVisitorDialogDelegate{
     func addVisitor(visitorName: String) {
-        let visitorMember = Member(id: NSUUID().uuidString, name: visitorName, g_id: 0)
+        let visitorMember = Member(id: NSUUID().uuidString, name: visitorName, g_id: GroupsDataFlow.getCurrentGroupID())
         visitorsArray.append(visitorMember)
         selectedMembers.append(true)
         reloadTableView()
@@ -222,6 +238,4 @@ extension Mark: UITableViewDataSource{
         return cell
     }
 }
-
-
 

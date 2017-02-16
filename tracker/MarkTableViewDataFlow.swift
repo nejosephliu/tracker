@@ -12,7 +12,17 @@ import Alamofire
 
 class MarkTableViewDataFlow{
     class func getMongoArrayOfMembers(cellGroupId: Int, completion:@escaping ([Member])-> Void){
-        Alamofire.request(Constants.baseURL + "members-key/" + "0").responseJSON{ response in
+        //Alamofire.request(Constants.baseURL + "members-key/" + "0").responseJSON{ response in
+        
+        let currentGroup = GroupsDataFlow.getCurrentGroup()
+        var groupID = currentGroup.id
+        
+        print("groupID: " + currentGroup.id)
+        print("group name: " + currentGroup.name)
+        
+        //groupID = "58a3558d6fc8375b27d45a7f"
+        
+        Alamofire.request(RequestManager.urlEncode(url: Constants.baseURL + "members-key/" + groupID)).responseJSON{ response in
             if let json = response.result.value {
                 let responseArr = json as! NSArray
                 var membersArr : [Member] = []
@@ -21,7 +31,7 @@ class MarkTableViewDataFlow{
                     let individualArr = individual as! NSDictionary
                     let id = individualArr["_id"] as! String
                     let name = individualArr["name"] as! String
-                    let g_id = individualArr["g_id"] as! Int
+                    let g_id = individualArr["g_id"] as! String
                     
                     let individualMember = Member(id: id, name: name, g_id: g_id)
                     membersArr.append(individualMember)

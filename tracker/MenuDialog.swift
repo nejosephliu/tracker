@@ -13,6 +13,7 @@ import DropDown
 
 protocol MenuDialogDelegate: class{
     func logout()
+    func callViewWillAppear()
 }
 
 class MenuDialog: ParentDialog {
@@ -24,6 +25,8 @@ class MenuDialog: ParentDialog {
     let dropdown = DropDown()
     
     var groupArr: [Group] = []
+    
+    var comingFromMark : Bool = false
     
     weak var delegate: MenuDialogDelegate?
     
@@ -57,8 +60,15 @@ class MenuDialog: ParentDialog {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("disappearin")
+        delegate?.callViewWillAppear()
+    }
+    
+    func setComingFromMark(){
+        comingFromMark = true
     }
     
     func populateDropDown(groupArr: [Group]){
@@ -72,8 +82,9 @@ class MenuDialog: ParentDialog {
     func updateCurrentGroup(index: Int){
         let group = groupArr[index]
         
-        UserDefaults.standard.setValue(NSKeyedArchiver.archivedData(withRootObject: group), forKey: "currentGroup")
-        UserDefaults.standard.synchronize()
+        print("group id222: " + group.id)
+        
+        GroupsDataFlow.setCurrentGroup(group: group)
     }
     
     func updateCurrentGroupLabel(){
