@@ -20,12 +20,18 @@ class RecordDataFlow{
                 
                 let dateResponseArr = dateJson as! NSArray
                 
+                NSLog("results: " + String(describing: dateJson))
+                
                 for date in dateResponseArr{
                     let dateArr = date as! NSDictionary
                     let dateId = dateArr["_id"] as! String
                     let dateString = dateArr["dateString"] as! String
                     arrayOfDates.append([dateId, dateString])
                 }
+                
+                NSLog("current gid: " + GroupsDataFlow.getCurrentGroupID())
+                
+                NSLog("array of dates: " + String(describing: arrayOfDates))
                 
                 completion(arrayOfDates)
             }

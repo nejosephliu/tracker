@@ -11,7 +11,7 @@ import Firebase
 import Alamofire
 
 class MarkTableViewDataFlow{
-    class func getMongoArrayOfMembers(cellGroupId: Int, completion:@escaping ([Member])-> Void){
+    class func getMongoArrayOfMembers(gID: String, completion:@escaping ([Member])-> Void){
         //Alamofire.request(Constants.baseURL + "members-key/" + "0").responseJSON{ response in
         
         let currentGroup = GroupsDataFlow.getCurrentGroup()

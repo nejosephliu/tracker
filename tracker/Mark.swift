@@ -58,8 +58,8 @@ class Mark: ParentViewController {
         if(currentGroupID != newGroupID){
             currentGroupID = newGroupID
             groupNameLabel.text = GroupsDataFlow.getCurrentGroupName()
+            visitorsArray = []
             getListOfMembers()
-            reloadTableView()
         }
     }
 
@@ -81,26 +81,27 @@ class Mark: ParentViewController {
     }
     
     func getListOfMembers(){
-        MarkTableViewDataFlow.getMongoArrayOfMembers(cellGroupId: 0) { (arrayOfMembers) -> () in
+        MarkTableViewDataFlow.getMongoArrayOfMembers(gID: currentGroupID) { (arrayOfMembers) -> () in
             if(arrayOfMembers.count == 0){
                 /*let alert = UIAlertController(title: "Cannot get members", message: "Please check your connection to the internet.  ", preferredStyle: .alert)
                 let cancelAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
                 alert.addAction(cancelAction)
                 self.present(alert, animated: true, completion: nil)*/
             }else{
+                self.selectedMembers = []
+                
                 for _ in 0...arrayOfMembers.count - 1{
                     self.selectedMembers.append(false)
                 }
                 
                 self.theMembersArray = arrayOfMembers
-                self.membersTableView.reloadData()
+                self.reloadTableView()
             }
         }
     }
     
     func updateCountLabel(){
         let peopleCount = selectedMembers.filter { $0 == true }.count
-        
         countLabel.text = String(describing: peopleCount)
     }
     
@@ -164,6 +165,9 @@ class Mark: ParentViewController {
             if i < theMembersArray.count{
                 member = theMembersArray[i]
             }else{
+                NSLog("I: " + String(describing: i))
+                NSLog("selected: " + String(describing: selectedMembers))
+                NSLog("the coutn: " + String(theMembersArray.count))
                 member = visitorsArray[i - theMembersArray.count]
             }
             
