@@ -11,8 +11,8 @@ import Firebase
 import Alamofire
 
 class RecordDataFlow{
-    class func getMongoArrayOfDates(cellGroupId: Int, completion:@escaping ([[String]])-> Void){
-        Alamofire.request(Constants.baseURL + "dates/" + GroupsDataFlow.getCurrentGroupID()).responseJSON{ response in
+    class func getMongoArrayOfDates(groupID: String, completion:@escaping ([[String]])-> Void){
+        Alamofire.request(Constants.baseURL + "dates/" + groupID).responseJSON{ response in
             
             if let dateJson = response.result.value {
                 

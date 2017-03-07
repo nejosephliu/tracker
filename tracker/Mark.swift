@@ -165,9 +165,9 @@ class Mark: ParentViewController {
             if i < theMembersArray.count{
                 member = theMembersArray[i]
             }else{
-                NSLog("I: " + String(describing: i))
+                /*NSLog("I: " + String(describing: i))
                 NSLog("selected: " + String(describing: selectedMembers))
-                NSLog("the coutn: " + String(theMembersArray.count))
+                NSLog("the coutn: " + String(theMembersArray.count))*/
                 member = visitorsArray[i - theMembersArray.count]
             }
             
@@ -178,7 +178,9 @@ class Mark: ParentViewController {
         
         let dateString = String(describing: currentYear!) + "-" + String(describing:currentMonth!) + "-" + String(describing: currentDay!);
         
-        MarkTableViewDataFlow.submitMongoAttendance(attendanceArr: membersHereArr, dateString: dateString)
+        MarkTableViewDataFlow.submitMongoAttendance(attendanceArr: membersHereArr, dateString: dateString) { () -> () in
+            print("Attendance submitted.")
+        }
     }
 }
 

@@ -19,10 +19,14 @@ class Records: ParentViewController {
     
     var arrayOfAttendanceDates : [Attendance] = []
     
+    var currentGroupID : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Records")
+        
+        currentGroupID = GroupsDataFlow.getCurrentGroupID()
         
         changeToByDate()
         segmentedControl.addTarget(self, action: #selector(controlChanged), for: UIControlEvents.valueChanged)
@@ -30,6 +34,12 @@ class Records: ParentViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        if(currentGroupID != GroupsDataFlow.getCurrentGroupID()){
+            NSLog("group changed!")
+            currentGroupID = GroupsDataFlow.getCurrentGroupID()
+            changeToByDate()
+        }
         
         groupNameLabel.text = GroupsDataFlow.getCurrentGroupName()
         
@@ -55,8 +65,12 @@ class Records: ParentViewController {
             sum += attendanceObj.getCount()
         }
         
-        let average = Float(sum) / Float(arrayOfAttendanceDates.count)
-        averageLabel.text = "AVERAGE ATTENDANCE: " + String(describing: Int(average.rounded()))
+        if(arrayOfAttendanceDates.count != 0){
+            let average = Float(sum) / Float(arrayOfAttendanceDates.count)
+            averageLabel.text = "AVERAGE ATTENDANCE: " + String(describing: Int(average.rounded()))
+        }else{
+            averageLabel.text = "AVERAGE ATTENDANCE: N/A"
+        }
     }
     
     func controlChanged(){
@@ -71,10 +85,14 @@ class Records: ParentViewController {
     }
     
     func changeToByDate(){
-        RecordDataFlow.getMongoArrayOfDates(cellGroupId: 0) { (arrayOfDates) -> () in
-            NSLog(String(describing: arrayOfDates))
+        RecordDataFlow.getMongoArrayOfDates(groupID: GroupsDataFlow.getCurrentGroupID()) { (arrayOfDates) -> () in
+            NSLog("the array of dates: " + String(describing: arrayOfDates))
             
             self.arrayOfAttendanceDates = []
+            
+            if(arrayOfDates.count == 0){
+                self.reloadTableView()
+            }
             
             for dateArr in arrayOfDates{
                 let dateId = dateArr[0]
@@ -92,6 +110,8 @@ class Records: ParentViewController {
                     }
                     
                     self.arrayOfAttendanceDates.append(attendanceObj)
+                    
+                    self.reloadTableView()
                 }
             }
         }

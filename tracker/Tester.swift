@@ -59,12 +59,13 @@ class Tester: ParentViewController {
                 NSLog("blah: " + String(describing: blah))
             }
         }else if(key == 3){
-            Alamofire.request(Constants.baseURL + "dates").responseJSON{ response in
-                let json = response.result.value!
-                
-                let blah = json as! NSArray
-                
-                NSLog("blah: " + String(describing: blah))
+            Alamofire.request(Constants.baseURL + "dates/" + GroupsDataFlow.getCurrentGroupID()).responseJSON{ response in
+                if let json = response.result.value{
+                    
+                    let blah = json as! NSArray
+                    
+                    NSLog("blah: " + String(describing: blah))
+                }
             }
         }
     }

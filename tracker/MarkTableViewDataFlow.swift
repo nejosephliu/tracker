@@ -45,11 +45,11 @@ class MarkTableViewDataFlow{
         }
     }
     
-    class func submitMongoAttendance(attendanceArr: [Member], dateString: String){
+    class func submitMongoAttendance(attendanceArr: [Member], dateString: String, completion:@escaping ()-> Void){
         var attendanceJSON : [NSDictionary] = []
         
         //change cell group
-        let dateParameters: Parameters = ["dateString": ["dateString": dateString, "g_id": 0]]
+        let dateParameters: Parameters = ["dateString": ["dateString": dateString, "g_id": GroupsDataFlow.getCurrentGroupID()]]
         Alamofire.request(Constants.baseURL + "create-attendance-record", method: .post, parameters: dateParameters, encoding: JSONEncoding.default).responseJSON { (response) in
             
             if let dateID = response.result.value{
