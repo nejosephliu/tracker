@@ -179,7 +179,11 @@ class Mark: ParentViewController {
         let dateString = String(describing: currentYear!) + "-" + String(describing:currentMonth!) + "-" + String(describing: currentDay!);
         
         MarkTableViewDataFlow.submitMongoAttendance(attendanceArr: membersHereArr, dateString: dateString) { () -> () in
-            print("Attendance submitted.")
+            //print("Attendance submitted.")
+            let alert = UIAlertController(title: "Success!", message: "Attendance record submitted.", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            self.present(alert, animated: true)
         }
     }
 }

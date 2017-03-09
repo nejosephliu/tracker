@@ -62,7 +62,8 @@ class MarkTableViewDataFlow{
                     
                     let parameters: Parameters = ["attendees": attendanceJSON]
                     Alamofire.request(Constants.baseURL + "submit-attendance", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
-                        NSLog("Attendance Submitted")
+                        //NSLog("Attendance Submitted")
+                        completion()
                     }
                 }
             }
