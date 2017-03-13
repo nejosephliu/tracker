@@ -28,7 +28,7 @@ class Records: ParentViewController {
         
         currentGroupID = GroupsDataFlow.getCurrentGroupID()
         
-        changeToByDate()
+        updateDates()
         segmentedControl.addTarget(self, action: #selector(controlChanged), for: UIControlEvents.valueChanged)
     }
     
@@ -38,7 +38,15 @@ class Records: ParentViewController {
         if(currentGroupID != GroupsDataFlow.getCurrentGroupID()){
             NSLog("group changed!")
             currentGroupID = GroupsDataFlow.getCurrentGroupID()
-            changeToByDate()
+            updateDates()
+        }
+        
+        if let newSubmit = UserDefaults.standard.value(forKey: "new-submit"){
+            let newSubmitBool = newSubmit as! Bool
+            if(newSubmitBool){
+                UserDefaults.standard.setValue(false, forKey: "new-submit")
+                updateDates()
+            }
         }
         
         groupNameLabel.text = GroupsDataFlow.getCurrentGroupName()
@@ -78,13 +86,13 @@ class Records: ParentViewController {
         NSLog("STATE: " + String(describing: state))
         
         if(state == 0){
-            changeToByDate()
+            updateDates()
         }else{
             NSLog("Change to By Member")
         }
     }
     
-    func changeToByDate(){
+    func updateDates(){
         RecordDataFlow.getMongoArrayOfDates(groupID: GroupsDataFlow.getCurrentGroupID()) { (arrayOfDates) -> () in
             NSLog("the array of dates: " + String(describing: arrayOfDates))
             
@@ -104,14 +112,18 @@ class Records: ParentViewController {
                     for memberId in arrayOfMemberIds{
                         RecordDataFlow.getMongoMemberInfoById(memberId: memberId){ (memberObj) -> () in
                             attendanceObj.membersArr.append(memberObj)
-                            self.arrayOfAttendanceDates.sort { $0.dateString < $1.dateString }
-                            self.reloadTableView()
+                            if(attendanceObj.membersArr.count >= arrayOfMemberIds.count && self.arrayOfAttendanceDates.count >= arrayOfDates.count){
+                                self.arrayOfAttendanceDates.sort { $0.dateString < $1.dateString }
+                                self.reloadTableView()
+                            }
                         }
                     }
                     
                     self.arrayOfAttendanceDates.append(attendanceObj)
                     
-                    self.reloadTableView()
+                    if(self.arrayOfAttendanceDates.count >= arrayOfDates.count){
+                        //self.reloadTableView()
+                    }
                 }
             }
         }
