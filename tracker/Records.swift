@@ -17,9 +17,12 @@ class Records: ParentViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl : UISegmentedControl!
     
-    var arrayOfAttendanceDates : [Attendance] = []
+    var arrayOfAttendanceDates : [AttendanceSet] = []
+    var arrayOfMembers: [Member] = []
     
     var currentGroupID : String = ""
+    
+    var currentModeIsDates : Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,15 +89,18 @@ class Records: ParentViewController {
         NSLog("STATE: " + String(describing: state))
         
         if(state == 0){
+            currentModeIsDates = true
             updateDates()
         }else{
+            currentModeIsDates = false
             NSLog("Change to By Member")
+            changeToByMember()
         }
     }
     
     func updateDates(){
         RecordDataFlow.getMongoArrayOfDates(groupID: GroupsDataFlow.getCurrentGroupID()) { (arrayOfDates) -> () in
-            NSLog("the array of dates: " + String(describing: arrayOfDates))
+            //NSLog("the array of dates: " + String(describing: arrayOfDates))
             
             self.arrayOfAttendanceDates = []
             
@@ -107,22 +113,41 @@ class Records: ParentViewController {
                 let dateString = dateArr[1]
                 
                 RecordDataFlow.getMongoMembersArrayByDate(dateId: dateId) { (arrayOfMemberIds) -> () in
-                    let attendanceObj = Attendance(dateId: dateId, dateString: dateString)
+                    let attendanceObj = AttendanceSet(dateId: dateId, dateString: dateString)
                     
                     for memberId in arrayOfMemberIds{
                         RecordDataFlow.getMongoMemberInfoById(memberId: memberId){ (memberObj) -> () in
                             attendanceObj.membersArr.append(memberObj)
-                            if(attendanceObj.membersArr.count >= arrayOfMemberIds.count && self.arrayOfAttendanceDates.count >= arrayOfDates.count){
-                                self.arrayOfAttendanceDates.sort { $0.dateString < $1.dateString }
-                                self.reloadTableView()
-                            }
+                            
+                            self.arrayOfAttendanceDates.sort { $0.dateString < $1.dateString }
+                            self.reloadTableView()
+                            
                         }
                     }
                     
                     self.arrayOfAttendanceDates.append(attendanceObj)
                     
                     if(self.arrayOfAttendanceDates.count >= arrayOfDates.count){
-                        //self.reloadTableView()
+                        self.reloadTableView()
+                    }
+                }
+            }
+        }
+    }
+    
+    func changeToByMember(){
+        RecordDataFlow.getMongoArrayOfMembers(gID: GroupsDataFlow.getCurrentGroupID()) { (arrayOfMembers) -> () in
+            self.arrayOfMembers = []
+            
+            for member in arrayOfMembers{
+                
+                RecordDataFlow.getMongoMemberAttendanceById(memberId: member.id) { (attendanceArr) -> () in
+                    member.setAttendanceArr(attendanceArr: attendanceArr)
+                    
+                    self.arrayOfMembers.append(member)
+                    
+                    if(self.arrayOfMembers.count == arrayOfMembers.count){
+                        self.reloadTableView()
                     }
                 }
             }
@@ -134,22 +159,39 @@ extension Records: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let attendanceObj = arrayOfAttendanceDates[indexPath.row]
-        let alertController = UIAlertController(title: attendanceObj.dateString, message: attendanceObj.getMembers(), preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        present(alertController, animated: true)
+        if(currentModeIsDates){
+            let attendanceObj = arrayOfAttendanceDates[indexPath.row]
+            let alertController = UIAlertController(title: attendanceObj.dateString, message: attendanceObj.getMembers(), preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            present(alertController, animated: true)
+        }else{
+            let memberObj = arrayOfMembers[indexPath.row]
+            let alertController = UIAlertController(title: memberObj.name, message: String(describing: memberObj.getAttendanceString()), preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            present(alertController, animated: true)
+        }
     }
 }
 
 extension Records: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell_group_cell") as! CellGroupTableViewCell
-        cell.dateLabel.text = arrayOfAttendanceDates[indexPath.row].dateString
-        cell.countLabel.text = String(describing: arrayOfAttendanceDates[indexPath.row].getCount())
+        if(currentModeIsDates){
+            cell.dateLabel.text = arrayOfAttendanceDates[indexPath.row].dateString
+            cell.countLabel.text = String(describing: arrayOfAttendanceDates[indexPath.row].getCount())
+        }else{
+            cell.dateLabel.text = arrayOfMembers[indexPath.row].name
+            cell.countLabel.text = String(describing: arrayOfMembers[indexPath.row].attendance.count)
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayOfAttendanceDates.count
+        if(currentModeIsDates){
+            return arrayOfAttendanceDates.count
+        }else{
+            return arrayOfMembers.count
+        }
     }
 }

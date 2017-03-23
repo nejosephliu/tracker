@@ -12,6 +12,7 @@ class Member {
     var id : String
     var name : String
     var g_id : String
+    var attendance: [Attendance] = []
     
     init(id: String, name : String, g_id : String){
         self.id = id
@@ -21,5 +22,22 @@ class Member {
     
     func description() -> String {
         return name
+    }
+    
+    func addAttendance(attendanceObj: Attendance){
+        attendance.append(attendanceObj)
+    }
+    
+    func setAttendanceArr(attendanceArr: [Attendance]){
+        attendance = attendanceArr
+    }
+    
+    func getAttendanceString() -> String{
+        var str = ""
+        for attendanceObj in attendance{
+            str += attendanceObj.dateString + "\n"
+        }
+        
+        return str.substring(to: str.index(str.endIndex, offsetBy: -1))
     }
 }

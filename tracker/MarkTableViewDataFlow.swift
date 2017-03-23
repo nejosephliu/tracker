@@ -15,11 +15,10 @@ class MarkTableViewDataFlow{
         //Alamofire.request(Constants.baseURL + "members-key/" + "0").responseJSON{ response in
         
         let currentGroup = GroupsDataFlow.getCurrentGroup()
-        var groupID = currentGroup.id
+        let groupID = currentGroup.id
         
-        print("groupID: " + currentGroup.id)
-        print("group name: " + currentGroup.name)
-        
+        //print("groupID: " + currentGroup.id)
+        //print("group name: " + currentGroup.name)
         //groupID = "58a3558d6fc8375b27d45a7f"
         
         Alamofire.request(RequestManager.urlEncode(url: Constants.baseURL + "members-key/" + groupID)).responseJSON{ response in

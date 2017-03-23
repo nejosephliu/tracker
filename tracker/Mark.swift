@@ -173,7 +173,9 @@ class Mark: ParentViewController {
             }
         }
         
-        let dateString = String(describing: currentYear!) + "-" + String(describing:currentMonth!) + "-" + String(describing: currentDay!);
+//        let dateString = String(describing: currentYear!) + "-" + String(describing:currentMonth!) + "-" + String(describing: currentDay!);
+        
+        let dateString = setDateString(year: currentYear!, month: currentMonth!, day: currentDay!)
         
         MarkTableViewDataFlow.submitMongoAttendance(attendanceArr: membersHereArr, dateString: dateString) { () -> () in
             let alert = UIAlertController(title: "Success!", message: "Attendance record submitted.", preferredStyle: .alert)
@@ -182,6 +184,28 @@ class Mark: ParentViewController {
             alert.addAction(cancel)
             self.present(alert, animated: true)
         }
+    }
+    
+    func setDateString(year: Int, month: Int, day: Int) -> String{
+        var dateString = String(describing: year)
+        
+        dateString += "-"
+        
+        if(month <= 9){
+            dateString += "0" + String(describing: month)
+        }else{
+            dateString += String(describing: month)
+        }
+        
+        dateString += "-"
+        
+        if(day <= 9){
+            dateString += "0" + String(describing: day)
+        }else{
+            dateString += String(describing: day)
+        }
+        
+        return dateString
     }
 }
 

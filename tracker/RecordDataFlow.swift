@@ -72,5 +72,56 @@ class RecordDataFlow{
         }
     }
     
+    class func getMongoArrayOfMembers(gID: String, completion:@escaping ([Member])-> Void){
+        let currentGroup = GroupsDataFlow.getCurrentGroup()
+        let groupID = currentGroup.id
+        
+        Alamofire.request(RequestManager.urlEncode(url: Constants.baseURL + "members-key/" + groupID)).responseJSON{ response in
+            if let json = response.result.value {
+                let responseArr = json as! NSArray
+                var membersArr : [Member] = []
+                
+                for individual in responseArr{
+                    let individualArr = individual as! NSDictionary
+                    let id = individualArr["_id"] as! String
+                    let name = individualArr["name"] as! String
+                    let g_id = individualArr["g_id"] as! String
+                    
+                    let individualMember = Member(id: id, name: name, g_id: g_id)
+                    membersArr.append(individualMember)
+                }
+                
+                membersArr.sort { $0.name < $1.name }
+                completion(membersArr)
+            }else{
+                completion([])
+            }
+        }
+    }
     
+    class func getMongoMemberAttendanceById(memberId: String, completion:@escaping ([Attendance])-> Void){
+        Alamofire.request(RequestManager.urlEncode(url: Constants.baseURL + "attendance-by-member/" + memberId)).responseJSON{ response2 in
+            if let json2 = response2.result.value {
+                let responseArr2 = json2 as! NSArray
+                
+                var attArr : [Attendance] = []
+                
+                for attendance in responseArr2{
+                    let individualAttendanceArr = attendance as! NSDictionary
+                    let attendanceId = individualAttendanceArr["_id"] as! String
+                    let attendanceDateId = individualAttendanceArr["date_id"] as! String
+                    let attendanceDateString = individualAttendanceArr["date"] as! String
+                    let attendanceName = individualAttendanceArr["name"] as! String
+                    
+                    let attendanceObj = Attendance(id: attendanceId, memberId: memberId, dateId: attendanceDateId, memberName: attendanceName, dateString: attendanceDateString)
+                    
+                    attArr.append(attendanceObj)
+                }
+                
+                attArr.sort { $0.dateString < $1.dateString }
+                completion(attArr)
+            }
+        }
+
+    }
 }

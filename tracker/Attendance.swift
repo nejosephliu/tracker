@@ -2,39 +2,24 @@
 //  Attendance.swift
 //  tracker
 //
-//  Created by Joseph Liu on 12/23/16.
-//  Copyright © 2016 Joseph Liu. All rights reserved.
+//  Created by Joseph Liu on 3/17/17.
+//  Copyright © 2017 Joseph Liu. All rights reserved.
 //
 
 import UIKit
 
-class Attendance {
-    var dateId : String!
-    var dateString: String!
-    var membersArr: [Member]
+class Attendance{
+    var id: String
+    var memberId: String
+    var dateId: String
+    var memberName: String
+    var dateString: String
     
-    init(dateId: String, dateString: String){
+    init(id: String, memberId: String, dateId: String, memberName: String, dateString: String){
+        self.id = id
+        self.memberId = memberId
         self.dateId = dateId
+        self.memberName = memberName
         self.dateString = dateString
-        self.membersArr = []
-    }
-    
-    func getCount() -> Int{
-        return membersArr.count
-    }
-    
-    func printArr(){
-        for member in membersArr{
-            NSLog(dateString + " | Name: " + member.name)
-        }
-    }
-    
-    func getMembers() -> String{
-        var str = ""
-        for member in membersArr{
-            str += member.name + "\n"
-        }
-        
-        return str.substring(to: str.index(str.endIndex, offsetBy: -1))
     }
 }
