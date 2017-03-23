@@ -32,6 +32,7 @@ class Records: ParentViewController {
         currentGroupID = GroupsDataFlow.getCurrentGroupID()
         
         updateDates()
+        updateMembers()
         segmentedControl.addTarget(self, action: #selector(controlChanged), for: UIControlEvents.valueChanged)
     }
     
@@ -42,6 +43,7 @@ class Records: ParentViewController {
             NSLog("group changed!")
             currentGroupID = GroupsDataFlow.getCurrentGroupID()
             updateDates()
+            updateMembers()
         }
         
         if let newSubmit = UserDefaults.standard.value(forKey: "new-submit"){
@@ -94,7 +96,7 @@ class Records: ParentViewController {
         }else{
             currentModeIsDates = false
             NSLog("Change to By Member")
-            changeToByMember()
+            updateMembers()
         }
     }
     
@@ -135,9 +137,11 @@ class Records: ParentViewController {
         }
     }
     
-    func changeToByMember(){
+    func updateMembers(){
         RecordDataFlow.getMongoArrayOfMembers(gID: GroupsDataFlow.getCurrentGroupID()) { (arrayOfMembers) -> () in
             self.arrayOfMembers = []
+            
+            
             
             for member in arrayOfMembers{
                 
@@ -145,6 +149,8 @@ class Records: ParentViewController {
                     member.setAttendanceArr(attendanceArr: attendanceArr)
                     
                     self.arrayOfMembers.append(member)
+                    
+                    self.arrayOfMembers.sort { $0.name < $1.name }
                     
                     if(self.arrayOfMembers.count == arrayOfMembers.count){
                         self.reloadTableView()

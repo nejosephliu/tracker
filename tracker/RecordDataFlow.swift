@@ -91,7 +91,6 @@ class RecordDataFlow{
                     membersArr.append(individualMember)
                 }
                 
-                membersArr.sort { $0.name < $1.name }
                 completion(membersArr)
             }else{
                 completion([])
