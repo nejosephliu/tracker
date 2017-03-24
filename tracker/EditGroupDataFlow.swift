@@ -24,11 +24,11 @@ class EditGroupDataFlow{
         }
     }
     
-    class func addMembers(memberArr: [String], groupID: String, completion:@escaping ()-> Void){
+    class func addMembers(memberArr: [Member], groupID: String, completion:@escaping ()-> Void){
         var membersJSON : [NSDictionary] = []
         
         for member in memberArr{
-            membersJSON.append(["name": member, "g_id": groupID])
+            membersJSON.append(["name": member.name, "g_id": groupID])
         }
         
         let parameters: Parameters = ["members": membersJSON]
@@ -36,5 +36,9 @@ class EditGroupDataFlow{
         Alamofire.request(Constants.baseURL + "submit-members", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
             completion()
         }
+    }
+    
+    class func getMongoArrayOfMembers(groupID: String, completion:@escaping ([Member])-> Void){
+        
     }
 }

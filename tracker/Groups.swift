@@ -16,7 +16,10 @@ class Groups: ParentViewController {
     
     var groupArr : [Group] = []
     
+    var selectedGroupID: String!
+    
     var newGroupName: String!
+    var creatingNewGroup: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,15 +38,26 @@ class Groups: ParentViewController {
     }
     
     @IBAction func createGroupPressed(_ sender: Any) {
+        creatingNewGroup = true
         let createGroupDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "createGroupDialog") as! CreateGroupDialog
         createGroupDialog.delegate = self
         present(createGroupDialog, animated: true, completion: nil)
+    }
+    
+    func editGroup(groupID: String, groupName: String){
+        creatingNewGroup = false
+        newGroupName = groupName
+        selectedGroupID = groupID
+        performSegue(withIdentifier: "editGroupSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "editGroupSegue"){
             let editGroupViewController = segue.destination as! EditGroup
             editGroupViewController.setGroupName(name: newGroupName)
+            if(!creatingNewGroup){
+                editGroupViewController.setGroupID(groupID: selectedGroupID)
+            }
         }
     }
 }
@@ -58,6 +72,10 @@ extension Groups: CreateGroupDialogDelegate{
 extension Groups: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let selectedGroup = groupArr[indexPath.row]
+        let groupID = selectedGroup.id
+        let groupName = selectedGroup.name
+        editGroup(groupID: groupID, groupName: groupName)
     }
 }
 

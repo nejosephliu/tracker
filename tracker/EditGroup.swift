@@ -16,8 +16,10 @@ class EditGroup: ParentViewController{
     @IBOutlet weak var tableView: UITableView!
     
     var groupName: String!
+    var groupID: String!
     
-    var membersArr : [String] = []
+    var membersArr : [Member] = []
+    var isNewGroup : Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,8 @@ class EditGroup: ParentViewController{
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Edit Group")
         header.backDelegate = self
         header.showBackButton()
+        
+        tableView.allowsMultipleSelectionDuringEditing = false
         
         if let groupName = groupName{
             groupNameLabel.text = "GROUP NAME: " + groupName
@@ -36,8 +40,21 @@ class EditGroup: ParentViewController{
     }
     
     func setGroupName(name: String){
-        print("the!! name is: " + name)
         groupName = name
+    }
+    
+    func setGroupID(groupID: String){
+        isNewGroup = false
+        self.groupID = groupID
+        print("Filling members from group with id#" + groupID)
+        getMembersOfExistingGroup()
+    }
+    
+    func getMembersOfExistingGroup(){
+        MarkTableViewDataFlow.getMongoArrayOfMembers(gID: groupID) { (arrayOfMembers) -> () in
+            self.membersArr = arrayOfMembers
+            self.tableView.reloadData()
+        }
     }
     
     func goBack(alert: UIAlertAction){
@@ -52,10 +69,13 @@ class EditGroup: ParentViewController{
     }
     
     @IBAction func submitButtonPressed(){
-        EditGroupDataFlow.createGroup(groupName: groupName){ (result) -> () in
-            print("im back w/ result: " + String(describing: result))
-            EditGroupDataFlow.addMembers(memberArr: self.membersArr, groupID: result){ () -> () in
-                self.performSegue(withIdentifier: "backToGroupsSegue", sender: self)
+        if(isNewGroup){
+            EditGroupDataFlow.createGroup(groupName: groupName){ (result) -> () in
+                print("im back w/ result: " + String(describing: result))
+                
+                EditGroupDataFlow.addMembers(memberArr: self.membersArr, groupID: result){ () -> () in
+                    self.performSegue(withIdentifier: "backToGroupsSegue", sender: self)
+                }
             }
         }
     }
@@ -91,28 +111,43 @@ extension EditGroup: UITableViewDelegate{
             addMemberDialog.changeEditingExisting(name: name, index: indexPath.row)
         }
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            membersArr.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+    }
 }
 
 
- extension EditGroup: UITableViewDataSource{
+extension EditGroup: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return membersArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
         let cell: AddMemberTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "add_member_cell") as! AddMemberTableViewCell
-        cell.nameLabel?.text = membersArr[indexPath.row]
+        
+        
+        cell.nameLabel?.text = membersArr[indexPath.row].name
+        
+        
         return cell
     }
- }
+}
 
 extension EditGroup: AddMemberDialogDelegate{
     func addMember(memberName: String, index: Int) {
+        let newMember = Member(id: "", name: memberName, g_id: "")
         if(index == -1){
-            membersArr.append(memberName)
+            membersArr.append(newMember)
         }else{
-            membersArr[index] = memberName
+            membersArr[index] = newMember
         }
         
         tableView.reloadData()
