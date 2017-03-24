@@ -21,6 +21,10 @@ class EditGroup: ParentViewController{
     var membersArr : [Member] = []
     var isNewGroup : Bool = true
     
+    var newMembers : [Member] = []
+    var editedMembers: [Member] = []
+    var deletedMembers: [Member] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
@@ -46,7 +50,6 @@ class EditGroup: ParentViewController{
     func setGroupID(groupID: String){
         isNewGroup = false
         self.groupID = groupID
-        print("Filling members from group with id#" + groupID)
         getMembersOfExistingGroup()
     }
     
@@ -61,6 +64,28 @@ class EditGroup: ParentViewController{
         performSegue(withIdentifier: "backToGroupsSegue", sender: self)
     }
     
+    func insertIntoEditedMembersArr(member: Member){
+        for var index in 0..<editedMembers.count{
+            let individualMember = editedMembers[index]
+            if(individualMember.id == member.id){
+                editedMembers.remove(at: index)
+                index -= 1
+            }
+        }
+        
+        editedMembers.append(member)
+        
+        print("---------\nEdit Group Array:")
+        
+        for member in editedMembers{
+            print("i: " + member.name)
+            print("k: " + member.id)
+        }
+        
+        print("---------")
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "backToGroupsSegue"){
             let destinationVC = segue.destination as! UITabBarController
@@ -71,11 +96,13 @@ class EditGroup: ParentViewController{
     @IBAction func submitButtonPressed(){
         if(isNewGroup){
             EditGroupDataFlow.createGroup(groupName: groupName){ (result) -> () in
-                print("im back w/ result: " + String(describing: result))
-                
                 EditGroupDataFlow.addMembers(memberArr: self.membersArr, groupID: result){ () -> () in
                     self.performSegue(withIdentifier: "backToGroupsSegue", sender: self)
                 }
+            }
+        }else{
+            EditGroupDataFlow.updateGroup(groupID: groupID, newMemberArr: newMembers, editedMemberArr: editedMembers, deletedMemberArr: deletedMembers){ () -> () in
+                self.performSegue(withIdentifier: "backToGroupsSegue", sender: self)
             }
         }
     }
@@ -89,12 +116,16 @@ class EditGroup: ParentViewController{
 
 extension EditGroup: HeaderBackDelegate{
     func backButtonPressed(){
-        let alert = UIAlertController(title: "Are you sure?", message: "You will lose all changes.", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Yes", style: .default, handler: goBack)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alert.addAction(ok)
-        alert.addAction(cancel)
-        present(alert, animated: true, completion: nil)
+        if(isNewGroup || (newMembers.count > 0 || editedMembers.count > 0 || deletedMembers.count > 0)){
+            let alert = UIAlertController(title: "Are you sure?", message: "You will lose all changes.", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Yes", style: .default, handler: goBack)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(ok)
+            alert.addAction(cancel)
+            present(alert, animated: true, completion: nil)
+        }else{
+            performSegue(withIdentifier: "backToGroupsSegue", sender: self)
+        }
     }
 }
 
@@ -117,7 +148,15 @@ extension EditGroup: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        print("here 1")
         if (editingStyle == .delete) {
+            print("here 2")
+            if(!isNewGroup){
+                print("here 3")
+                deletedMembers.append(membersArr[indexPath.row])
+                print("del members: " + String(describing: deletedMembers))
+            }
+            print("here 4")
             membersArr.remove(at: indexPath.row)
             tableView.reloadData()
         }
@@ -132,11 +171,7 @@ extension EditGroup: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: AddMemberTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "add_member_cell") as! AddMemberTableViewCell
-        
-        
         cell.nameLabel?.text = membersArr[indexPath.row].name
-        
-        
         return cell
     }
 }
@@ -145,9 +180,21 @@ extension EditGroup: AddMemberDialogDelegate{
     func addMember(memberName: String, index: Int) {
         let newMember = Member(id: "", name: memberName, g_id: "")
         if(index == -1){
+            if(!isNewGroup){
+                newMembers.append(newMember)
+            }
             membersArr.append(newMember)
         }else{
-            membersArr[index] = newMember
+            if(!isNewGroup){
+                let originalMember = membersArr[index]
+                if(memberName != originalMember.name){
+                    originalMember.name = memberName
+                    insertIntoEditedMembersArr(member: originalMember)
+                }
+                membersArr[index] = originalMember
+            }else{
+                membersArr[index] = newMember
+            }
         }
         
         tableView.reloadData()

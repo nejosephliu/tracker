@@ -38,7 +38,40 @@ class EditGroupDataFlow{
         }
     }
     
-    class func getMongoArrayOfMembers(groupID: String, completion:@escaping ([Member])-> Void){
+    class func updateGroup(groupID: String, newMemberArr: [Member], editedMemberArr: [Member], deletedMemberArr: [Member], completion:@escaping ()-> Void){
+        var newJSON : [NSDictionary] = []
+        for member in newMemberArr{
+             newJSON.append(["name": member.name, "g_id": groupID])
+        }
         
+        var editedJSON : [NSDictionary] = []
+        for member in editedMemberArr{
+            editedJSON.append(["id": member.id, "name": member.name, "g_id": groupID])
+        }
+        
+        var deletedJSON : [NSDictionary] = []
+        for member in deletedMemberArr{
+            deletedJSON.append(["id": member.id])
+        }
+        
+        let parameters: Parameters = ["newMemberArr": newJSON, "editedMemberArr": editedJSON, "deletedMemberArr": deletedJSON]
+        
+        Alamofire.request(Constants.baseURL + "update-members", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
+            completion()
+        }
+        
+        
+    }
+    
+    class func getJsonForUpdating(memberArr : [Member]) -> [NSDictionary]{
+        var json : [NSDictionary] = []
+        
+        let groupID = GroupsDataFlow.getCurrentGroupID()
+        
+        for member in memberArr{
+            json.append(["id": member.id, "name": member.name, "g_id": groupID])
+        }
+        
+        return json
     }
 }

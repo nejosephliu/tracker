@@ -56,6 +56,7 @@ class RecordDataFlow{
     }
     
     class func getMongoMemberInfoById(memberId: String, completion:@escaping (Member)-> Void){
+        
         Alamofire.request(Constants.baseURL + "member-by-id/" + memberId).responseJSON{ response in
             if let memberJson = response.result.value{
                 let memberResponseArr = memberJson as! NSArray
