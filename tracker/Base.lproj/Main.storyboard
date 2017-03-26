@@ -508,6 +508,28 @@
                                     <action selector="addMembers" destination="YNX-ns-RP3" eventType="touchUpInside" id="Sgu-Yl-Cj1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKP-Dl-UOw">
+                                <rect key="frame" x="61.5" y="145" width="64" height="36.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63.640000000000001" id="c3W-rY-rRN"/>
+                                    <constraint firstAttribute="height" constant="36.359999999999999" id="dwx-WZ-TTs"/>
+                                </constraints>
+                                <state key="normal" image="edit_name"/>
+                                <connections>
+                                    <action selector="addMembers" destination="YNX-ns-RP3" eventType="touchUpInside" id="ENR-LW-tfk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IbV-fZ-upx">
+                                <rect key="frame" x="249.5" y="145" width="64" height="36.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63.640000000000001" id="NAX-Hb-2LA"/>
+                                    <constraint firstAttribute="height" constant="36.359999999999999" id="pea-Np-bfn"/>
+                                </constraints>
+                                <state key="normal" image="delete_group"/>
+                                <connections>
+                                    <action selector="addMembers" destination="YNX-ns-RP3" eventType="touchUpInside" id="yfV-UV-Sce"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -520,11 +542,17 @@
                             <constraint firstItem="Vfq-Zn-9AC" firstAttribute="top" secondItem="AvQ-7x-9dv" secondAttribute="top" id="SdH-na-5eE"/>
                             <constraint firstItem="QmD-sF-IQY" firstAttribute="centerX" secondItem="AvQ-7x-9dv" secondAttribute="centerX" id="bvu-qA-eQK"/>
                             <constraint firstItem="1LM-58-bfi" firstAttribute="top" secondItem="5ll-T5-eNi" secondAttribute="bottom" constant="14.5" id="e4j-gF-zEL"/>
+                            <constraint firstItem="IbV-fZ-upx" firstAttribute="top" secondItem="1LM-58-bfi" secondAttribute="top" id="fPN-FG-OLP"/>
+                            <constraint firstItem="PKP-Dl-UOw" firstAttribute="top" secondItem="1LM-58-bfi" secondAttribute="top" id="fPe-wk-4da"/>
+                            <constraint firstItem="PKP-Dl-UOw" firstAttribute="bottom" secondItem="1LM-58-bfi" secondAttribute="bottom" id="feK-lh-vc9"/>
                             <constraint firstItem="Vfq-Zn-9AC" firstAttribute="leading" secondItem="AvQ-7x-9dv" secondAttribute="leading" id="fr9-Cg-jSt"/>
                             <constraint firstItem="Amt-7F-snW" firstAttribute="leading" secondItem="AvQ-7x-9dv" secondAttribute="leading" id="j0w-pz-DZl"/>
                             <constraint firstItem="5ll-T5-eNi" firstAttribute="centerX" secondItem="AvQ-7x-9dv" secondAttribute="centerX" id="kYD-2U-UBT"/>
                             <constraint firstItem="bii-qe-pBR" firstAttribute="top" secondItem="QmD-sF-IQY" secondAttribute="bottom" constant="14.5" id="nSk-mg-1qc"/>
+                            <constraint firstItem="1LM-58-bfi" firstAttribute="leading" secondItem="PKP-Dl-UOw" secondAttribute="trailing" constant="30" id="ocV-6D-4cp"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="5ll-T5-eNi" secondAttribute="trailing" constant="5" id="taL-X6-dWu"/>
+                            <constraint firstItem="IbV-fZ-upx" firstAttribute="leading" secondItem="1LM-58-bfi" secondAttribute="trailing" constant="30" id="uaF-Jc-Hwz"/>
+                            <constraint firstItem="IbV-fZ-upx" firstAttribute="bottom" secondItem="1LM-58-bfi" secondAttribute="bottom" id="vBc-QI-kcT"/>
                             <constraint firstItem="1LM-58-bfi" firstAttribute="centerX" secondItem="AvQ-7x-9dv" secondAttribute="centerX" id="wVu-J4-QKd"/>
                         </constraints>
                     </view>
@@ -709,6 +737,8 @@
         <image name="add_visitor" width="233" height="133"/>
         <image name="change_date" width="300" height="83"/>
         <image name="create_group2" width="300" height="83"/>
+        <image name="delete_group" width="233" height="133"/>
+        <image name="edit_name" width="233" height="133"/>
         <image name="first" width="30" height="30"/>
         <image name="login_inactive" width="150" height="83"/>
         <image name="second" width="30" height="30"/>
