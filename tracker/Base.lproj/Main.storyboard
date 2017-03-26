@@ -162,8 +162,8 @@
                                     <constraint firstItem="gM5-kh-Nt5" firstAttribute="centerY" secondItem="3Vg-GM-qis" secondAttribute="centerY" id="gAg-Gy-iGk"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GROUP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocL-F9-JRD">
-                                <rect key="frame" x="146.5" y="99" width="81.5" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GROUP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="ocL-F9-JRD">
+                                <rect key="frame" x="147" y="99" width="81.5" height="31"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -232,8 +232,8 @@
                                     <constraint firstAttribute="height" constant="85" id="6K1-0u-uLQ"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CUPERTINO 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCu-Gc-5ln">
-                                <rect key="frame" x="99" y="100" width="178.5" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CUPERTINO 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="GCu-Gc-5ln">
+                                <rect key="frame" x="98.5" y="100" width="178.5" height="31"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -304,6 +304,7 @@
                             <constraint firstItem="xvV-iv-jjD" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="Bsk-8q-d8N"/>
                             <constraint firstItem="bAk-Od-78c" firstAttribute="top" secondItem="Te2-Kg-zOC" secondAttribute="bottom" constant="15" id="Fo3-nV-HMZ"/>
                             <constraint firstItem="Te2-Kg-zOC" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="Hi0-Lp-q9u"/>
+                            <constraint firstItem="GCu-Gc-5ln" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="15" id="JDk-rY-zem"/>
                             <constraint firstItem="GCu-Gc-5ln" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="Mwz-Kn-hh9"/>
                             <constraint firstItem="c9L-vj-ZQX" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="Rsn-pd-Xh1"/>
                             <constraint firstItem="xvV-iv-jjD" firstAttribute="top" secondItem="bAk-Od-78c" secondAttribute="bottom" constant="15" id="VWp-KT-zaK"/>
@@ -313,6 +314,7 @@
                             <constraint firstItem="c9L-vj-ZQX" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="k0M-sP-zsQ"/>
                             <constraint firstItem="Te2-Kg-zOC" firstAttribute="top" secondItem="GCu-Gc-5ln" secondAttribute="bottom" constant="5" id="njv-if-hg4"/>
                             <constraint firstAttribute="trailing" secondItem="c9L-vj-ZQX" secondAttribute="trailing" id="v7x-5Y-r70"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="GCu-Gc-5ln" secondAttribute="trailing" constant="15" id="vzS-ec-XMc"/>
                             <constraint firstItem="GCu-Gc-5ln" firstAttribute="top" secondItem="c9L-vj-ZQX" secondAttribute="bottom" constant="15" id="w1i-lz-nLc"/>
                         </constraints>
                     </view>

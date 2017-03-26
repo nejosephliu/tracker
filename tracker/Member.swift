@@ -34,7 +34,7 @@ class Member {
     
     func getAttendanceString() -> String{
         if(attendance.count == 0){
-            return "No attendance records"
+            return "No Attendance Records"
         }else{
             var str = ""
             for attendanceObj in attendance{
