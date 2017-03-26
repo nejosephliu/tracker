@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 class Records: ParentViewController {
-
+    
     @IBOutlet weak var headerViewContainer: UIView!
     @IBOutlet weak var averageLabel: UILabel!
     @IBOutlet weak var groupNameLabel: UILabel!
@@ -60,7 +60,7 @@ class Records: ParentViewController {
             //changeToByDate()
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -166,10 +166,12 @@ extension Records: UITableViewDelegate{
         tableView.deselectRow(at: indexPath, animated: true)
         
         if(currentModeIsDates){
-            let attendanceObj = arrayOfAttendanceDates[indexPath.row]
-            let alertController = UIAlertController(title: attendanceObj.dateString, message: attendanceObj.getMembers(), preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            present(alertController, animated: true)
+            if(arrayOfAttendanceDates.count > 0){
+                let attendanceObj = arrayOfAttendanceDates[indexPath.row]
+                let alertController = UIAlertController(title: attendanceObj.dateString, message: attendanceObj.getMembers(), preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                present(alertController, animated: true)
+            }
         }else{
             let memberObj = arrayOfMembers[indexPath.row]
             let alertController = UIAlertController(title: memberObj.name, message: String(describing: memberObj.getAttendanceString()), preferredStyle: UIAlertControllerStyle.alert)
@@ -183,8 +185,13 @@ extension Records: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell_group_cell") as! CellGroupTableViewCell
         if(currentModeIsDates){
-            cell.dateLabel.text = arrayOfAttendanceDates[indexPath.row].dateString
-            cell.countLabel.text = String(describing: arrayOfAttendanceDates[indexPath.row].getCount())
+            if(arrayOfAttendanceDates.count == 0){
+                cell.dateLabel.text = "No Records"
+                cell.countLabel.text = ""
+            }else{
+                cell.dateLabel.text = arrayOfAttendanceDates[indexPath.row].dateString
+                cell.countLabel.text = String(describing: arrayOfAttendanceDates[indexPath.row].getCount())
+            }
         }else{
             cell.dateLabel.text = arrayOfMembers[indexPath.row].name
             cell.countLabel.text = String(describing: arrayOfMembers[indexPath.row].attendance.count)
@@ -195,6 +202,9 @@ extension Records: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(currentModeIsDates){
+            if(arrayOfAttendanceDates.count == 0){
+                return 1
+            }
             return arrayOfAttendanceDates.count
         }else{
             return arrayOfMembers.count
