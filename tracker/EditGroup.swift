@@ -95,9 +95,11 @@ class EditGroup: ParentViewController{
     
     @IBAction func submitButtonPressed(){
         if(isNewGroup){
-            EditGroupDataFlow.createGroup(groupName: groupName){ (result) -> () in
-                EditGroupDataFlow.addMembers(memberArr: self.membersArr, groupID: result){ () -> () in
-                    self.performSegue(withIdentifier: "backToGroupsSegue", sender: self)
+            if(membersArr.count > 0){
+                EditGroupDataFlow.createGroup(groupName: groupName){ (result) -> () in
+                    EditGroupDataFlow.addMembers(memberArr: self.membersArr, groupID: result){ () -> () in
+                        self.performSegue(withIdentifier: "backToGroupsSegue", sender: self)
+                    }
                 }
             }
         }else{

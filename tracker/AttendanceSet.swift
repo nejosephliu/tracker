@@ -30,11 +30,14 @@ class AttendanceSet {
     }
     
     func getMembers() -> String{
-        var str = ""
-        for member in membersArr{
-            str += member.name + "\n"
+        if(membersArr.count == 0){
+            return "No Members"
+        }else{
+            var str = ""
+            for member in membersArr{
+                str += member.name + "\n"
+            }
+            return str.substring(to: str.index(str.endIndex, offsetBy: -1))
         }
-        
-        return str.substring(to: str.index(str.endIndex, offsetBy: -1))
     }
 }

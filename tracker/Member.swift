@@ -33,11 +33,14 @@ class Member {
     }
     
     func getAttendanceString() -> String{
-        var str = ""
-        for attendanceObj in attendance{
-            str += attendanceObj.dateString + "\n"
+        if(attendance.count == 0){
+            return "No attendance records"
+        }else{
+            var str = ""
+            for attendanceObj in attendance{
+                str += attendanceObj.dateString + "\n"
+            }
+            return str.substring(to: str.index(str.endIndex, offsetBy: -1))
         }
-        
-        return str.substring(to: str.index(str.endIndex, offsetBy: -1))
     }
 }

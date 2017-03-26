@@ -60,15 +60,18 @@ class RecordDataFlow{
         Alamofire.request(Constants.baseURL + "member-by-id/" + memberId).responseJSON{ response in
             if let memberJson = response.result.value{
                 let memberResponseArr = memberJson as! NSArray
+                if(memberResponseArr.count > 0){
                 let memberIndividualArr = memberResponseArr.firstObject as! NSDictionary
                 let id = memberIndividualArr["_id"] as! String
                 let name = memberIndividualArr["name"] as! String
+                print("name" + name)
                 let g_id = memberIndividualArr["g_id"] as! String
 
                 
                 let individualMember = Member(id: id, name: name, g_id: g_id)
                 
                 completion(individualMember)
+                }
             }
         }
     }
