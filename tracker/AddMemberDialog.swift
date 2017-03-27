@@ -41,6 +41,11 @@ class AddMemberDialog: ParentDialog {
         view.addGestureRecognizer(gestureRecognizer)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        nameTF.becomeFirstResponder()
+    }
+    
     func dismissKeyboard(){
         nameTF.resignFirstResponder()
     }

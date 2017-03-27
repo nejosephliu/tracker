@@ -29,10 +29,16 @@ class EditGroupNameDialog: ParentDialog {
         super.viewDidLoad()
         
         nameTF.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
+        
         addButton.isEnabled = false
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        nameTF.becomeFirstResponder()
     }
     
     func dismissKeyboard(){
