@@ -21,6 +21,8 @@ class EditGroupNameDialog: ParentDialog {
     
     weak var delegate: EditGroupNameDialogDelegate?
     
+    var defaultText : String!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -31,6 +33,8 @@ class EditGroupNameDialog: ParentDialog {
         nameTF.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
         
         addButton.isEnabled = false
+        
+        nameTF.text = defaultText
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(gestureRecognizer)
@@ -49,6 +53,10 @@ class EditGroupNameDialog: ParentDialog {
         if let stringLength = nameTF.text?.characters.count{
             addButton.isEnabled = stringLength > 0
         }
+    }
+    
+    func setDefaultText(groupName: String){
+        defaultText = groupName
     }
     
     @IBAction func addButtonPressed(){

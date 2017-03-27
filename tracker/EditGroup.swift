@@ -19,7 +19,7 @@ class EditGroup: ParentViewController{
     var groupName: String!
     var groupID: String!
     
-    
+    var newName: String = ""
     
     var membersArr : [Member] = []
     var isNewGroup : Bool = true
@@ -113,7 +113,13 @@ class EditGroup: ParentViewController{
             }
         }else{
             EditGroupDataFlow.updateGroup(groupID: groupID, newMemberArr: newMembers, editedMemberArr: editedMembers, deletedMemberArr: deletedMembers){ () -> () in
-                self.performSegue(withIdentifier: "backToGroupsSegue", sender: self)
+                if(self.newName.characters.count > 0){
+                    EditGroupDataFlow.changeGroupName(groupID: self.groupID, groupName: self.newName, completion: {
+                        self.performSegue(withIdentifier: "backToGroupsSegue", sender: self)
+                    })
+                }else{
+                    self.performSegue(withIdentifier: "backToGroupsSegue", sender: self)
+                }
             }
         }
     }
@@ -127,6 +133,7 @@ class EditGroup: ParentViewController{
     @IBAction func editNamePressed(){
         let editNameDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "editGroupNameDialog") as! EditGroupNameDialog
         editNameDialog.delegate = self
+        editNameDialog.setDefaultText(groupName: self.groupName)
         present(editNameDialog, animated: true, completion: nil)
     }
     
@@ -230,6 +237,8 @@ extension EditGroup: AddMemberDialogDelegate{
 
 extension EditGroup: EditGroupNameDialogDelegate{
     func editName(groupName: String) {
-        print("edit the name to : " + groupName)
+        self.groupName = groupName
+        groupNameLabel.text = "GROUP NAME: " + groupName
+        newName = groupName
     }
 }

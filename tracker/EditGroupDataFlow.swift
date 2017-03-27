@@ -59,8 +59,6 @@ class EditGroupDataFlow{
         Alamofire.request(Constants.baseURL + "update-members", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
             completion()
         }
-        
-        
     }
     
     class func getJsonForUpdating(memberArr : [Member]) -> [NSDictionary]{
@@ -73,6 +71,15 @@ class EditGroupDataFlow{
         }
         
         return json
+    }
+    
+    class func changeGroupName(groupID: String, groupName: String, completion:@escaping ()-> Void){
+        let uid = UserDefaults.standard.value(forKey: "uid") as! String
+        print("changing group name: " + groupName)
+        
+        Alamofire.request(RequestManager.urlEncode(url:Constants.baseURL + "change-group-name/" + groupID + "/" + groupName + "/" + uid)).responseJSON{ response in
+            completion()
+        }
     }
     
     class func deleteGroup(groupID: String, completion:@escaping ()-> Void){
