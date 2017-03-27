@@ -64,7 +64,6 @@ class RecordDataFlow{
                 let memberIndividualArr = memberResponseArr.firstObject as! NSDictionary
                 let id = memberIndividualArr["_id"] as! String
                 let name = memberIndividualArr["name"] as! String
-                print("name" + name)
                 let g_id = memberIndividualArr["g_id"] as! String
 
                 
@@ -125,6 +124,11 @@ class RecordDataFlow{
                 completion(attArr)
             }
         }
-
+    }
+    
+    class func deleteAttendanceSet(dateID: String, completion:@escaping () -> Void){
+        Alamofire.request(RequestManager.urlEncode(url: Constants.baseURL + "delete-attendance-set/" + dateID)).responseJSON{ response in
+            completion()
+        }
     }
 }

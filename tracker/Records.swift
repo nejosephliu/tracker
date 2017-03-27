@@ -29,6 +29,8 @@ class Records: ParentViewController {
         self.view.layoutIfNeeded()
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Records")
         
+        tableView.allowsMultipleSelectionDuringEditing = false
+        
         currentGroupID = GroupsDataFlow.getCurrentGroupID()
         
         updateDates()
@@ -177,6 +179,22 @@ extension Records: UITableViewDelegate{
             let alertController = UIAlertController(title: memberObj.name, message: String(describing: memberObj.getAttendanceString()), preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             present(alertController, animated: true)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return currentModeIsDates
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            let attendanceSet = arrayOfAttendanceDates[indexPath.row]
+            let dateID = attendanceSet.dateId
+            
+            RecordDataFlow.deleteAttendanceSet(dateID: dateID!, completion: {
+                self.arrayOfAttendanceDates.remove(at: indexPath.row)
+                tableView.reloadData()
+            })
         }
     }
 }

@@ -26,7 +26,16 @@ class Groups: ParentViewController {
         self.view.layoutIfNeeded()
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "My Groups")
         
-        GroupsDataFlow.updateUserGroupArray { 
+        GroupsDataFlow.updateUserGroupArray {
+            self.groupArr = GroupsDataFlow.getLocalGroupArray()
+            self.groupsTableView.reloadData()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        GroupsDataFlow.updateUserGroupArray {
             self.groupArr = GroupsDataFlow.getLocalGroupArray()
             self.groupsTableView.reloadData()
         }
