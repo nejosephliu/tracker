@@ -183,7 +183,7 @@ extension Records: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return currentModeIsDates
+        return currentModeIsDates && arrayOfAttendanceDates.count > 0
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

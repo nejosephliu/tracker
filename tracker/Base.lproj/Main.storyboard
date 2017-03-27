@@ -378,9 +378,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" translatesAutoresizingMaskIntoConstraints="NO" id="8Ff-qu-ke3">
+                                                    <rect key="frame" x="342" y="14" width="15" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="15" id="96D-cm-Cij"/>
+                                                        <constraint firstAttribute="height" constant="15" id="o83-WT-oKg"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="8Ff-qu-ke3" secondAttribute="trailing" constant="10" id="5Ip-jW-P6I"/>
                                                 <constraint firstItem="ak7-C0-gxO" firstAttribute="centerY" secondItem="hF9-CW-1Vg" secondAttribute="centerY" id="BEd-Jc-BjU"/>
+                                                <constraint firstItem="8Ff-qu-ke3" firstAttribute="centerY" secondItem="hF9-CW-1Vg" secondAttribute="centerY" id="EHB-Ck-uss"/>
                                                 <constraint firstItem="ak7-C0-gxO" firstAttribute="leading" secondItem="hF9-CW-1Vg" secondAttribute="leadingMargin" constant="10" id="JHj-Hn-FyB"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -453,9 +462,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" translatesAutoresizingMaskIntoConstraints="NO" id="06B-Fd-pMj">
+                                                    <rect key="frame" x="340" y="14.5" width="15" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="jF5-zg-Kz1"/>
+                                                        <constraint firstAttribute="width" constant="15" id="pRb-eb-RGG"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="06B-Fd-pMj" firstAttribute="centerY" secondItem="Mb9-6C-Qhf" secondAttribute="centerY" id="EBo-4q-2BU"/>
                                                 <constraint firstItem="pIT-Qr-Pui" firstAttribute="leading" secondItem="Mb9-6C-Qhf" secondAttribute="leadingMargin" constant="10" id="LdN-1F-2Yn"/>
+                                                <constraint firstAttribute="trailing" secondItem="06B-Fd-pMj" secondAttribute="trailing" constant="20" id="OvL-Rg-cmy"/>
                                                 <constraint firstItem="pIT-Qr-Pui" firstAttribute="centerY" secondItem="Mb9-6C-Qhf" secondAttribute="centerY" id="t3H-ze-dcH"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -742,6 +760,7 @@
         <image name="edit_name" width="233" height="133"/>
         <image name="first" width="30" height="30"/>
         <image name="login_inactive" width="150" height="83"/>
+        <image name="pencil" width="32" height="32"/>
         <image name="second" width="30" height="30"/>
         <image name="submit" width="200" height="83"/>
     </resources>
