@@ -193,7 +193,7 @@ extension Records: UITableViewDelegate{
             
             RecordDataFlow.deleteAttendanceSet(dateID: dateID!, completion: {
                 self.arrayOfAttendanceDates.remove(at: indexPath.row)
-                tableView.reloadData()
+                self.reloadTableView()
             })
         }
     }
