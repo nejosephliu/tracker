@@ -74,4 +74,10 @@ class EditGroupDataFlow{
         
         return json
     }
+    
+    class func deleteGroup(groupID: String, completion:@escaping ()-> Void){
+        Alamofire.request(Constants.baseURL + "delete-group/" + groupID).responseJSON{ response in
+            completion()
+        }
+    }
 }

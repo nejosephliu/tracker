@@ -14,9 +14,12 @@ class EditGroup: ParentViewController{
     @IBOutlet weak var headerViewContainer: UIView!
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var deleteGroupButton: UIButton!
     
     var groupName: String!
     var groupID: String!
+    
+    
     
     var membersArr : [Member] = []
     var isNewGroup : Bool = true
@@ -32,6 +35,10 @@ class EditGroup: ParentViewController{
         header.backDelegate = self
         header.showBackButton()
         
+        if(!isNewGroup){
+            deleteGroupButton.isHidden = false
+        }
+        
         tableView.allowsMultipleSelectionDuringEditing = false
         
         if let groupName = groupName{
@@ -41,6 +48,8 @@ class EditGroup: ParentViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        
     }
     
     func setGroupName(name: String){
@@ -114,6 +123,21 @@ class EditGroup: ParentViewController{
         addMemberDialog.delegate = self
         present(addMemberDialog, animated: true, completion: nil)
     }
+    
+    @IBAction func deleteGroupPressed(){
+        let alert = UIAlertController(title: "Delete?", message: "You cannot undo this action.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Yes", style: .default, handler: deleteGroup)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func deleteGroup(alert: UIAlertAction){
+        EditGroupDataFlow.deleteGroup(groupID: groupID){ () -> () in
+            self.performSegue(withIdentifier: "backToGroupsSegue", sender: self)
+        }
+    }
 }
 
 extension EditGroup: HeaderBackDelegate{
@@ -150,15 +174,10 @@ extension EditGroup: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        print("here 1")
         if (editingStyle == .delete) {
-            print("here 2")
             if(!isNewGroup){
-                print("here 3")
                 deletedMembers.append(membersArr[indexPath.row])
-                print("del members: " + String(describing: deletedMembers))
             }
-            print("here 4")
             membersArr.remove(at: indexPath.row)
             tableView.reloadData()
         }
