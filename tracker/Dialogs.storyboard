@@ -525,5 +525,105 @@
             </objects>
             <point key="canvasLocation" x="2855" y="194"/>
         </scene>
+        <!--Edit Group Name Dialog-->
+        <scene sceneID="snr-mx-QiL">
+            <objects>
+                <viewController storyboardIdentifier="editGroupNameDialog" id="h64-6q-7uj" customClass="EditGroupNameDialog" customModule="tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CMs-mM-6x5"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ao0-GD-kOS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g8F-e7-jB3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGX-Va-rN3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mww-0b-6qU">
+                                <rect key="frame" x="58" y="224" width="260" height="220"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EDIT NAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZm-sm-rgE">
+                                        <rect key="frame" x="44" y="20" width="173" height="37"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HbD-NO-iO1">
+                                        <rect key="frame" x="85" y="159" width="91" height="41"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
+                                        <state key="normal" title="CHANGE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addButtonPressed" destination="h64-6q-7uj" eventType="touchUpInside" id="ez6-pz-JFN"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qJ-zW-vEM">
+                                        <rect key="frame" x="92" y="69" width="76" height="29"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFv-Gg-JI2" userLabel="TextFieldPaddingView">
+                                        <rect key="frame" x="0.0" y="98" width="260" height="61"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aUE-R7-QgG">
+                                                <rect key="frame" x="10" y="15" width="240" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="aUE-R7-QgG" secondAttribute="trailing" constant="10" id="7RK-gd-Xwp"/>
+                                            <constraint firstItem="aUE-R7-QgG" firstAttribute="leading" secondItem="PFv-Gg-JI2" secondAttribute="leading" constant="10" id="cvm-YN-f0j"/>
+                                            <constraint firstItem="aUE-R7-QgG" firstAttribute="centerY" secondItem="PFv-Gg-JI2" secondAttribute="centerY" id="fHo-Ef-AXD"/>
+                                            <constraint firstItem="aUE-R7-QgG" firstAttribute="centerX" secondItem="PFv-Gg-JI2" secondAttribute="centerX" id="kIT-Rg-SC9"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="7aC-gg-whs"/>
+                                    <constraint firstItem="HbD-NO-iO1" firstAttribute="top" secondItem="PFv-Gg-JI2" secondAttribute="bottom" id="AZc-kB-mIZ"/>
+                                    <constraint firstItem="PFv-Gg-JI2" firstAttribute="top" secondItem="4qJ-zW-vEM" secondAttribute="bottom" id="F8t-P3-7Y1"/>
+                                    <constraint firstAttribute="trailing" secondItem="PFv-Gg-JI2" secondAttribute="trailing" id="NEW-YN-Ag6"/>
+                                    <constraint firstItem="mZm-sm-rgE" firstAttribute="top" secondItem="mww-0b-6qU" secondAttribute="top" constant="20" id="RfP-gM-pTX"/>
+                                    <constraint firstAttribute="height" constant="220" id="Vbt-Ze-PjM"/>
+                                    <constraint firstAttribute="bottom" secondItem="HbD-NO-iO1" secondAttribute="bottom" constant="20" id="aGR-HZ-4Xa"/>
+                                    <constraint firstItem="mZm-sm-rgE" firstAttribute="centerX" secondItem="mww-0b-6qU" secondAttribute="centerX" id="c5D-6e-DKs"/>
+                                    <constraint firstItem="4qJ-zW-vEM" firstAttribute="centerX" secondItem="mww-0b-6qU" secondAttribute="centerX" id="jyj-r7-WXy"/>
+                                    <constraint firstItem="PFv-Gg-JI2" firstAttribute="leading" secondItem="mww-0b-6qU" secondAttribute="leading" id="uYf-6u-eH7"/>
+                                    <constraint firstItem="HbD-NO-iO1" firstAttribute="centerX" secondItem="mww-0b-6qU" secondAttribute="centerX" id="vgS-x7-8Sv"/>
+                                    <constraint firstItem="4qJ-zW-vEM" firstAttribute="top" secondItem="mZm-sm-rgE" secondAttribute="bottom" constant="12" id="z00-Ei-GNk"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="iGX-Va-rN3" firstAttribute="top" secondItem="g8F-e7-jB3" secondAttribute="top" id="7iT-s2-D4d"/>
+                            <constraint firstAttribute="bottom" secondItem="iGX-Va-rN3" secondAttribute="bottom" id="h84-Za-HQV"/>
+                            <constraint firstItem="mww-0b-6qU" firstAttribute="centerY" secondItem="g8F-e7-jB3" secondAttribute="centerY" id="hGf-MZ-Bzg"/>
+                            <constraint firstItem="mww-0b-6qU" firstAttribute="centerX" secondItem="g8F-e7-jB3" secondAttribute="centerX" id="hxC-Gc-7av"/>
+                            <constraint firstItem="iGX-Va-rN3" firstAttribute="leading" secondItem="g8F-e7-jB3" secondAttribute="leading" id="tDf-Xg-NUk"/>
+                            <constraint firstAttribute="trailing" secondItem="iGX-Va-rN3" secondAttribute="trailing" id="tgX-Sz-Saa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="HbD-NO-iO1" id="EES-OJ-oJt"/>
+                        <outlet property="backgroundView" destination="iGX-Va-rN3" id="0aQ-Pj-Hhp"/>
+                        <outlet property="nameTF" destination="aUE-R7-QgG" id="SX9-sp-ibm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hFg-sm-Q34" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3598" y="194"/>
+        </scene>
     </scenes>
 </document>

@@ -534,7 +534,7 @@
                                 </constraints>
                                 <state key="normal" image="edit_name"/>
                                 <connections>
-                                    <action selector="addMembers" destination="YNX-ns-RP3" eventType="touchUpInside" id="ENR-LW-tfk"/>
+                                    <action selector="editNamePressed" destination="YNX-ns-RP3" eventType="touchUpInside" id="Zjt-XB-wjy"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IbV-fZ-upx">

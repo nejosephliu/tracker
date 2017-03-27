@@ -124,6 +124,12 @@ class EditGroup: ParentViewController{
         present(addMemberDialog, animated: true, completion: nil)
     }
     
+    @IBAction func editNamePressed(){
+        let editNameDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "editGroupNameDialog") as! EditGroupNameDialog
+        editNameDialog.delegate = self
+        present(editNameDialog, animated: true, completion: nil)
+    }
+    
     @IBAction func deleteGroupPressed(){
         let alert = UIAlertController(title: "Delete?", message: "You cannot undo this action.", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Yes", style: .default, handler: deleteGroup)
@@ -219,5 +225,11 @@ extension EditGroup: AddMemberDialogDelegate{
         }
         
         tableView.reloadData()
+    }
+}
+
+extension EditGroup: EditGroupNameDialogDelegate{
+    func editName(groupName: String) {
+        print("edit the name to : " + groupName)
     }
 }
