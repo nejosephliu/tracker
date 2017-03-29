@@ -16,7 +16,7 @@ class AttendanceTableViewCell: UITableViewCell{
     override init(style: UITableViewCellStyle, reuseIdentifier: String!){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        checkMark.image = UIImage(named: "first")
+        //checkMark.image = UIImage(named: "second")
         checkMark.isHidden = true
     }
     
