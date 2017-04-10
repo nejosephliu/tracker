@@ -9,5 +9,6 @@ target ‘tracker’ do
     pod ‘Firebase/Auth’
     pod 'Alamofire', '~> 4.0'
     pod 'DropDown', '~> 2'
+    pod 'JBDatePicker', '~> 1.2'
    
 end

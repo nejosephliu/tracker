@@ -32,6 +32,7 @@ PODS:
   - GoogleSymbolUtilities (1.1.2)
   - GoogleUtilities (1.3.2):
     - GoogleSymbolUtilities (~> 1.1)
+  - JBDatePicker (1.2.2)
   - SnapKit (3.0.2)
 
 DEPENDENCIES:
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - JBDatePicker (~> 1.2)
   - SnapKit (~> 3.0)
 
 SPEC CHECKSUMS:
@@ -55,8 +57,9 @@ SPEC CHECKSUMS:
   GoogleNetworkingUtilities: 3edd3a8161347494f2da60ea0deddc8a472d94cb
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
+  JBDatePicker: 4d4934ccb9dae7f0f636a44d0f4c03a159e8eb63
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: 4a005863450ff6622f024689e700a92e685a4b4f
+PODFILE CHECKSUM: 01ebb4436f31ed76d0533caabde68bb2c6b5dd1d
 
 COCOAPODS: 1.1.1

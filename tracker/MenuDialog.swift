@@ -88,11 +88,13 @@ class MenuDialog: ParentDialog {
     }
     
     func updateCurrentGroupLabel(){
-        if let currentGroupObj = NSKeyedUnarchiver.unarchiveObject(with: UserDefaults.standard.object(forKey: "currentGroup") as! Data){
+        /*if let currentGroupObj = NSKeyedUnarchiver.unarchiveObject(with: UserDefaults.standard.object(forKey: "currentGroup") as! Data){
             let currentGroup = currentGroupObj as! Group
             
             selectedGroupLabel.text = currentGroup.name
-        }
+        }*/
+        
+        selectedGroupLabel.text = GroupsDataFlow.getCurrentGroupName()
     }
     
     @IBAction func dropdownPressed() {

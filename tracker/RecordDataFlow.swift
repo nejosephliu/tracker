@@ -77,26 +77,31 @@ class RecordDataFlow{
     
     class func getMongoArrayOfMembers(gID: String, completion:@escaping ([Member])-> Void){
         let currentGroup = GroupsDataFlow.getCurrentGroup()
-        let groupID = currentGroup.id
         
-        Alamofire.request(RequestManager.urlEncode(url: Constants.baseURL + "members-key/" + groupID)).responseJSON{ response in
-            if let json = response.result.value {
-                let responseArr = json as! NSArray
-                var membersArr : [Member] = []
-                
-                for individual in responseArr{
-                    let individualArr = individual as! NSDictionary
-                    let id = individualArr["_id"] as! String
-                    let name = individualArr["name"] as! String
-                    let g_id = individualArr["g_id"] as! String
+        if(GroupsDataFlow.isGroupEmpty(group: currentGroup)){
+            completion([])
+        }else{
+            let groupID = currentGroup.id
+            
+            Alamofire.request(RequestManager.urlEncode(url: Constants.baseURL + "members-key/" + groupID)).responseJSON{ response in
+                if let json = response.result.value {
+                    let responseArr = json as! NSArray
+                    var membersArr : [Member] = []
                     
-                    let individualMember = Member(id: id, name: name, g_id: g_id)
-                    membersArr.append(individualMember)
+                    for individual in responseArr{
+                        let individualArr = individual as! NSDictionary
+                        let id = individualArr["_id"] as! String
+                        let name = individualArr["name"] as! String
+                        let g_id = individualArr["g_id"] as! String
+                        
+                        let individualMember = Member(id: id, name: name, g_id: g_id)
+                        membersArr.append(individualMember)
+                    }
+                    
+                    completion(membersArr)
+                }else{
+                    completion([])
                 }
-                
-                completion(membersArr)
-            }else{
-                completion([])
             }
         }
     }

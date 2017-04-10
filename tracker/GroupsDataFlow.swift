@@ -52,7 +52,14 @@ class GroupsDataFlow {
     
     
     class func getCurrentGroup() -> Group{
-        return NSKeyedUnarchiver.unarchiveObject(with: UserDefaults.standard.object(forKey: "currentGroup") as! Data) as! Group
+        if(UserDefaults.standard.object(forKey: "currentGroup") == nil){
+            return Group(id: "", name: "", owner: "")
+        }else{
+            return NSKeyedUnarchiver.unarchiveObject(with: UserDefaults.standard.object(forKey: "currentGroup") as! Data) as! Group
+        }
+        
+        
+        //return NSKeyedUnarchiver.unarchiveObject(with: UserDefaults.standard.object(forKey: "currentGroup") as! Data) as! Group
     }
     
     class func getCurrentGroupID() -> String{
@@ -61,6 +68,10 @@ class GroupsDataFlow {
     
     class func getCurrentGroupName() -> String{
         return getCurrentGroup().name
+    }
+    
+    class func isGroupEmpty(group: Group) -> Bool{
+        return (group.name == "" && group.id == "" && group.owner == "")
     }
     
     class func setDefaultCurrentGroup(){
