@@ -138,7 +138,7 @@ class EditGroup: ParentViewController{
     }
     
     @IBAction func deleteGroupPressed(){
-        let alert = UIAlertController(title: "Delete?", message: "You cannot undo this action.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Delete Group?", message: "You cannot undo this action.", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Yes", style: .default, handler: deleteGroup)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(ok)

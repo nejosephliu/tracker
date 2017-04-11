@@ -137,9 +137,10 @@ class Mark: ParentViewController {
     @IBAction func changeDateButtonPressed(){
         let changeDateDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "changeDateDialog") as! ChangeDateDialog
         changeDateDialog.delegate = self
+        changeDateDialog.setDate(year: currentYear, month: currentMonth, day: currentDay)
         present(changeDateDialog, animated: true, completion: nil)
         
-        changeDateDialog.setDate(year: currentYear, month: currentMonth, day: currentDay)
+        
     }
     
     @IBAction func clearButtonPressed(){
