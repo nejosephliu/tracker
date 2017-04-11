@@ -147,7 +147,7 @@ class Records: ParentViewController {
         let month = Int(dateString.substring(with: dateString.index(dateString.startIndex, offsetBy: 5)..<dateString.index(dateString.startIndex, offsetBy: 7)))
         let day = String(describing: Int(dateString.substring(with: dateString.index(dateString.startIndex, offsetBy: 8)..<dateString.index(dateString.startIndex, offsetBy: 10)))!)
         
-        return monthArr[month!] + " " + day + ", " + year
+        return monthArr[month! - 1] + " " + day + ", " + year
     }
     
     func updateMembers(){
