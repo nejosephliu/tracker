@@ -20,6 +20,8 @@ class Records: ParentViewController {
     var arrayOfAttendanceDates : [AttendanceSet] = []
     var arrayOfMembers: [Member] = []
     
+    final var monthArr : [String] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    
     var currentGroupID : String = ""
     
     var currentModeIsDates : Bool = true
@@ -139,11 +141,18 @@ class Records: ParentViewController {
         }
     }
     
+    func getFormattedDateFromDateString(dateString: String) -> String{
+        let year = String(describing: Int(dateString.substring(to: dateString.index(dateString.startIndex, offsetBy: 4)))!)
+        
+        let month = Int(dateString.substring(with: dateString.index(dateString.startIndex, offsetBy: 5)..<dateString.index(dateString.startIndex, offsetBy: 7)))
+        let day = String(describing: Int(dateString.substring(with: dateString.index(dateString.startIndex, offsetBy: 8)..<dateString.index(dateString.startIndex, offsetBy: 10)))!)
+        
+        return monthArr[month!] + " " + day + ", " + year
+    }
+    
     func updateMembers(){
         RecordDataFlow.getMongoArrayOfMembers(gID: GroupsDataFlow.getCurrentGroupID()) { (arrayOfMembers) -> () in
             self.arrayOfMembers = []
-            
-            
             
             for member in arrayOfMembers{
                 
@@ -207,7 +216,8 @@ extension Records: UITableViewDataSource{
                 cell.dateLabel.text = "No Records"
                 cell.countLabel.text = ""
             }else{
-                cell.dateLabel.text = arrayOfAttendanceDates[indexPath.row].dateString
+                //cell.dateLabel.text = arrayOfAttendanceDates[indexPath.row].dateString
+                cell.dateLabel.text = getFormattedDateFromDateString(dateString: arrayOfAttendanceDates[indexPath.row].dateString)
                 cell.countLabel.text = String(describing: arrayOfAttendanceDates[indexPath.row].getCount())
             }
         }else{
