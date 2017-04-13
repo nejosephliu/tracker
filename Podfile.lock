@@ -34,6 +34,7 @@ PODS:
     - GoogleSymbolUtilities (~> 1.1)
   - JBDatePicker (1.2.2)
   - SnapKit (3.0.2)
+  - SwiftSpinner (1.2.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -43,6 +44,7 @@ DEPENDENCIES:
   - Firebase/Database
   - JBDatePicker (~> 1.2)
   - SnapKit (~> 3.0)
+  - SwiftSpinner (~> 1.2)
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
@@ -59,7 +61,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   JBDatePicker: 4d4934ccb9dae7f0f636a44d0f4c03a159e8eb63
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+  SwiftSpinner: 62a28bbb4035f252a1e91b0e17fc40bdbbfa0aab
 
-PODFILE CHECKSUM: 01ebb4436f31ed76d0533caabde68bb2c6b5dd1d
+PODFILE CHECKSUM: 9f10753d482db5b1002534e2d692e978359df692
 
 COCOAPODS: 1.1.1
