@@ -84,7 +84,7 @@ class Mark: ParentViewController {
     }
     
     func getListOfMembers(){
-        KVSpinnerView.show(saying: "Loading")
+        KVSpinnerView.showLoading()
         MarkTableViewDataFlow.getMongoArrayOfMembers(gID: currentGroupID) { (arrayOfMembers) -> () in
             if(arrayOfMembers.count == 0){
                 /*let alert = UIAlertController(title: "Cannot get members", message: "Please check your connection to the internet.  ", preferredStyle: .alert)

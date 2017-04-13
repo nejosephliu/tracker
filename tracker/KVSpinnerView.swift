@@ -34,6 +34,12 @@ public class KVSpinnerView: UIView {
         KVSpinnerView.shared.startAnimating(onView: nil,
                                             withMessage: status)
     }
+    
+    public static func showLoading() {
+        KVSpinnerView.shared.animationTypeIsProgress = false
+        KVSpinnerView.shared.startAnimating(onView: nil,
+                                            withMessage: "Loading")
+    }
 
     /// Adds SpinnerView to your view and start animating it
     /// - Parameter view: use from ViewController (for example: self.view).
