@@ -105,14 +105,15 @@ class Records: ParentViewController {
     }
     
     func updateDates(){
+        //KVSpinnerView.showLoading()
+        
         RecordDataFlow.getMongoArrayOfDates(groupID: GroupsDataFlow.getCurrentGroupID()) { (arrayOfDates) -> () in
             //NSLog("the array of dates: " + String(describing: arrayOfDates))
-            
-            //KVSpinnerView.showLoading()
             
             self.arrayOfAttendanceDates = []
             
             if(arrayOfDates.count == 0){
+                //KVSpinnerView.dismiss()
                 self.reloadTableView()
             }
             
