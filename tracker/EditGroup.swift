@@ -105,8 +105,10 @@ class EditGroup: ParentViewController{
     @IBAction func submitButtonPressed(){
         if(isNewGroup){
             if(membersArr.count > 0){
+                KVSpinnerView.showLoading()
                 EditGroupDataFlow.createGroup(groupName: groupName){ (result) -> () in
                     EditGroupDataFlow.addMembers(memberArr: self.membersArr, groupID: result){ () -> () in
+                        KVSpinnerView.dismiss()
                         self.performSegue(withIdentifier: "backToGroupsSegue", sender: self)
                     }
                 }
