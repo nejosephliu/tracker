@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C07F0BB1EA0436900BB8909 /* KVSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F0BA1EA0436900BB8909 /* KVSpinnerView.swift */; };
+		7C07F0BE1EA0437700BB8909 /* KVSpinnerViewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F0BC1EA0437700BB8909 /* KVSpinnerViewSettings.swift */; };
+		7C07F0BF1EA0437700BB8909 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F0BD1EA0437700BB8909 /* AnimationManager.swift */; };
+		7C07F0C41EA0437C00BB8909 /* CircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F0C01EA0437C00BB8909 /* CircleLayer.swift */; };
+		7C07F0C51EA0437C00BB8909 /* ProgressLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F0C11EA0437C00BB8909 /* ProgressLayer.swift */; };
+		7C07F0C61EA0437C00BB8909 /* RectangleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F0C21EA0437C00BB8909 /* RectangleLayer.swift */; };
+		7C07F0C71EA0437C00BB8909 /* StatusTitleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07F0C31EA0437C00BB8909 /* StatusTitleLayer.swift */; };
 		7C0CEFA71E4E3762002980BB /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0CEFA61E4E3762002980BB /* Groups.swift */; };
 		7C1E164C1E7D038C009DC42D /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E164B1E7D038C009DC42D /* Attendance.swift */; };
 		7C236A1F1E5378A300C488D4 /* GroupsDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C236A1E1E5378A300C488D4 /* GroupsDataFlow.swift */; };
@@ -49,6 +56,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C07F0BA1EA0436900BB8909 /* KVSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVSpinnerView.swift; sourceTree = "<group>"; };
+		7C07F0BC1EA0437700BB8909 /* KVSpinnerViewSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVSpinnerViewSettings.swift; sourceTree = "<group>"; };
+		7C07F0BD1EA0437700BB8909 /* AnimationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
+		7C07F0C01EA0437C00BB8909 /* CircleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleLayer.swift; sourceTree = "<group>"; };
+		7C07F0C11EA0437C00BB8909 /* ProgressLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressLayer.swift; sourceTree = "<group>"; };
+		7C07F0C21EA0437C00BB8909 /* RectangleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleLayer.swift; sourceTree = "<group>"; };
+		7C07F0C31EA0437C00BB8909 /* StatusTitleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTitleLayer.swift; sourceTree = "<group>"; };
 		7C0CEFA61E4E3762002980BB /* Groups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		7C1E164B1E7D038C009DC42D /* Attendance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
 		7C236A1E1E5378A300C488D4 /* GroupsDataFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsDataFlow.swift; sourceTree = "<group>"; };
@@ -108,6 +122,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C07F0C81EA0438F00BB8909 /* KVSpinnerView */ = {
+			isa = PBXGroup;
+			children = (
+				7C07F0BA1EA0436900BB8909 /* KVSpinnerView.swift */,
+				7C07F0BC1EA0437700BB8909 /* KVSpinnerViewSettings.swift */,
+				7C07F0BD1EA0437700BB8909 /* AnimationManager.swift */,
+				7C07F0C01EA0437C00BB8909 /* CircleLayer.swift */,
+				7C07F0C11EA0437C00BB8909 /* ProgressLayer.swift */,
+				7C07F0C21EA0437C00BB8909 /* RectangleLayer.swift */,
+				7C07F0C31EA0437C00BB8909 /* StatusTitleLayer.swift */,
+			);
+			name = KVSpinnerView;
+			sourceTree = "<group>";
+		};
 		7C5064DF1E4EF62F0072972A /* Dialogs */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +165,7 @@
 		7C65D9A01DBBFA4F000AA4CE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7C07F0C81EA0438F00BB8909 /* KVSpinnerView */,
 				7C65D9A11DBBFA5E000AA4CE /* HelperViews */,
 				7C65D9A21DBBFA77000AA4CE /* ViewControllers */,
 			);
@@ -378,21 +407,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C07F0BF1EA0437700BB8909 /* AnimationManager.swift in Sources */,
 				7C7CACC21E0E133C009F0CDB /* AttendanceSet.swift in Sources */,
 				7CFFEEA81DBB457900608E62 /* Header.swift in Sources */,
 				7C8671C91E5230B3000A3EE0 /* EditGroupDataFlow.swift in Sources */,
+				7C07F0C71EA0437C00BB8909 /* StatusTitleLayer.swift in Sources */,
 				7CFFEE961DBB3F8E00608E62 /* Records.swift in Sources */,
 				7C6C09251E521BD800A4F067 /* AddMemberTableViewCell.swift in Sources */,
 				7C0CEFA71E4E3762002980BB /* Groups.swift in Sources */,
 				7CEE02371DBC34B000E25A16 /* MenuDialog.swift in Sources */,
 				7C236A231E53882200C488D4 /* GroupTableViewCell.swift in Sources */,
 				7CC2D6261DBCA28100EA0F86 /* ChangeDateDialog.swift in Sources */,
+				7C07F0BB1EA0436900BB8909 /* KVSpinnerView.swift in Sources */,
 				7C70BE461E0C7C7100320EA1 /* Member.swift in Sources */,
+				7C07F0C51EA0437C00BB8909 /* ProgressLayer.swift in Sources */,
 				7C236A211E537A6F00C488D4 /* Group.swift in Sources */,
 				7C65D99F1DBBDB19000AA4CE /* ParentViewController.swift in Sources */,
+				7C07F0BE1EA0437700BB8909 /* KVSpinnerViewSettings.swift in Sources */,
 				7CFFEE921DBB3F8E00608E62 /* AppDelegate.swift in Sources */,
 				7C8556D61E56267F00C72CFE /* RequestManager.swift in Sources */,
 				7CB4580F1DC483EA00190FC1 /* AddVisitorDialog.swift in Sources */,
+				7C07F0C41EA0437C00BB8909 /* CircleLayer.swift in Sources */,
 				7C5064E21E4EF65B0072972A /* CreateGroupDialog.swift in Sources */,
 				7CFFEE941DBB3F8E00608E62 /* Mark.swift in Sources */,
 				7CFFEEA61DBB401900608E62 /* Login.swift in Sources */,
@@ -404,6 +439,7 @@
 				7CB458131DC48AB300190FC1 /* Constants.swift in Sources */,
 				7C1E164C1E7D038C009DC42D /* Attendance.swift in Sources */,
 				7C26C0131DC4405900A41487 /* AttendanceTableViewCell.swift in Sources */,
+				7C07F0C61EA0437C00BB8909 /* RectangleLayer.swift in Sources */,
 				7C7CACC01E0E0D5E009F0CDB /* CellGroupTableViewCell.swift in Sources */,
 				7C7A8FB81E88C0060069EECD /* EditGroupNameDialog.swift in Sources */,
 				7C236A1F1E5378A300C488D4 /* GroupsDataFlow.swift in Sources */,
