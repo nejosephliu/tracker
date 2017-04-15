@@ -108,8 +108,6 @@ class Records: ParentViewController {
         KVSpinnerView.showLoading()
         
         RecordDataFlow.getMongoArrayOfDates(groupID: GroupsDataFlow.getCurrentGroupID()) { (arrayOfDates) -> () in
-            //NSLog("the array of dates: " + String(describing: arrayOfDates))
-            
             self.arrayOfAttendanceDates = []
             
             if(arrayOfDates.count == 0){
@@ -160,6 +158,8 @@ class Records: ParentViewController {
     }
     
     func updateMembers(){
+        KVSpinnerView.showLoading()
+        
         RecordDataFlow.getMongoArrayOfMembers(gID: GroupsDataFlow.getCurrentGroupID()) { (arrayOfMembers) -> () in
             self.arrayOfMembers = []
             
@@ -173,6 +173,7 @@ class Records: ParentViewController {
                     self.arrayOfMembers.sort { $0.name < $1.name }
                     
                     if(self.arrayOfMembers.count == arrayOfMembers.count){
+                        KVSpinnerView.dismiss()
                         self.reloadTableView()
                     }
                 }
