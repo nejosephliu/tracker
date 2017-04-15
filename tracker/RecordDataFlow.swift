@@ -20,18 +20,12 @@ class RecordDataFlow{
                 
                 let dateResponseArr = dateJson as! NSArray
                 
-                NSLog("results: " + String(describing: dateJson))
-                
                 for date in dateResponseArr{
                     let dateArr = date as! NSDictionary
                     let dateId = dateArr["_id"] as! String
                     let dateString = dateArr["dateString"] as! String
                     arrayOfDates.append([dateId, dateString])
                 }
-                
-                NSLog("current gid: " + GroupsDataFlow.getCurrentGroupID())
-                
-                NSLog("array of dates: " + String(describing: arrayOfDates))
                 
                 completion(arrayOfDates)
             }
@@ -61,15 +55,14 @@ class RecordDataFlow{
             if let memberJson = response.result.value{
                 let memberResponseArr = memberJson as! NSArray
                 if(memberResponseArr.count > 0){
-                let memberIndividualArr = memberResponseArr.firstObject as! NSDictionary
-                let id = memberIndividualArr["_id"] as! String
-                let name = memberIndividualArr["name"] as! String
-                let g_id = memberIndividualArr["g_id"] as! String
-
-                
-                let individualMember = Member(id: id, name: name, g_id: g_id)
-                
-                completion(individualMember)
+                    let memberIndividualArr = memberResponseArr.firstObject as! NSDictionary
+                    let id = memberIndividualArr["_id"] as! String
+                    let name = memberIndividualArr["name"] as! String
+                    let g_id = memberIndividualArr["g_id"] as! String
+                    
+                    let individualMember = Member(id: id, name: name, g_id: g_id)
+                    
+                    completion(individualMember)
                 }
             }
         }

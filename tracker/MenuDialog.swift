@@ -63,7 +63,6 @@ class MenuDialog: ParentDialog {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        print("disappearin")
         delegate?.callViewWillAppear()
     }
     

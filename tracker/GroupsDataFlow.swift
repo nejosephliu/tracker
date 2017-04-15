@@ -60,9 +60,6 @@ class GroupsDataFlow {
         }else{
             return NSKeyedUnarchiver.unarchiveObject(with: UserDefaults.standard.object(forKey: "currentGroup") as! Data) as! Group
         }
-        
-        
-        //return NSKeyedUnarchiver.unarchiveObject(with: UserDefaults.standard.object(forKey: "currentGroup") as! Data) as! Group
     }
     
     class func getCurrentGroupID() -> String{
