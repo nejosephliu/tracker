@@ -329,6 +329,7 @@
                         <outlet property="headerViewContainer" destination="c9L-vj-ZQX" id="3L9-M4-fpB"/>
                         <outlet property="segmentedControl" destination="bAk-Od-78c" id="yr9-N0-uWA"/>
                         <outlet property="tableView" destination="xvV-iv-jjD" id="rFM-eE-HMs"/>
+                        <segue destination="5Gm-4q-mb2" kind="show" identifier="logoutSegue" id="8A0-Bk-CPQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -431,6 +432,7 @@
                         <outlet property="groupsTableView" destination="DuX-NW-UJE" id="mbN-l7-LAk"/>
                         <outlet property="headerViewContainer" destination="q5x-ip-y0f" id="96h-Gu-oOV"/>
                         <segue destination="YNX-ns-RP3" kind="show" identifier="editGroupSegue" id="tWn-sC-t3y"/>
+                        <segue destination="5Gm-4q-mb2" kind="show" identifier="logoutSegue" id="0Fs-fv-kaV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWD-Pb-1N2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -803,6 +805,7 @@
         <image name="tracker-icon" width="76" height="76"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="0Fs-fv-kaV"/>
         <segue reference="TUe-uJ-RM5"/>
     </inferredMetricsTieBreakers>
 </document>

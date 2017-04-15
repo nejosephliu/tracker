@@ -54,6 +54,5 @@ extension ParentViewController: MenuDialogDelegate{
     
     func callViewWillAppear(){
         self.viewDidAppear(false)
-        print("callin view did appearin")
     }
 }
