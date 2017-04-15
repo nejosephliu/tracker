@@ -15,6 +15,7 @@ class EditGroup: ParentViewController{
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var deleteGroupButton: UIButton!
+    @IBOutlet weak var submitButton: UIButton!
     
     var groupName: String!
     var groupID: String!
@@ -39,6 +40,8 @@ class EditGroup: ParentViewController{
             deleteGroupButton.isHidden = false
         }
         
+        setSubmitButtonState()
+        
         tableView.allowsMultipleSelectionDuringEditing = false
         
         if let groupName = groupName{
@@ -49,7 +52,7 @@ class EditGroup: ParentViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        
+        setSubmitButtonState()
     }
     
     func setGroupName(name: String){
@@ -123,6 +126,14 @@ class EditGroup: ParentViewController{
                     self.performSegue(withIdentifier: "backToGroupsSegue", sender: self)
                 }
             }
+        }
+    }
+    
+    func setSubmitButtonState(){
+        if(membersArr.count > 0){
+            submitButton.isEnabled = true
+        }else{
+            submitButton.isEnabled = false
         }
     }
     
@@ -232,6 +243,8 @@ extension EditGroup: AddMemberDialogDelegate{
                 membersArr[index] = newMember
             }
         }
+        
+        setSubmitButtonState()
         
         tableView.reloadData()
     }

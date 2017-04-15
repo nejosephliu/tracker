@@ -582,6 +582,7 @@
                         <outlet property="deleteGroupButton" destination="IbV-fZ-upx" id="gVE-g1-5jo"/>
                         <outlet property="groupNameLabel" destination="5ll-T5-eNi" id="Mlq-JQ-BAF"/>
                         <outlet property="headerViewContainer" destination="Vfq-Zn-9AC" id="vBO-VB-oei"/>
+                        <outlet property="submitButton" destination="QmD-sF-IQY" id="PVJ-gy-XWe"/>
                         <outlet property="tableView" destination="Amt-7F-snW" id="kJn-5q-eNJ"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="backToGroupsSegue" id="TUe-uJ-RM5"/>
                     </connections>
