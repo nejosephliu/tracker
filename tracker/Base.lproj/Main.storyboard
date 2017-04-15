@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -125,10 +126,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVr-A2-zgi" userLabel="ClearPaddingView">
                                 <rect key="frame" x="262.5" y="140" width="112.5" height="41.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFc-hp-emf">
-                                        <rect key="frame" x="30.5" y="5" width="52" height="32"/>
-                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
-                                        <state key="normal" title="CLEAR"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFc-hp-emf">
+                                        <rect key="frame" x="29" y="5.5" width="56" height="31.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="RFc-hp-emf" secondAttribute="height" multiplier="233:133" id="1hs-Es-5CN"/>
+                                        </constraints>
+                                        <state key="normal" image="clear_button"/>
                                         <connections>
                                             <action selector="clearButtonPressed" destination="9pv-A4-QxB" eventType="touchUpInside" id="cd7-RL-Web"/>
                                         </connections>
@@ -138,6 +141,7 @@
                                 <constraints>
                                     <constraint firstItem="RFc-hp-emf" firstAttribute="centerX" secondItem="zVr-A2-zgi" secondAttribute="centerX" id="bsg-yE-lTf"/>
                                     <constraint firstItem="RFc-hp-emf" firstAttribute="centerY" secondItem="zVr-A2-zgi" secondAttribute="centerY" id="gy8-rY-p57"/>
+                                    <constraint firstItem="RFc-hp-emf" firstAttribute="height" secondItem="zVr-A2-zgi" secondAttribute="height" constant="-10" id="lmS-3D-LAx"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Vg-GM-qis" userLabel="AddVisitorPaddingView">
@@ -786,6 +790,7 @@
         <image name="add_members" width="233" height="133"/>
         <image name="add_visitor" width="233" height="133"/>
         <image name="change_date" width="300" height="83"/>
+        <image name="clear_button" width="233" height="133"/>
         <image name="create_group2" width="300" height="83"/>
         <image name="delete_group" width="233" height="133"/>
         <image name="edit_name" width="233" height="133"/>
