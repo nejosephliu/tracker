@@ -875,6 +875,9 @@
                                 </constraints>
                                 <state key="normal" image="signup_button"/>
                                 <state key="highlighted" image="login_inactive"/>
+                                <connections>
+                                    <action selector="signUpButtonPressed" destination="hZH-pz-o8N" eventType="touchUpInside" id="ly7-Pc-gsR"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmy-13-yV5">
                                 <rect key="frame" x="106" y="544" width="163.5" height="20"/>
@@ -943,8 +946,8 @@
         <image name="tracker-icon" width="76" height="76"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LbU-JH-rUV"/>
-        <segue reference="fq1-d8-V7O"/>
         <segue reference="4yd-Lc-qHi"/>
+        <segue reference="fq1-d8-V7O"/>
+        <segue reference="LbU-JH-rUV"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -45,9 +45,10 @@ class SignUp: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func loginButtonPressed(){
+    @IBAction func signUpButtonPressed(){
         if(canSignUp){
-            /*LoginDataFlow.checkIfValid(email: emailTF.text!, password: passwordTF.text!) {(error) -> ()
+            print("sign up!!")
+            SignUpDataFlow.signUp(email: emailTF.text!, password: passwordTF.text!) {(error) -> ()
                 in
                 if(error == ""){
                     self.callSegue()
@@ -57,7 +58,7 @@ class SignUp: UIViewController{
                     alert.addAction(okAction)
                     self.present(alert, animated: true, completion: nil)
                 }
-            }*/
+            }
         }
     }
     
