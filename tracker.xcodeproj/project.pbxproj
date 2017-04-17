@@ -43,6 +43,7 @@
 		7CE5D63E1E0D0B7C00FFCCFB /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE5D63D1E0D0B7C00FFCCFB /* Tester.swift */; };
 		7CEE02371DBC34B000E25A16 /* MenuDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEE02361DBC34B000E25A16 /* MenuDialog.swift */; };
 		7CEE023B1DBC371100E25A16 /* Dialogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CEE023A1DBC371100E25A16 /* Dialogs.storyboard */; };
+		7CF36C941EA43CE400561717 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF36C931EA43CE400561717 /* SignUp.swift */; };
 		7CFFEE921DBB3F8E00608E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFEE911DBB3F8E00608E62 /* AppDelegate.swift */; };
 		7CFFEE941DBB3F8E00608E62 /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFEE931DBB3F8E00608E62 /* Mark.swift */; };
 		7CFFEE961DBB3F8E00608E62 /* Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFFEE951DBB3F8E00608E62 /* Records.swift */; };
@@ -93,6 +94,7 @@
 		7CE5D63D1E0D0B7C00FFCCFB /* Tester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tester.swift; sourceTree = "<group>"; };
 		7CEE02361DBC34B000E25A16 /* MenuDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDialog.swift; sourceTree = "<group>"; };
 		7CEE023A1DBC371100E25A16 /* Dialogs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dialogs.storyboard; sourceTree = "<group>"; };
+		7CF36C931EA43CE400561717 /* SignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		7CFFEE8E1DBB3F8E00608E62 /* tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFFEE911DBB3F8E00608E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CFFEE931DBB3F8E00608E62 /* Mark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mark.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				7CFFEEA51DBB401900608E62 /* Login.swift */,
+				7CF36C931EA43CE400561717 /* SignUp.swift */,
 				7C65D99E1DBBDB19000AA4CE /* ParentViewController.swift */,
 				7CFFEE931DBB3F8E00608E62 /* Mark.swift */,
 				7CFFEE951DBB3F8E00608E62 /* Records.swift */,
@@ -444,6 +447,7 @@
 				7C7A8FB81E88C0060069EECD /* EditGroupNameDialog.swift in Sources */,
 				7C236A1F1E5378A300C488D4 /* GroupsDataFlow.swift in Sources */,
 				7CE5D63E1E0D0B7C00FFCCFB /* Tester.swift in Sources */,
+				7CF36C941EA43CE400561717 /* SignUp.swift in Sources */,
 				7CC2D6241DBC8CEC00EA0F86 /* MarkTableViewDataFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
