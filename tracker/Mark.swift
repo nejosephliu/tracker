@@ -29,8 +29,12 @@ class Mark: ParentViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.layoutIfNeeded()
+        
+        if(UserDefaults.standard.value(forKey: "hasLoggedInBefore") == nil){
+            UserDefaults.standard.set(true, forKey: "hasLoggedInBefore")
+        }
+        
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Mark")
         
         setDateHeader()

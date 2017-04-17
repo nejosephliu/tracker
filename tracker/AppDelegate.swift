@@ -21,8 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         DropDown.startListeningToKeyboard()
         
-        startAtLogin()
-        //startAtSignUp()
+        if(UserDefaults.standard.value(forKey: "hasLoggedInBefore") == nil){
+            startAtSignUp()
+        }else{
+            startAtLogin()
+        }
         
         return true
     }
