@@ -22,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DropDown.startListeningToKeyboard()
         
         startAtLogin()
-        
-        
+        //startAtSignUp()
         
         return true
     }
@@ -57,6 +56,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let yourVC = mainStoryboard.instantiateViewController(withIdentifier: "login") as! Login
+        appDelegate.window?.rootViewController = yourVC
+        appDelegate.window?.makeKeyAndVisible()
+    }
+    
+    func startAtSignUp(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let yourVC = mainStoryboard.instantiateViewController(withIdentifier: "signUp") as! SignUp
         appDelegate.window?.rootViewController = yourVC
         appDelegate.window?.makeKeyAndVisible()
     }

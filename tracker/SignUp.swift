@@ -1,21 +1,20 @@
 //
-//  FirstViewController.swift
+//  SignUp.swift
 //  tracker
 //
-//  Created by Joseph Liu on 10/21/16.
-//  Copyright © 2016 Joseph Liu. All rights reserved.
+//  Created by Joseph Liu on 4/16/17.
+//  Copyright © 2017 Joseph Liu. All rights reserved.
 //
 
 import UIKit
 
-class Login: UIViewController {
-    
-    @IBOutlet weak var loginButton : UIButton!
+class SignUp: UIViewController{
+    @IBOutlet weak var signUpButton : UIButton!
     
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
-    private var canLogin: Bool = false
+    private var canSignUp: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +31,7 @@ class Login: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         LoginDataFlow.checkIfLoggedIn() { (loggedIn) -> ()
             in
             if(loggedIn){
@@ -46,9 +45,10 @@ class Login: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func loginButtonPressed(){
-        if(canLogin){
-            LoginDataFlow.checkIfValid(email: emailTF.text!, password: passwordTF.text!) {(error) -> ()
+    @IBAction func signUpButtonPressed(){
+        if(canSignUp){
+            print("sign up!!")
+            SignUpDataFlow.signUp(email: emailTF.text!, password: passwordTF.text!) {(error) -> ()
                 in
                 if(error == ""){
                     self.callSegue()
@@ -62,17 +62,19 @@ class Login: UIViewController {
         }
     }
     
-    @IBAction func goSignUpPressed(){
-        performSegue(withIdentifier: "goSignUpSegue", sender: nil)
+    @IBAction func goToLoginPressed(){
+        performSegue(withIdentifier: "goLoginSegue", sender: nil)
     }
     
     func textFieldChanged(){
         if((emailTF.text?.characters.count)! > 0 && (passwordTF.text?.characters.count)! > 0){
-            loginButton.setImage(UIImage(named: "login_active"), for: UIControlState.normal)
-            canLogin = true
+            //loginButton.setImage(UIImage(named: "login_active"), for: UIControlState.normal)
+            signUpButton.isEnabled = true
+            canSignUp = true
         }else{
-            loginButton.setImage(UIImage(named: "login_inactive"), for: UIControlState.normal)
-            canLogin = false
+            //loginButton.setImage(UIImage(named: "login_inactive"), for: UIControlState.normal)
+            signUpButton.isEnabled = false
+            canSignUp = false
         }
     }
     
@@ -86,7 +88,7 @@ class Login: UIViewController {
     }
     
     func callSegue(){
-        performSegue(withIdentifier: "loginSegue", sender: nil)
+        performSegue(withIdentifier: "signUpSegue", sender: nil)
     }
     
     func displayErrorAlert(title: String, message: String){
@@ -113,5 +115,5 @@ class Login: UIViewController {
             }
         }
     }
-}
 
+}
