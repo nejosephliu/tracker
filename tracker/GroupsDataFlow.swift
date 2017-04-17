@@ -82,4 +82,8 @@ class GroupsDataFlow {
             UserDefaults.standard.synchronize()
         }
     }
+    
+    class func hasAGroup() -> Bool{
+        return getLocalGroupArray().count > 0
+    }
 }

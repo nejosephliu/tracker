@@ -39,6 +39,8 @@ class LoginDataFlow{
     class func logout(completion:@escaping ()-> Void){
         try! FIRAuth.auth()!.signOut()
         UserDefaults.standard.setValue(nil, forKey: "uid")
+        UserDefaults.standard.setValue(nil, forKey: "currentGroup")
+        UserDefaults.standard.setValue(nil, forKey: "groups")
         completion()
     }
 }

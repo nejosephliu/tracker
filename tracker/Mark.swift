@@ -41,13 +41,16 @@ class Mark: ParentViewController {
         
         GroupsDataFlow.updateUserGroupArray(){
             () in
-            if(UserDefaults.standard.value(forKey: "currentGroup") == nil){
-                GroupsDataFlow.setDefaultCurrentGroup()
-                self.currentGroupID = GroupsDataFlow.getCurrentGroupID()
-                //self.groupNameLabel.text = GroupsDataFlow.getCurrentGroupName()
-                self.changeHeaderText(text: GroupsDataFlow.getCurrentGroupName())
+            if(GroupsDataFlow.hasAGroup()){
+                if(UserDefaults.standard.value(forKey: "currentGroup") == nil){
+                    GroupsDataFlow.setDefaultCurrentGroup()
+                    self.currentGroupID = GroupsDataFlow.getCurrentGroupID()
+                    self.changeHeaderText(text: GroupsDataFlow.getCurrentGroupName())
+                }
+                self.getListOfMembers()
+            }else{
+                print("User doesn't own a group.")
             }
-            self.getListOfMembers()
         }
     }
     
@@ -64,7 +67,7 @@ class Mark: ParentViewController {
             getListOfMembers()
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -85,12 +88,14 @@ class Mark: ParentViewController {
     
     func getListOfMembers(){
         KVSpinnerView.showLoading()
+        print("current id: " + currentGroupID)
         MarkTableViewDataFlow.getMongoArrayOfMembers(gID: currentGroupID) { (arrayOfMembers) -> () in
             if(arrayOfMembers.count == 0){
                 /*let alert = UIAlertController(title: "Cannot get members", message: "Please check your connection to the internet.  ", preferredStyle: .alert)
-                let cancelAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
-                alert.addAction(cancelAction)
-                self.present(alert, animated: true, completion: nil)*/
+                 let cancelAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                 alert.addAction(cancelAction)
+                 self.present(alert, animated: true, completion: nil)*/
+                KVSpinnerView.dismiss()
             }else{
                 self.selectedMembers = []
                 
@@ -179,7 +184,7 @@ class Mark: ParentViewController {
             }
         }
         
-//        let dateString = String(describing: currentYear!) + "-" + String(describing:currentMonth!) + "-" + String(describing: currentDay!);
+        //        let dateString = String(describing: currentYear!) + "-" + String(describing:currentMonth!) + "-" + String(describing: currentDay!);
         
         let dateString = setDateString(year: currentYear!, month: currentMonth!, day: currentDay!)
         
