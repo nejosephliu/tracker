@@ -62,6 +62,10 @@ class Login: UIViewController {
         }
     }
     
+    @IBAction func goSignUpPressed(){
+        performSegue(withIdentifier: "goSignUpSegue", sender: nil)
+    }
+    
     func textFieldChanged(){
         if((emailTF.text?.characters.count)! > 0 && (passwordTF.text?.characters.count)! > 0){
             loginButton.setImage(UIImage(named: "login_active"), for: UIControlState.normal)

@@ -698,8 +698,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN IN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMh-Re-xgv">
-                                <rect key="frame" x="79" y="148" width="218.5" height="59"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOG IN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMh-Re-xgv">
+                                <rect key="frame" x="94.5" y="148" width="187.5" height="59"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="52"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -758,10 +758,25 @@
                                     <action selector="loginButtonPressed" destination="5Gm-4q-mb2" eventType="touchUpInside" id="Q8f-hh-Sp5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dR-sv-zLK">
+                                <rect key="frame" x="75.5" y="544.5" width="224.5" height="19.5"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhh-Vz-Zz4">
+                                <rect key="frame" x="151.5" y="566" width="72" height="32"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <state key="normal" title="SIGN UP"/>
+                                <connections>
+                                    <action selector="goSignUpPressed" destination="5Gm-4q-mb2" eventType="touchUpInside" id="Uqt-sr-djq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="5sA-kx-WVN" firstAttribute="leading" secondItem="CLW-y9-ELJ" secondAttribute="leading" id="4MZ-qf-654"/>
+                            <constraint firstItem="jhh-Vz-Zz4" firstAttribute="top" secondItem="7dR-sv-zLK" secondAttribute="bottom" constant="2" id="6fg-JQ-FjR"/>
                             <constraint firstItem="va4-cK-pAt" firstAttribute="trailing" secondItem="JiE-2U-Yiv" secondAttribute="trailing" id="CHA-Ln-vmy"/>
                             <constraint firstItem="va4-cK-pAt" firstAttribute="leading" secondItem="JiE-2U-Yiv" secondAttribute="leading" id="GCv-59-h2K"/>
                             <constraint firstItem="VMh-Re-xgv" firstAttribute="centerX" secondItem="baV-XV-2aO" secondAttribute="centerX" id="HXS-E0-p2L"/>
@@ -770,8 +785,11 @@
                             <constraint firstItem="56j-EI-n22" firstAttribute="centerX" secondItem="baV-XV-2aO" secondAttribute="centerX" id="QHX-iv-aLD"/>
                             <constraint firstItem="5sA-kx-WVN" firstAttribute="trailing" secondItem="CLW-y9-ELJ" secondAttribute="trailing" id="T97-cP-fMr"/>
                             <constraint firstItem="CLW-y9-ELJ" firstAttribute="centerX" secondItem="baV-XV-2aO" secondAttribute="centerX" id="Wr8-T8-egg"/>
+                            <constraint firstItem="sgB-Yk-AZn" firstAttribute="top" secondItem="jhh-Vz-Zz4" secondAttribute="bottom" constant="20" id="eY0-7D-YSk"/>
+                            <constraint firstItem="7dR-sv-zLK" firstAttribute="centerX" secondItem="baV-XV-2aO" secondAttribute="centerX" id="fO7-4V-lJC"/>
                             <constraint firstItem="CLW-y9-ELJ" firstAttribute="top" secondItem="JiE-2U-Yiv" secondAttribute="bottom" constant="60" id="frd-Ai-jRC"/>
                             <constraint firstItem="56j-EI-n22" firstAttribute="top" secondItem="5sA-kx-WVN" secondAttribute="bottom" constant="60" id="gi0-WB-JhU"/>
+                            <constraint firstItem="jhh-Vz-Zz4" firstAttribute="centerX" secondItem="baV-XV-2aO" secondAttribute="centerX" id="qCb-eG-M7V"/>
                             <constraint firstItem="5sA-kx-WVN" firstAttribute="top" secondItem="CLW-y9-ELJ" secondAttribute="bottom" constant="6" id="ym7-os-i34"/>
                             <constraint firstItem="va4-cK-pAt" firstAttribute="top" secondItem="JiE-2U-Yiv" secondAttribute="bottom" constant="6" id="ypV-sU-km8"/>
                             <constraint firstItem="JiE-2U-Yiv" firstAttribute="centerX" secondItem="baV-XV-2aO" secondAttribute="centerX" id="zFr-ui-tVR"/>
@@ -782,6 +800,7 @@
                         <outlet property="loginButton" destination="56j-EI-n22" id="R3e-jA-iaQ"/>
                         <outlet property="passwordTF" destination="CLW-y9-ELJ" id="L0d-R6-a0m"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="loginSegue" id="LbU-JH-rUV"/>
+                        <segue destination="hZH-pz-o8N" kind="show" identifier="goSignUpSegue" id="Wig-oh-CWB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWl-TZ-CLU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -857,6 +876,20 @@
                                 <state key="normal" image="signup_button"/>
                                 <state key="highlighted" image="login_inactive"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmy-13-yV5">
+                                <rect key="frame" x="106" y="544" width="163.5" height="20"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzh-NE-Fzg">
+                                <rect key="frame" x="156.5" y="566" width="62" height="32"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <state key="normal" title="LOG IN"/>
+                                <connections>
+                                    <action selector="goToLoginPressed" destination="hZH-pz-o8N" eventType="touchUpInside" id="bhl-M0-VYb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -868,11 +901,15 @@
                             <constraint firstItem="qX8-og-Zx9" firstAttribute="centerX" secondItem="Ung-0r-ONb" secondAttribute="centerX" id="FNU-9Y-4dZ"/>
                             <constraint firstItem="Qn7-vf-GzQ" firstAttribute="top" secondItem="cnm-WD-vBe" secondAttribute="bottom" constant="60" id="KqR-ZI-V6J"/>
                             <constraint firstItem="cnm-WD-vBe" firstAttribute="trailing" secondItem="qX8-og-Zx9" secondAttribute="trailing" id="O8O-N3-bpn"/>
+                            <constraint firstItem="xzh-NE-Fzg" firstAttribute="centerX" secondItem="Ung-0r-ONb" secondAttribute="centerX" id="QeQ-cN-cYI"/>
                             <constraint firstItem="fhG-J1-hVe" firstAttribute="centerX" secondItem="Ung-0r-ONb" secondAttribute="centerX" id="SaZ-OX-jWE"/>
                             <constraint firstItem="yym-oJ-WTm" firstAttribute="top" secondItem="fhG-J1-hVe" secondAttribute="bottom" constant="6" id="XJF-WF-oHc"/>
+                            <constraint firstItem="xzh-NE-Fzg" firstAttribute="top" secondItem="Cmy-13-yV5" secondAttribute="bottom" constant="2" id="ZcI-YV-v19"/>
                             <constraint firstItem="cnm-WD-vBe" firstAttribute="leading" secondItem="qX8-og-Zx9" secondAttribute="leading" id="fUP-2g-LQX"/>
                             <constraint firstItem="yym-oJ-WTm" firstAttribute="trailing" secondItem="fhG-J1-hVe" secondAttribute="trailing" id="l53-ZF-IyO"/>
+                            <constraint firstItem="Cmy-13-yV5" firstAttribute="centerX" secondItem="Ung-0r-ONb" secondAttribute="centerX" id="ls2-m4-4kp"/>
                             <constraint firstItem="qX8-og-Zx9" firstAttribute="top" secondItem="fhG-J1-hVe" secondAttribute="bottom" constant="60" id="mTB-sl-sk0"/>
+                            <constraint firstItem="ffl-sN-vtS" firstAttribute="top" secondItem="xzh-NE-Fzg" secondAttribute="bottom" constant="20" id="rWA-bT-OaU"/>
                             <constraint firstItem="3KM-R5-tHb" firstAttribute="centerX" secondItem="Ung-0r-ONb" secondAttribute="centerX" id="vGh-gE-ST7"/>
                         </constraints>
                     </view>
@@ -881,6 +918,7 @@
                         <outlet property="passwordTF" destination="qX8-og-Zx9" id="RPQ-Fy-qES"/>
                         <outlet property="signUpButton" destination="Qn7-vf-GzQ" id="Z6w-ac-yza"/>
                         <segue destination="9pv-A4-QxB" kind="show" identifier="signUpSegue" id="4yd-Lc-qHi"/>
+                        <segue destination="5Gm-4q-mb2" kind="show" identifier="goLoginSegue" id="fq1-d8-V7O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUS-KW-Bde" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -906,7 +944,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LbU-JH-rUV"/>
-        <segue reference="0Fs-fv-kaV"/>
+        <segue reference="fq1-d8-V7O"/>
         <segue reference="4yd-Lc-qHi"/>
     </inferredMetricsTieBreakers>
 </document>
