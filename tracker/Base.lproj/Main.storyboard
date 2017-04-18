@@ -216,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="-322"/>
+            <point key="canvasLocation" x="-1198" y="1243"/>
         </scene>
         <!--Records-->
         <scene sceneID="wg7-f3-ORb">
@@ -334,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="403"/>
+            <point key="canvasLocation" x="-383" y="1243"/>
         </scene>
         <!--Groups-->
         <scene sceneID="Qre-YU-KHN">
@@ -437,7 +437,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWD-Pb-1N2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800.79999999999995" y="1157.2713643178411"/>
+            <point key="canvasLocation" x="438" y="1243"/>
         </scene>
         <!--Edit Group-->
         <scene sceneID="hyg-Jn-2xd">
@@ -591,7 +591,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cag-tS-kjg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1892" y="717.39130434782612"/>
+            <point key="canvasLocation" x="438" y="2024"/>
         </scene>
         <!--Tester-->
         <scene sceneID="OHW-De-54x">
@@ -663,7 +663,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aam-J5-kic" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-68" y="1158"/>
+            <point key="canvasLocation" x="1620" y="-322"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -684,7 +684,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-68" y="396"/>
+            <point key="canvasLocation" x="-382" y="403"/>
         </scene>
         <!--Login-->
         <scene sceneID="1SI-6z-e9s">
@@ -805,7 +805,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWl-TZ-CLU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-68" y="-322"/>
+            <point key="canvasLocation" x="238" y="-322"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="QkM-m7-whQ">
@@ -822,7 +822,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN UP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KM-R5-tHb">
                                 <rect key="frame" x="78" y="148" width="219" height="59"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="52"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fhG-J1-hVe">
@@ -830,18 +830,18 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="iKD-jH-Ba0"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yym-oJ-WTm" userLabel="Email Black Line">
                                 <rect key="frame" x="57.5" y="297.5" width="260" height="1"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="tb9-1W-WIj"/>
                                 </constraints>
@@ -851,18 +851,18 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="fJi-26-xz2"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnm-WD-vBe" userLabel="Password Black Line">
                                 <rect key="frame" x="57" y="381.5" width="260" height="1"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ISc-pu-kKj"/>
                                 </constraints>
@@ -874,27 +874,28 @@
                                     <constraint firstAttribute="height" constant="47.600000000000001" id="tqm-Tb-yDv"/>
                                 </constraints>
                                 <state key="normal" image="signup_button"/>
-                                <state key="highlighted" image="login_inactive"/>
                                 <connections>
                                     <action selector="signUpButtonPressed" destination="hZH-pz-o8N" eventType="touchUpInside" id="ly7-Pc-gsR"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmy-13-yV5">
-                                <rect key="frame" x="106" y="544" width="163.5" height="20"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="116" y="540" width="144.5" height="17"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzh-NE-Fzg">
-                                <rect key="frame" x="156.5" y="566" width="62" height="32"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
-                                <state key="normal" title="LOG IN"/>
+                                <rect key="frame" x="142" y="557" width="91" height="41"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
+                                <state key="normal" title="LOG IN">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="goToLoginPressed" destination="hZH-pz-o8N" eventType="touchUpInside" id="bhl-M0-VYb"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.45882352941176469" green="0.78431372549019607" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cnm-WD-vBe" firstAttribute="top" secondItem="qX8-og-Zx9" secondAttribute="bottom" constant="6" id="0GG-dd-WNc"/>
                             <constraint firstItem="yym-oJ-WTm" firstAttribute="leading" secondItem="fhG-J1-hVe" secondAttribute="leading" id="61C-MR-7CQ"/>
@@ -907,7 +908,7 @@
                             <constraint firstItem="xzh-NE-Fzg" firstAttribute="centerX" secondItem="Ung-0r-ONb" secondAttribute="centerX" id="QeQ-cN-cYI"/>
                             <constraint firstItem="fhG-J1-hVe" firstAttribute="centerX" secondItem="Ung-0r-ONb" secondAttribute="centerX" id="SaZ-OX-jWE"/>
                             <constraint firstItem="yym-oJ-WTm" firstAttribute="top" secondItem="fhG-J1-hVe" secondAttribute="bottom" constant="6" id="XJF-WF-oHc"/>
-                            <constraint firstItem="xzh-NE-Fzg" firstAttribute="top" secondItem="Cmy-13-yV5" secondAttribute="bottom" constant="2" id="ZcI-YV-v19"/>
+                            <constraint firstItem="xzh-NE-Fzg" firstAttribute="top" secondItem="Cmy-13-yV5" secondAttribute="bottom" id="ZcI-YV-v19"/>
                             <constraint firstItem="cnm-WD-vBe" firstAttribute="leading" secondItem="qX8-og-Zx9" secondAttribute="leading" id="fUP-2g-LQX"/>
                             <constraint firstItem="yym-oJ-WTm" firstAttribute="trailing" secondItem="fhG-J1-hVe" secondAttribute="trailing" id="l53-ZF-IyO"/>
                             <constraint firstItem="Cmy-13-yV5" firstAttribute="centerX" secondItem="Ung-0r-ONb" secondAttribute="centerX" id="ls2-m4-4kp"/>
@@ -926,7 +927,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUS-KW-Bde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-868" y="-322"/>
+            <point key="canvasLocation" x="-1002" y="-322"/>
         </scene>
     </scenes>
     <resources>
