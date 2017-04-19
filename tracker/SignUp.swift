@@ -49,9 +49,10 @@ class SignUp: UIViewController{
     
     @IBAction func signUpButtonPressed(){
         if(canSignUp){
-            print("sign up!!")
+            KVSpinnerView.showLoading()
             SignUpDataFlow.signUp(email: emailTF.text!, password: passwordTF.text!) {(error) -> ()
                 in
+                KVSpinnerView.dismiss()
                 if(error == ""){
                     self.callSegue()
                 }else{

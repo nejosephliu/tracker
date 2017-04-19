@@ -48,8 +48,10 @@ class Login: UIViewController {
     
     @IBAction func loginButtonPressed(){
         if(canLogin){
+            KVSpinnerView.showLoading()
             LoginDataFlow.checkIfValid(email: emailTF.text!, password: passwordTF.text!) {(error) -> ()
                 in
+                KVSpinnerView.dismiss()
                 if(error == ""){
                     self.callSegue()
                 }else{

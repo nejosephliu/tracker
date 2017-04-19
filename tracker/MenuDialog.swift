@@ -92,6 +92,7 @@ class MenuDialog: ParentDialog {
     }
     
     @IBAction func logoutButtonPressed(){
+        KVSpinnerView.dismiss()
         delegate?.logout()
     }
 }
