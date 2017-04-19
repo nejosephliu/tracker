@@ -21,13 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DropDown.startListeningToKeyboard()
         
         if(UserDefaults.standard.value(forKey: "hasLoggedInBefore") == nil){
-            //startAtSignUp()
-            print("i'm here")
             LoginDataFlow.logout(completion: {
                 self.startAtSignUp()
             })
         }else{
-            print("i'm here3")
             startAtLogin()
         }
         
