@@ -20,8 +20,6 @@ class Records: ParentViewController {
     var arrayOfAttendanceDates : [AttendanceSet] = []
     var arrayOfMembers: [Member] = []
     
-    final var monthArr : [String] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    
     var currentGroupID : String = ""
     
     var currentModeIsDates : Bool = true
@@ -154,7 +152,7 @@ class Records: ParentViewController {
         let month = Int(dateString.substring(with: dateString.index(dateString.startIndex, offsetBy: 5)..<dateString.index(dateString.startIndex, offsetBy: 7)))
         let day = String(describing: Int(dateString.substring(with: dateString.index(dateString.startIndex, offsetBy: 8)..<dateString.index(dateString.startIndex, offsetBy: 10)))!)
         
-        return monthArr[month! - 1] + " " + day + ", " + year
+        return Constants.monthArr[month! - 1] + " " + day + ", " + year
     }
     
     func updateMembers(){

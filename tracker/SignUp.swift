@@ -71,11 +71,9 @@ class SignUp: UIViewController{
     
     func textFieldChanged(){
         if((emailTF.text?.characters.count)! > 0 && (passwordTF.text?.characters.count)! > 0){
-            //loginButton.setImage(UIImage(named: "login_active"), for: UIControlState.normal)
             signUpButton.isEnabled = true
             canSignUp = true
         }else{
-            //loginButton.setImage(UIImage(named: "login_inactive"), for: UIControlState.normal)
             signUpButton.isEnabled = false
             canSignUp = false
         }

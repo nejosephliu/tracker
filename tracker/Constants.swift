@@ -15,4 +15,5 @@ class Constants{
     //static let baseURL = "http://localhost:8081/"
     static let baseURL = "http://joseph-liu.com:8081/"
 
+    static let monthArr : [String] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 }

@@ -204,6 +204,8 @@ class Mark: ParentViewController {
     }
     
     @IBAction func submitButtonPressed(){
+        KVSpinnerView.showLoading()
+        
         var membersHereArr : [Member] = []
         
         for i in 0...selectedMembers.count - 1{
@@ -220,11 +222,10 @@ class Mark: ParentViewController {
             }
         }
         
-        //        let dateString = String(describing: currentYear!) + "-" + String(describing:currentMonth!) + "-" + String(describing: currentDay!);
-        
         let dateString = setDateString(year: currentYear!, month: currentMonth!, day: currentDay!)
         
         MarkTableViewDataFlow.submitMongoAttendance(attendanceArr: membersHereArr, dateString: dateString) { () -> () in
+            KVSpinnerView.dismiss()
             let alert = UIAlertController(title: "Success!", message: "Attendance record submitted.", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Ok", style: .cancel, handler: self.clearTable)
             UserDefaults.standard.setValue(true, forKey: "new-submit")
@@ -260,7 +261,6 @@ class Mark: ParentViewController {
 
 extension Mark: ChangeDateDialogDelegate{
     func changeHeaderToDate(year: Int, month : Int, day: Int) {
-        //changeHeaderText(text: "\(month)/\(day)")
         dateLabel.text = "\(month)/\(day)"
         
         currentDay = day
@@ -295,7 +295,6 @@ extension Mark: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return theMembersArray.count + visitorsArray.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
