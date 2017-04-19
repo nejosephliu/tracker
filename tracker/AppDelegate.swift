@@ -18,12 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
-        
         DropDown.startListeningToKeyboard()
         
         if(UserDefaults.standard.value(forKey: "hasLoggedInBefore") == nil){
-            startAtSignUp()
+            //startAtSignUp()
+            print("i'm here")
+            LoginDataFlow.logout(completion: {
+                self.startAtSignUp()
+            })
         }else{
+            print("i'm here3")
             startAtLogin()
         }
         

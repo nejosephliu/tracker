@@ -21,6 +21,8 @@ class CreateGroupDialog: ParentDialog {
     
     weak var delegate: CreateGroupDialogDelegate?
     
+    //var isFirstGroup : Bool = false
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -56,5 +58,9 @@ class CreateGroupDialog: ParentDialog {
     
     func create(){
         delegate?.createGroup(groupName: nameTF.text!)
+    }
+    
+    func setIsFirstGroup(){
+        isFirstGroup = true
     }
 }

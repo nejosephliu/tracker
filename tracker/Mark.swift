@@ -27,6 +27,8 @@ class Mark: ParentViewController {
     
     var currentGroupID : String = ""
     
+    var newGroupName: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
@@ -54,6 +56,7 @@ class Mark: ParentViewController {
                 self.getListOfMembers()
             }else{
                 print("User doesn't own a group.")
+                self.createFirstGroup()
             }
         }
     }
@@ -75,6 +78,35 @@ class Mark: ParentViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func createFirstGroup(){
+        let alert = UIAlertController(title: "Welcome to Tracker!", message: "Hit \"OK\" to create your first group.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: showCreateGroupDialog)
+        alert.addAction(ok)
+        present(alert, animated: true)
+        
+    }
+    
+    func showCreateGroupDialog(action: UIAlertAction){
+        let createGroupDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "createGroupDialog") as! CreateGroupDialog
+        createGroupDialog.setIsFirstGroup()
+        createGroupDialog.delegate = self
+        present(createGroupDialog, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "createFirstGroupSegue"){
+            let editGroupViewController = segue.destination as! EditGroup
+            editGroupViewController.setIsFirstGroup()
+            if let groupName = newGroupName{
+                editGroupViewController.setGroupName(name: groupName)
+            }
+        }
+    }
+    
+    func segueToCreateFirstGroup(){
+        performSegue(withIdentifier: "createFirstGroupSegue", sender: self)
     }
     
     func setDateHeader(){
@@ -286,4 +318,12 @@ extension Mark: UITableViewDataSource{
         return cell
     }
 }
+
+extension Mark: CreateGroupDialogDelegate{
+    func createGroup(groupName: String) {
+        newGroupName = groupName
+        segueToCreateFirstGroup()
+    }
+}
+
 

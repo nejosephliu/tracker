@@ -20,6 +20,8 @@ class EditGroup: ParentViewController{
     var groupName: String!
     var groupID: String!
     
+    var isFirstGroup : Bool = false
+    
     var newName: String = ""
     
     var membersArr : [Member] = []
@@ -34,7 +36,10 @@ class EditGroup: ParentViewController{
         self.view.layoutIfNeeded()
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "Edit Group")
         header.backDelegate = self
-        header.showBackButton()
+        
+        if(!isFirstGroup){
+            header.showBackButton()
+        }
         
         if(!isNewGroup){
             deleteGroupButton.isHidden = false
@@ -47,12 +52,18 @@ class EditGroup: ParentViewController{
         if let groupName = groupName{
             groupNameLabel.text = "GROUP NAME: " + groupName
         }
+        
+        if(isFirstGroup){
+            header.hideMenuButton()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         setSubmitButtonState()
+        
+        addMembers()
     }
     
     func setGroupName(name: String){
@@ -95,7 +106,6 @@ class EditGroup: ParentViewController{
         }
         
         print("---------")
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -103,6 +113,10 @@ class EditGroup: ParentViewController{
             let destinationVC = segue.destination as! UITabBarController
             destinationVC.selectedIndex = 2
         }
+    }
+    
+    func setIsFirstGroup(){
+        isFirstGroup = true
     }
     
     @IBAction func submitButtonPressed(){

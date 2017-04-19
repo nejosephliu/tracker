@@ -12,6 +12,10 @@ import UIKit
 class ParentDialog: UIViewController{
     @IBOutlet weak var backgroundView: UIView!
     
+    //var tapGestureRecognizer: UITapGestureRecognizer!
+    
+    var isFirstGroup: Bool = false
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -27,8 +31,10 @@ class ParentDialog: UIViewController{
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        let tapGestureRecgonizer = UITapGestureRecognizer(target: self, action: #selector(dismissDialog))
-        backgroundView.addGestureRecognizer(tapGestureRecgonizer)
+        if(!isFirstGroup){
+            var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissDialog))
+            backgroundView.addGestureRecognizer(tapGestureRecognizer)
+        }
     }
     
     func dismissDialog(){
@@ -50,5 +56,10 @@ class ParentDialog: UIViewController{
             }
         }
     }
+    
+    /*func disableGestureRecognizer(){
+        //tapGestureRecognizer.isEnabled = false
+        //isFirstGroup = true
+    }*/
     
 }

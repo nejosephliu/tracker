@@ -32,9 +32,11 @@ class SignUp: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        
         LoginDataFlow.checkIfLoggedIn() { (loggedIn) -> ()
             in
             if(loggedIn){
+                print("i'm logged in")
                 self.callSegue()
             }
         }

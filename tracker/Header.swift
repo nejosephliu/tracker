@@ -45,6 +45,10 @@ class Header: UIView {
         backButton.isHidden = false
     }
     
+    func hideMenuButton(){
+        //menuButton.isHidden = true
+    }
+    
     func loadViewFromNib() {
         let headerNib = UINib(nibName: String(describing: type(of: self)), bundle: nil).instantiate(withOwner: self, options: nil)
         let headerNibView = headerNib.first as! UIView
