@@ -46,7 +46,7 @@ class Header: UIView {
     }
     
     func hideMenuButton(){
-        //menuButton.isHidden = true
+        menuButton.isHidden = true
     }
     
     func loadViewFromNib() {

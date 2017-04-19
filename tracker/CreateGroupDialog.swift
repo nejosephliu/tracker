@@ -21,8 +21,6 @@ class CreateGroupDialog: ParentDialog {
     
     weak var delegate: CreateGroupDialogDelegate?
     
-    //var isFirstGroup : Bool = false
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

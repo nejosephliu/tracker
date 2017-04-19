@@ -63,7 +63,9 @@ class EditGroup: ParentViewController{
         
         setSubmitButtonState()
         
-        addMembers()
+        if(isNewGroup){
+            addMembers()
+        }
     }
     
     func setGroupName(name: String){

@@ -80,19 +80,10 @@ class MenuDialog: ParentDialog {
     
     func updateCurrentGroup(index: Int){
         let group = groupArr[index]
-        
-        print("group id222: " + group.id)
-        
         GroupsDataFlow.setCurrentGroup(group: group)
     }
     
     func updateCurrentGroupLabel(){
-        /*if let currentGroupObj = NSKeyedUnarchiver.unarchiveObject(with: UserDefaults.standard.object(forKey: "currentGroup") as! Data){
-            let currentGroup = currentGroupObj as! Group
-            
-            selectedGroupLabel.text = currentGroup.name
-        }*/
-        
         selectedGroupLabel.text = GroupsDataFlow.getCurrentGroupName()
     }
     

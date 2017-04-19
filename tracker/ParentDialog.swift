@@ -32,7 +32,7 @@ class ParentDialog: UIViewController{
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         if(!isFirstGroup){
-            var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissDialog))
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissDialog))
             backgroundView.addGestureRecognizer(tapGestureRecognizer)
         }
     }
@@ -56,10 +56,4 @@ class ParentDialog: UIViewController{
             }
         }
     }
-    
-    /*func disableGestureRecognizer(){
-        //tapGestureRecognizer.isEnabled = false
-        //isFirstGroup = true
-    }*/
-    
 }
