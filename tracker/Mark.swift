@@ -226,12 +226,13 @@ class Mark: ParentViewController {
         
         MarkTableViewDataFlow.submitMongoAttendance(attendanceArr: membersHereArr, dateString: dateString) { () -> () in
             let alert = UIAlertController(title: "Success!", message: "Attendance record submitted.", preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            let cancel = UIAlertAction(title: "Ok", style: .cancel, handler: self.clearTable)
             UserDefaults.standard.setValue(true, forKey: "new-submit")
             alert.addAction(cancel)
             self.present(alert, animated: true)
         }
     }
+    
     
     func setDateString(year: Int, month: Int, day: Int) -> String{
         var dateString = String(describing: year)
