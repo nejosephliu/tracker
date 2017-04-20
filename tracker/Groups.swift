@@ -26,7 +26,9 @@ class Groups: ParentViewController {
         self.view.layoutIfNeeded()
         addHeaderView(headerViewContainer: headerViewContainer, pageLabel: "My Groups")
         
+        KVSpinnerView.showLoading()
         GroupsDataFlow.updateUserGroupArray {
+            KVSpinnerView.dismiss()
             self.groupArr = GroupsDataFlow.getLocalGroupArray()
             self.groupsTableView.reloadData()
         }
