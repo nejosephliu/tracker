@@ -16,4 +16,6 @@ class Constants{
     static let baseURL = "http://joseph-liu.com:8081/"
 
     static let monthArr : [String] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    
+    static let suffixArr: [String] = ["st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "st"]
 }

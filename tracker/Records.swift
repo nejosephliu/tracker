@@ -145,16 +145,7 @@ class Records: ParentViewController {
             }
         }
     }
-    
-    func getFormattedDateFromDateString(dateString: String) -> String{
-        let year = String(describing: Int(dateString.substring(to: dateString.index(dateString.startIndex, offsetBy: 4)))!)
         
-        let month = Int(dateString.substring(with: dateString.index(dateString.startIndex, offsetBy: 5)..<dateString.index(dateString.startIndex, offsetBy: 7)))
-        let day = String(describing: Int(dateString.substring(with: dateString.index(dateString.startIndex, offsetBy: 8)..<dateString.index(dateString.startIndex, offsetBy: 10)))!)
-        
-        return Constants.monthArr[month! - 1] + " " + day + ", " + year
-    }
-    
     func updateMembers(){
         KVSpinnerView.showLoading()
         
@@ -187,7 +178,7 @@ extension Records: UITableViewDelegate{
         if(currentModeIsDates){
             if(arrayOfAttendanceDates.count > 0){
                 let attendanceObj = arrayOfAttendanceDates[indexPath.row]
-                let alertController = UIAlertController(title: attendanceObj.dateString, message: attendanceObj.getMembers(), preferredStyle: UIAlertControllerStyle.alert)
+                let alertController = UIAlertController(title: Helpers.getFormattedDateFromDateString(dateString: attendanceObj.dateString), message: attendanceObj.getMembers(), preferredStyle: UIAlertControllerStyle.alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 present(alertController, animated: true)
             }
@@ -225,7 +216,7 @@ extension Records: UITableViewDataSource{
                 cell.countLabel.text = ""
             }else{
                 //cell.dateLabel.text = arrayOfAttendanceDates[indexPath.row].dateString
-                cell.dateLabel.text = getFormattedDateFromDateString(dateString: arrayOfAttendanceDates[indexPath.row].dateString)
+                cell.dateLabel.text = Helpers.getFormattedDateFromDateString(dateString: arrayOfAttendanceDates[indexPath.row].dateString)
                 cell.countLabel.text = String(describing: arrayOfAttendanceDates[indexPath.row].getCount())
             }
         }else{

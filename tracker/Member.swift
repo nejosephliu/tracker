@@ -38,18 +38,9 @@ class Member {
         }else{
             var str = ""
             for attendanceObj in attendance{
-                str += getFormattedDateFromDateString(dateString: attendanceObj.dateString) + "\n"
+                str += Helpers.getFormattedDateFromDateString(dateString: attendanceObj.dateString) + "\n"
             }
             return str.substring(to: str.index(str.endIndex, offsetBy: -1))
         }
-    }
-    
-    func getFormattedDateFromDateString(dateString: String) -> String{
-        let year = String(describing: Int(dateString.substring(to: dateString.index(dateString.startIndex, offsetBy: 4)))!)
-        
-        let month = Int(dateString.substring(with: dateString.index(dateString.startIndex, offsetBy: 5)..<dateString.index(dateString.startIndex, offsetBy: 7)))
-        let day = String(describing: Int(dateString.substring(with: dateString.index(dateString.startIndex, offsetBy: 8)..<dateString.index(dateString.startIndex, offsetBy: 10)))!)
-        
-        return Constants.monthArr[month! - 1] + " " + day + ", " + year
     }
 }
