@@ -204,7 +204,7 @@
                             <constraint firstItem="3Vg-GM-qis" firstAttribute="centerY" secondItem="cTX-lA-n1P" secondAttribute="centerY" id="z3J-uO-hmq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Mark" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Mark" image="Check" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="clearButton" destination="RFc-hp-emf" id="c7d-Ae-dqN"/>
                         <outlet property="countLabel" destination="jjJ-NX-eAt" id="PVe-91-6GX"/>
@@ -217,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1198" y="1243"/>
+            <point key="canvasLocation" x="-1441" y="891"/>
         </scene>
         <!--Records-->
         <scene sceneID="wg7-f3-ORb">
@@ -323,7 +323,7 @@
                             <constraint firstItem="GCu-Gc-5ln" firstAttribute="top" secondItem="c9L-vj-ZQX" secondAttribute="bottom" constant="15" id="w1i-lz-nLc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Records" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Records" image="Book" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="averageLabel" destination="Te2-Kg-zOC" id="fMv-uj-reC"/>
                         <outlet property="groupNameLabel" destination="GCu-Gc-5ln" id="fHw-4M-vBB"/>
@@ -428,7 +428,7 @@
                             <constraint firstItem="5P1-ys-DKj" firstAttribute="top" secondItem="q5x-ip-y0f" secondAttribute="bottom" constant="14.5" id="qB1-7o-wli"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Groups" image="first" id="Khm-8e-C4c"/>
+                    <tabBarItem key="tabBarItem" title="Groups" image="Folder" id="Khm-8e-C4c"/>
                     <connections>
                         <outlet property="groupsTableView" destination="DuX-NW-UJE" id="mbN-l7-LAk"/>
                         <outlet property="headerViewContainer" destination="q5x-ip-y0f" id="96h-Gu-oOV"/>
@@ -760,13 +760,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dR-sv-zLK">
-                                <rect key="frame" x="88.5" y="589" width="198.5" height="17"/>
+                                <rect key="frame" x="88.5" y="540" width="198.5" height="17"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhh-Vz-Zz4">
-                                <rect key="frame" x="134.5" y="606" width="106" height="41"/>
+                                <rect key="frame" x="134.5" y="557" width="106" height="41"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
                                 <state key="normal" title="SIGN UP"/>
                                 <connections>
@@ -880,13 +880,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmy-13-yV5">
-                                <rect key="frame" x="116" y="589" width="144.5" height="17"/>
+                                <rect key="frame" x="116" y="540" width="144.5" height="17"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzh-NE-Fzg">
-                                <rect key="frame" x="142" y="606" width="91" height="41"/>
+                                <rect key="frame" x="142" y="557" width="91" height="41"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
                                 <state key="normal" title="LOG IN">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -932,6 +932,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Book" width="25" height="25"/>
+        <image name="Check" width="25" height="25"/>
+        <image name="Folder" width="25" height="25"/>
         <image name="add_members" width="233" height="133"/>
         <image name="add_visitor" width="233" height="133"/>
         <image name="change_date" width="300" height="83"/>
@@ -942,7 +945,6 @@
         <image name="first" width="30" height="30"/>
         <image name="login_inactive" width="150" height="83"/>
         <image name="pencil" width="32" height="32"/>
-        <image name="second" width="30" height="30"/>
         <image name="signup_button" width="233" height="133"/>
         <image name="submit" width="200" height="83"/>
         <image name="tracker-icon" width="76" height="76"/>
