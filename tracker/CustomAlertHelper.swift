@@ -16,10 +16,18 @@ class CustomAlertHelper{
         viewController.present(menuDialog, animated: true, completion: nil)
     }
     
-    static func presentCustomAlert(title: String, message: String, numberOfLines: Int, viewController: UIViewController){
+    static func presentCustomAlert(title: String, message: String, viewController: UIViewController, completion:@escaping ()-> Void){
+        let menuDialog = UIStoryboard(name: "CustomAlerts", bundle: nil).instantiateViewController(withIdentifier: "customAlert") as! ParentCustomAlert
+        menuDialog.setTitle(title: title)
+        menuDialog.setMessage(message: message)
+        menuDialog.setCompletion(completion: completion)
+        viewController.present(menuDialog, animated: true, completion: nil)
+    }
+    
+    /*static func presentCustomAlert(title: String, message: String, numberOfLines: Int, viewController: UIViewController){
         let menuDialog = UIStoryboard(name: "CustomAlerts", bundle: nil).instantiateViewController(withIdentifier: "customAlert") as! ParentCustomAlert
         menuDialog.setTitle(title: title)
         menuDialog.setMessage(message: message, numberOfLines: numberOfLines)
         viewController.present(menuDialog, animated: true, completion: nil)
-    }
+    }*/
 }

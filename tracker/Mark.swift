@@ -81,11 +81,11 @@ class Mark: ParentViewController {
     }
     
     func createFirstGroup(){
-        CustomAlertHelper.presentCustomAlert(title: "Welcome to Tracker!", message: "Hit \"Okay\" to create your first group.", viewController: self)
+        CustomAlertHelper.presentCustomAlert(title: "Welcome to Tracker!", message: "Hit \"Okay\" to create your first group.", viewController: self, completion: showCreateGroupDialog)
         
     }
     
-    func showCreateGroupDialog(action: UIAlertAction){
+    func showCreateGroupDialog(){
         let createGroupDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "createGroupDialog") as! CreateGroupDialog
         createGroupDialog.setIsFirstGroup()
         createGroupDialog.delegate = self
@@ -145,6 +145,16 @@ class Mark: ParentViewController {
     }
     
     func clearTable(alert: UIAlertAction!){
+        for row in 0...selectedMembers.count - 1{
+            selectedMembers[row] = false
+        }
+        
+        visitorsArray = []
+        
+        reloadTableView()
+    }
+    
+    func clearTable(){
         for row in 0...selectedMembers.count - 1{
             selectedMembers[row] = false
         }
@@ -219,7 +229,7 @@ class Mark: ParentViewController {
         
         MarkTableViewDataFlow.submitMongoAttendance(attendanceArr: membersHereArr, dateString: dateString) { () -> () in
             KVSpinnerView.dismiss()
-            CustomAlertHelper.presentCustomAlert(title: "Success!", message: "Attendance record submitted.", viewController: self)
+            CustomAlertHelper.presentCustomAlert(title: "Success!", message: "Attendance record submitted.", viewController: self, completion: self.clearTable)
             UserDefaults.standard.setValue(true, forKey: "new-submit")
         }
     }

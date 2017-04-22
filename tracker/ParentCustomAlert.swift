@@ -17,6 +17,8 @@ class ParentCustomAlert: UIViewController{
     var messageText : String = ""
     var numberOfLines: Int = -1
     
+    var completionHandler: () -> Void = {}
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         definesPresentationContext = true
@@ -31,8 +33,6 @@ class ParentCustomAlert: UIViewController{
         if(numberOfLines > 0){
             messageLabel.numberOfLines = numberOfLines
         }
-        let height = messageLabel.layer.bounds.height
-        print("height: " + String(describing: height))
     }
     
     func setTitle(title: String){
@@ -48,7 +48,12 @@ class ParentCustomAlert: UIViewController{
         self.numberOfLines = numberOfLines
     }
     
+    func setCompletion(completion: @escaping ()-> Void){
+        completionHandler = completion
+    }
+    
     @IBAction func cancelButtonPressed(){
         dismiss(animated: true, completion: nil)
+        completionHandler()
     }
 }

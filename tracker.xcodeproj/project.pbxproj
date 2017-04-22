@@ -228,8 +228,8 @@
 		7C68C8271EA9206E003FC859 /* CustomAlerts */ = {
 			isa = PBXGroup;
 			children = (
-				7C68C82C1EA924A6003FC859 /* ParentCustomAlert.swift */,
 				7C2C36561EAB1E9900754BD0 /* CustomAlertHelper.swift */,
+				7C68C82C1EA924A6003FC859 /* ParentCustomAlert.swift */,
 				7C68C82A1EA92098003FC859 /* CustomAlerts.storyboard */,
 			);
 			name = CustomAlerts;
