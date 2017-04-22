@@ -26,6 +26,9 @@
 		7C65D9A71DBC09DA000AA4CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C65D9A61DBC09DA000AA4CE /* GoogleService-Info.plist */; };
 		7C675B7A1E0DAA6000E79E8D /* RecordDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C675B791E0DAA6000E79E8D /* RecordDataFlow.swift */; };
 		7C68C8261EA91DA3003FC859 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C68C8251EA91DA3003FC859 /* Helpers.swift */; };
+		7C68C8291EA92089003FC859 /* AttendanceRecordAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C68C8281EA92089003FC859 /* AttendanceRecordAlert.swift */; };
+		7C68C82B1EA92098003FC859 /* CustomAlerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C68C82A1EA92098003FC859 /* CustomAlerts.storyboard */; };
+		7C68C82D1EA924A6003FC859 /* ParentCustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C68C82C1EA924A6003FC859 /* ParentCustomAlert.swift */; };
 		7C6C09251E521BD800A4F067 /* AddMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6C09241E521BD800A4F067 /* AddMemberTableViewCell.swift */; };
 		7C70BE461E0C7C7100320EA1 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C70BE451E0C7C7100320EA1 /* Member.swift */; };
 		7C7A8FB81E88C0060069EECD /* EditGroupNameDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A8FB71E88C0060069EECD /* EditGroupNameDialog.swift */; };
@@ -79,6 +82,9 @@
 		7C65D9A81DBC0A93000AA4CE /* tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tracker.entitlements; sourceTree = "<group>"; };
 		7C675B791E0DAA6000E79E8D /* RecordDataFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordDataFlow.swift; sourceTree = "<group>"; };
 		7C68C8251EA91DA3003FC859 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		7C68C8281EA92089003FC859 /* AttendanceRecordAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceRecordAlert.swift; sourceTree = "<group>"; };
+		7C68C82A1EA92098003FC859 /* CustomAlerts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CustomAlerts.storyboard; sourceTree = "<group>"; };
+		7C68C82C1EA924A6003FC859 /* ParentCustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentCustomAlert.swift; sourceTree = "<group>"; };
 		7C6C09241E521BD800A4F067 /* AddMemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberTableViewCell.swift; sourceTree = "<group>"; };
 		7C70BE451E0C7C7100320EA1 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		7C7A8FB71E88C0060069EECD /* EditGroupNameDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditGroupNameDialog.swift; sourceTree = "<group>"; };
@@ -181,6 +187,7 @@
 		7C65D9A11DBBFA5E000AA4CE /* HelperViews */ = {
 			isa = PBXGroup;
 			children = (
+				7C68C8271EA9206E003FC859 /* CustomAlerts */,
 				7C5064E01E4EF63B0072972A /* TableViewCells */,
 				7C5064DF1E4EF62F0072972A /* Dialogs */,
 				7CFFEEA71DBB457900608E62 /* Header.swift */,
@@ -216,6 +223,16 @@
 				7C8556D51E56267F00C72CFE /* RequestManager.swift */,
 			);
 			name = DataFlow;
+			sourceTree = "<group>";
+		};
+		7C68C8271EA9206E003FC859 /* CustomAlerts */ = {
+			isa = PBXGroup;
+			children = (
+				7C68C82C1EA924A6003FC859 /* ParentCustomAlert.swift */,
+				7C68C8281EA92089003FC859 /* AttendanceRecordAlert.swift */,
+				7C68C82A1EA92098003FC859 /* CustomAlerts.storyboard */,
+			);
+			name = CustomAlerts;
 			sourceTree = "<group>";
 		};
 		7C70BE441E0C7C5C00320EA1 /* Models */ = {
@@ -354,6 +371,7 @@
 			files = (
 				7CEE023B1DBC371100E25A16 /* Dialogs.storyboard in Resources */,
 				7CFFEEAA1DBB459900608E62 /* Header.xib in Resources */,
+				7C68C82B1EA92098003FC859 /* CustomAlerts.storyboard in Resources */,
 				7CFFEE9E1DBB3F8E00608E62 /* LaunchScreen.storyboard in Resources */,
 				7C65D9A71DBC09DA000AA4CE /* GoogleService-Info.plist in Resources */,
 				7CFFEE9B1DBB3F8E00608E62 /* Assets.xcassets in Resources */,
@@ -422,6 +440,7 @@
 				7C8671C91E5230B3000A3EE0 /* EditGroupDataFlow.swift in Sources */,
 				7C07F0C71EA0437C00BB8909 /* StatusTitleLayer.swift in Sources */,
 				7CFFEE961DBB3F8E00608E62 /* Records.swift in Sources */,
+				7C68C8291EA92089003FC859 /* AttendanceRecordAlert.swift in Sources */,
 				7C6C09251E521BD800A4F067 /* AddMemberTableViewCell.swift in Sources */,
 				7CF36C961EA445C300561717 /* SignUpDataFlow.swift in Sources */,
 				7C0CEFA71E4E3762002980BB /* Groups.swift in Sources */,
@@ -437,6 +456,7 @@
 				7CFFEE921DBB3F8E00608E62 /* AppDelegate.swift in Sources */,
 				7C8556D61E56267F00C72CFE /* RequestManager.swift in Sources */,
 				7CB4580F1DC483EA00190FC1 /* AddVisitorDialog.swift in Sources */,
+				7C68C82D1EA924A6003FC859 /* ParentCustomAlert.swift in Sources */,
 				7C07F0C41EA0437C00BB8909 /* CircleLayer.swift in Sources */,
 				7C5064E21E4EF65B0072972A /* CreateGroupDialog.swift in Sources */,
 				7C68C8261EA91DA3003FC859 /* Helpers.swift in Sources */,
