@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Attendance Record Alert-->
+        <scene sceneID="NIB-1b-f0c">
+            <objects>
+                <viewController storyboardIdentifier="attendanceRecord" id="KaR-m7-aQx" customClass="AttendanceRecordAlert" customModule="tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tjs-eS-gvB"/>
+                        <viewControllerLayoutGuide type="bottom" id="J2w-Uv-NCX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wIF-wI-EDl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JyV-CR-FRv" userLabel="Background View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oCb-Bo-BNO">
+                                <rect key="frame" x="57" y="261.5" width="260" height="144"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfy-JK-az8">
+                                        <rect key="frame" x="110" y="20.5" width="41" height="19.5"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOZ-ec-Rsy">
+                                        <rect key="frame" x="109.5" y="55" width="41" height="20"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkU-4J-x3e">
+                                        <rect key="frame" x="100.5" y="95" width="60" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="bkU-4J-x3e" secondAttribute="height" multiplier="233:133" id="GVT-if-vvd"/>
+                                            <constraint firstAttribute="width" constant="60" id="Ra5-21-8rB"/>
+                                        </constraints>
+                                        <state key="normal" image="okay_button"/>
+                                        <connections>
+                                            <action selector="cancelButtonPressed" destination="KaR-m7-aQx" eventType="touchUpInside" id="YIF-2k-tVv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="pOZ-ec-Rsy" firstAttribute="centerX" secondItem="oCb-Bo-BNO" secondAttribute="centerX" id="C81-0a-hnY"/>
+                                    <constraint firstItem="Yfy-JK-az8" firstAttribute="centerX" secondItem="oCb-Bo-BNO" secondAttribute="centerX" id="LMx-fD-7uI"/>
+                                    <constraint firstItem="bkU-4J-x3e" firstAttribute="centerX" secondItem="oCb-Bo-BNO" secondAttribute="centerX" id="Oad-Ud-awm"/>
+                                    <constraint firstAttribute="bottom" secondItem="bkU-4J-x3e" secondAttribute="bottom" constant="15" id="Oyv-PF-kwv"/>
+                                    <constraint firstAttribute="width" constant="260" id="j74-3i-qTb"/>
+                                    <constraint firstItem="bkU-4J-x3e" firstAttribute="top" secondItem="pOZ-ec-Rsy" secondAttribute="bottom" constant="20" id="j8U-5n-Nfb"/>
+                                    <constraint firstItem="Yfy-JK-az8" firstAttribute="top" secondItem="oCb-Bo-BNO" secondAttribute="top" constant="20" id="lGx-c2-Gi4"/>
+                                    <constraint firstItem="pOZ-ec-Rsy" firstAttribute="top" secondItem="Yfy-JK-az8" secondAttribute="bottom" constant="15" id="xg0-v0-iWE"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="JyV-CR-FRv" firstAttribute="leading" secondItem="wIF-wI-EDl" secondAttribute="leading" id="0AT-9i-AD5"/>
+                            <constraint firstItem="JyV-CR-FRv" firstAttribute="top" secondItem="wIF-wI-EDl" secondAttribute="top" id="1MR-cJ-BTh"/>
+                            <constraint firstItem="oCb-Bo-BNO" firstAttribute="centerX" secondItem="wIF-wI-EDl" secondAttribute="centerX" id="B38-ld-u0k"/>
+                            <constraint firstItem="J2w-Uv-NCX" firstAttribute="top" secondItem="JyV-CR-FRv" secondAttribute="bottom" id="ZE0-2L-HCw"/>
+                            <constraint firstAttribute="trailing" secondItem="JyV-CR-FRv" secondAttribute="trailing" id="ZFN-JD-JAd"/>
+                            <constraint firstItem="oCb-Bo-BNO" firstAttribute="centerY" secondItem="wIF-wI-EDl" secondAttribute="centerY" id="akO-wZ-ggW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="bkU-4J-x3e" id="f8h-vi-8zm"/>
+                        <outlet property="messageLabel" destination="pOZ-ec-Rsy" id="Ae0-iL-pS4"/>
+                        <outlet property="titleLabel" destination="Yfy-JK-az8" id="8dH-aL-fxQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hAU-Td-4tI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="48.799999999999997" y="54.422788605697157"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="okay_button" width="233" height="133"/>
+    </resources>
+</document>
