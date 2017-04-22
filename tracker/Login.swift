@@ -55,10 +55,6 @@ class Login: UIViewController {
                 if(error == ""){
                     self.callSegue()
                 }else{
-                    /*let alert = UIAlertController(title: "Error!", message: error, preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
-                    alert.addAction(okAction)
-                    self.present(alert, animated: true, completion: nil)*/
                     CustomAlertHelper.presentCustomAlert(title: "Error!", message: error, viewController: self)
                 }
             }

@@ -178,24 +178,11 @@ extension Records: UITableViewDelegate{
         if(currentModeIsDates){
             if(arrayOfAttendanceDates.count > 0){
                 let attendanceObj = arrayOfAttendanceDates[indexPath.row]
-                /*let alertController = UIAlertController(title: Helpers.getFormattedDateFromDateString(dateString: attendanceObj.dateString), message: attendanceObj.getMembers(), preferredStyle: UIAlertControllerStyle.alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                present(alertController, animated: true)*/
-                /*let menuDialog = UIStoryboard(name: "CustomAlerts", bundle: nil).instantiateViewController(withIdentifier: "customAlert") as! AttendanceRecordAlert
-                menuDialog.setTitle(title: Helpers.getFormattedDateFromDateString(dateString: attendanceObj.dateString))
-                menuDialog.setMessage(message: attendanceObj.getMembers(), numberOfLines: attendanceObj.getCount())
-                 present(menuDialog, animated: true, completion: nil)*/
-                //CustomAlertHelper.presentCustomAlert(title: Helpers.getFormattedDateFromDateString(dateString: attendanceObj.dateString), message: attendanceObj.getMembers(), numberOfLines: attendanceObj.getCount(), viewController: self)
                 CustomAlertHelper.presentCustomAlert(title: Helpers.getFormattedDateFromDateString(dateString: attendanceObj.dateString), message: attendanceObj.getMembers(), viewController: self)
                 
             }
         }else{
             let memberObj = arrayOfMembers[indexPath.row]
-            /*let alertController = UIAlertController(title: memberObj.name, message: String(describing: memberObj.getAttendanceString()), preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            present(alertController, animated: true)*/
-            
-            //CustomAlertHelper.presentCustomAlert(title: memberObj.name, message: String(describing: memberObj.getAttendanceString()), numberOfLines: memberObj.getAttendanceCount(), viewController: self)
             CustomAlertHelper.presentCustomAlert(title: memberObj.name, message: String(describing: memberObj.getAttendanceString()), viewController: self)
         }
     }

@@ -81,10 +81,6 @@ class Mark: ParentViewController {
     }
     
     func createFirstGroup(){
-        /*let alert = UIAlertController(title: "Welcome to Tracker!", message: "Hit \"OK\" to create your first group.", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .default, handler: showCreateGroupDialog)
-        alert.addAction(ok)
-        present(alert, animated: true)*/
         CustomAlertHelper.presentCustomAlert(title: "Welcome to Tracker!", message: "Hit \"Okay\" to create your first group.", viewController: self)
         
     }
@@ -128,10 +124,6 @@ class Mark: ParentViewController {
         print("current id: " + currentGroupID)
         MarkTableViewDataFlow.getMongoArrayOfMembers(gID: currentGroupID) { (arrayOfMembers) -> () in
             if(arrayOfMembers.count == 0){
-                /*let alert = UIAlertController(title: "Cannot get members", message: "Please check your connection to the internet.  ", preferredStyle: .alert)
-                 let cancelAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
-                 alert.addAction(cancelAction)
-                 self.present(alert, animated: true, completion: nil)*/
                 KVSpinnerView.dismiss()
             }else{
                 self.selectedMembers = []
@@ -227,11 +219,6 @@ class Mark: ParentViewController {
         
         MarkTableViewDataFlow.submitMongoAttendance(attendanceArr: membersHereArr, dateString: dateString) { () -> () in
             KVSpinnerView.dismiss()
-            /*let alert = UIAlertController(title: "Success!", message: "Attendance record submitted.", preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "Ok", style: .cancel, handler: self.clearTable)
-            alert.addAction(cancel)
-            self.present(alert, animated: true)*/
-            
             CustomAlertHelper.presentCustomAlert(title: "Success!", message: "Attendance record submitted.", viewController: self)
             UserDefaults.standard.setValue(true, forKey: "new-submit")
         }
