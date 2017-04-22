@@ -81,10 +81,11 @@ class Mark: ParentViewController {
     }
     
     func createFirstGroup(){
-        let alert = UIAlertController(title: "Welcome to Tracker!", message: "Hit \"OK\" to create your first group.", preferredStyle: .alert)
+        /*let alert = UIAlertController(title: "Welcome to Tracker!", message: "Hit \"OK\" to create your first group.", preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: showCreateGroupDialog)
         alert.addAction(ok)
-        present(alert, animated: true)
+        present(alert, animated: true)*/
+        CustomAlertHelper.presentCustomAlert(title: "Welcome to Tracker!", message: "Hit \"Okay\" to create your first group.", viewController: self)
         
     }
     
@@ -226,11 +227,13 @@ class Mark: ParentViewController {
         
         MarkTableViewDataFlow.submitMongoAttendance(attendanceArr: membersHereArr, dateString: dateString) { () -> () in
             KVSpinnerView.dismiss()
-            let alert = UIAlertController(title: "Success!", message: "Attendance record submitted.", preferredStyle: .alert)
+            /*let alert = UIAlertController(title: "Success!", message: "Attendance record submitted.", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Ok", style: .cancel, handler: self.clearTable)
-            UserDefaults.standard.setValue(true, forKey: "new-submit")
             alert.addAction(cancel)
-            self.present(alert, animated: true)
+            self.present(alert, animated: true)*/
+            
+            CustomAlertHelper.presentCustomAlert(title: "Success!", message: "Attendance record submitted.", viewController: self)
+            UserDefaults.standard.setValue(true, forKey: "new-submit")
         }
     }
     

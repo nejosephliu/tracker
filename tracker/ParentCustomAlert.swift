@@ -12,15 +12,13 @@ class ParentCustomAlert: UIViewController{
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
-    //@IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     var titleText : String = ""
     var messageText : String = ""
-    var numberOfLines: Int = 1
+    var numberOfLines: Int = -1
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         definesPresentationContext = true
         providesPresentationContextTransitionStyle = true
         modalPresentationStyle = .overFullScreen
@@ -30,7 +28,9 @@ class ParentCustomAlert: UIViewController{
     override func viewDidLoad() {
         titleLabel.text = titleText
         messageLabel.text = messageText
-        messageLabel.numberOfLines = numberOfLines
+        if(numberOfLines > 0){
+            messageLabel.numberOfLines = numberOfLines
+        }
         let height = messageLabel.layer.bounds.height
         print("height: " + String(describing: height))
     }

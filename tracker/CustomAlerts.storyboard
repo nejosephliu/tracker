@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Attendance Record Alert-->
+        <!--Parent Custom Alert-->
         <scene sceneID="NIB-1b-f0c">
             <objects>
-                <viewController storyboardIdentifier="attendanceRecord" id="KaR-m7-aQx" customClass="AttendanceRecordAlert" customModule="tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="customAlert" id="KaR-m7-aQx" customClass="ParentCustomAlert" customModule="tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tjs-eS-gvB"/>
                         <viewControllerLayoutGuide type="bottom" id="J2w-Uv-NCX"/>
@@ -27,22 +27,22 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oCb-Bo-BNO">
-                                <rect key="frame" x="57" y="261.5" width="260" height="144"/>
+                                <rect key="frame" x="57" y="266.5" width="260" height="135"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfy-JK-az8">
-                                        <rect key="frame" x="110" y="20.5" width="41" height="19.5"/>
-                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
+                                        <rect key="frame" x="107" y="20.5" width="46" height="22"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="19"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOZ-ec-Rsy">
-                                        <rect key="frame" x="109.5" y="55" width="41" height="20"/>
-                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOZ-ec-Rsy">
+                                        <rect key="frame" x="111" y="52.5" width="38.5" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkU-4J-x3e">
-                                        <rect key="frame" x="100.5" y="95" width="60" height="34"/>
+                                        <rect key="frame" x="100.5" y="86" width="60" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="bkU-4J-x3e" secondAttribute="height" multiplier="233:133" id="GVT-if-vvd"/>
                                             <constraint firstAttribute="width" constant="60" id="Ra5-21-8rB"/>
@@ -56,13 +56,15 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="pOZ-ec-Rsy" firstAttribute="centerX" secondItem="oCb-Bo-BNO" secondAttribute="centerX" id="C81-0a-hnY"/>
+                                    <constraint firstItem="pOZ-ec-Rsy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oCb-Bo-BNO" secondAttribute="leading" constant="10" id="D0L-Gz-4Ta"/>
                                     <constraint firstItem="Yfy-JK-az8" firstAttribute="centerX" secondItem="oCb-Bo-BNO" secondAttribute="centerX" id="LMx-fD-7uI"/>
                                     <constraint firstItem="bkU-4J-x3e" firstAttribute="centerX" secondItem="oCb-Bo-BNO" secondAttribute="centerX" id="Oad-Ud-awm"/>
                                     <constraint firstAttribute="bottom" secondItem="bkU-4J-x3e" secondAttribute="bottom" constant="15" id="Oyv-PF-kwv"/>
                                     <constraint firstAttribute="width" constant="260" id="j74-3i-qTb"/>
-                                    <constraint firstItem="bkU-4J-x3e" firstAttribute="top" secondItem="pOZ-ec-Rsy" secondAttribute="bottom" constant="20" id="j8U-5n-Nfb"/>
+                                    <constraint firstItem="bkU-4J-x3e" firstAttribute="top" secondItem="pOZ-ec-Rsy" secondAttribute="bottom" constant="15" id="j8U-5n-Nfb"/>
                                     <constraint firstItem="Yfy-JK-az8" firstAttribute="top" secondItem="oCb-Bo-BNO" secondAttribute="top" constant="20" id="lGx-c2-Gi4"/>
-                                    <constraint firstItem="pOZ-ec-Rsy" firstAttribute="top" secondItem="Yfy-JK-az8" secondAttribute="bottom" constant="15" id="xg0-v0-iWE"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pOZ-ec-Rsy" secondAttribute="trailing" constant="10" id="tLC-sz-cNh"/>
+                                    <constraint firstItem="pOZ-ec-Rsy" firstAttribute="top" secondItem="Yfy-JK-az8" secondAttribute="bottom" constant="10" id="xg0-v0-iWE"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

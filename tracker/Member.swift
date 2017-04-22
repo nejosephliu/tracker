@@ -43,4 +43,8 @@ class Member {
             return str.substring(to: str.index(str.endIndex, offsetBy: -1))
         }
     }
+    
+    func getAttendanceCount() -> Int{
+        return attendance.count
+    }
 }
