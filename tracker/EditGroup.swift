@@ -133,12 +133,15 @@ class EditGroup: ParentViewController{
                 }
             }
         }else{
+            KVSpinnerView.showLoading()
             EditGroupDataFlow.updateGroup(groupID: groupID, newMemberArr: newMembers, editedMemberArr: editedMembers, deletedMemberArr: deletedMembers){ () -> () in
                 if(self.newName.characters.count > 0){
                     EditGroupDataFlow.changeGroupName(groupID: self.groupID, groupName: self.newName, completion: {
+                        KVSpinnerView.dismiss()
                         self.performSegue(withIdentifier: "backToGroupsSegue", sender: self)
                     })
                 }else{
+                    KVSpinnerView.dismiss()
                     self.performSegue(withIdentifier: "backToGroupsSegue", sender: self)
                 }
             }
@@ -259,9 +262,7 @@ extension EditGroup: AddMemberDialogDelegate{
                 membersArr[index] = newMember
             }
         }
-        
         setSubmitButtonState()
-        
         tableView.reloadData()
     }
 }
