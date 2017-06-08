@@ -38,11 +38,17 @@ class MarkTableViewDataFlow{
         }
     }
     
-    class func submitMongoAttendance(attendanceArr: [Member], dateString: String, completion:@escaping ()-> Void){
+	class func submitMongoAttendance(attendanceArr: [Member], dateString: String, recordName: String, completion:@escaping ()-> Void){
         var attendanceJSON : [NSDictionary] = []
-        
-        //change cell group
-        let dateParameters: Parameters = ["dateString": ["dateString": dateString, "g_id": GroupsDataFlow.getCurrentGroupID()]]
+		
+        var dateParameters: Parameters
+		
+		if(recordName.characters.count == 0){
+			dateParameters = ["dateString": ["dateString": dateString, "g_id": GroupsDataFlow.getCurrentGroupID()]]
+		}else{
+			dateParameters = ["dateString": ["dateString": dateString, "g_id": GroupsDataFlow.getCurrentGroupID(), "name": recordName]]
+		}
+		
         Alamofire.request(Constants.baseURL + "create-attendance-record", method: .post, parameters: dateParameters, encoding: JSONEncoding.default).responseJSON { (response) in
             
             if let dateID = response.result.value{

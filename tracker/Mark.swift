@@ -24,7 +24,9 @@ class Mark: ParentViewController {
     var theMembersArray : [Member] = []
     var visitorsArray: [Member] = []
     var selectedMembers: [Bool] = []
-    
+	
+	var recordName: String = ""
+	
     var currentGroupID : String = ""
     
     var newGroupName: String?
@@ -160,6 +162,10 @@ class Mark: ParentViewController {
         }
         
         visitorsArray = []
+		
+		recordName = ""
+		
+		setDateHeader()
         
         reloadTableView()
     }
@@ -205,7 +211,16 @@ class Mark: ParentViewController {
         addVisitorDialog.delegate = self
         present(addVisitorDialog, animated: true, completion: nil)
     }
-    
+	
+	@IBAction func nameRecordButtonPressed(){
+		let nameRecordDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "editRecordNameDialog") as! EditRecordNameDialog
+		if(recordName.characters.count > 0){
+			nameRecordDialog.setDefaultText(recordName: recordName)
+		}
+		nameRecordDialog.delegate = self
+		present(nameRecordDialog, animated: true, completion: nil)
+	}
+	
     @IBAction func submitButtonPressed(){
         KVSpinnerView.showLoading()
         
@@ -226,8 +241,8 @@ class Mark: ParentViewController {
         }
         
         let dateString = setDateString(year: currentYear!, month: currentMonth!, day: currentDay!)
-        
-        MarkTableViewDataFlow.submitMongoAttendance(attendanceArr: membersHereArr, dateString: dateString) { () -> () in
+		
+		MarkTableViewDataFlow.submitMongoAttendance(attendanceArr: membersHereArr, dateString: dateString, recordName: recordName) { () -> () in
             KVSpinnerView.dismiss()
             CustomAlertHelper.presentCustomAlert(title: "Success!", message: "Attendance record submitted.", viewController: self, completion: self.clearTable)
             UserDefaults.standard.setValue(true, forKey: "new-submit")
@@ -261,8 +276,12 @@ class Mark: ParentViewController {
 
 extension Mark: ChangeDateDialogDelegate{
     func changeHeaderToDate(year: Int, month : Int, day: Int) {
-        dateLabel.text = "\(month)/\(day)"
-        
+		if(recordName.characters.count == 0){
+			dateLabel.text = "\(month)/\(day)"
+		}else{
+			dateLabel.text = recordName + " (\(month)/\(day))"
+		}
+		
         currentDay = day
         currentMonth = month
         currentYear = year
@@ -276,6 +295,17 @@ extension Mark: AddVisitorDialogDelegate{
         selectedMembers.append(true)
         reloadTableView()
     }
+}
+
+extension Mark: EditRecordNameDialogDelegate{
+	func editName(recordName: String) {
+		self.recordName = recordName
+		if(!recordName.isEmpty){
+			dateLabel.text = recordName + " (\(currentMonth!)/\(currentDay!))"
+		}else{
+			dateLabel.text = "\(currentMonth!)/\(currentDay!)"
+		}
+	}
 }
 
 

@@ -24,7 +24,12 @@ class RecordDataFlow{
                     let dateArr = date as! NSDictionary
                     let dateId = dateArr["_id"] as! String
                     let dateString = dateArr["dateString"] as! String
-                    arrayOfDates.append([dateId, dateString])
+					if let dateName = dateArr["name"]{
+						let recordName = dateName as! String
+						arrayOfDates.append([dateId, dateString, recordName])
+					}else{
+						arrayOfDates.append([dateId, dateString])
+					}
                 }
                 
                 completion(arrayOfDates)

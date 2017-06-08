@@ -116,10 +116,23 @@ class Records: ParentViewController {
             for dateArr in arrayOfDates{
                 let dateId = dateArr[0]
                 let dateString = dateArr[1]
+				
+				var hasName = false
+				
+				if(dateArr.count >= 3){
+					hasName = true
+				}
                 
                 RecordDataFlow.getMongoMembersArrayByDate(dateId: dateId) { (arrayOfMemberIds) -> () in
-                    let attendanceObj = AttendanceSet(dateId: dateId, dateString: dateString)
-                    
+					
+					var attendanceObj: AttendanceSet
+					
+					if(!hasName){
+						attendanceObj = AttendanceSet(dateId: dateId, dateString: dateString)
+					}else{
+						attendanceObj = AttendanceSet(dateId: dateId, dateString: dateString, recordName: dateArr[2])
+					}
+					
                     var count = 0
                     
                     for memberId in arrayOfMemberIds{
@@ -212,8 +225,12 @@ extension Records: UITableViewDataSource{
                 cell.dateLabel.text = "No Records"
                 cell.countLabel.text = ""
             }else{
-                //cell.dateLabel.text = arrayOfAttendanceDates[indexPath.row].dateString
-                cell.dateLabel.text = Helpers.getFormattedDateFromDateString(dateString: arrayOfAttendanceDates[indexPath.row].dateString)
+				let attendanceObj = arrayOfAttendanceDates[indexPath.row]
+				if(attendanceObj.hasName()){
+					cell.dateLabel.text = attendanceObj.recordName + " (" + attendanceObj.abbreviatedDateString() + ")"
+				}else{
+					cell.dateLabel.text = Helpers.getFormattedDateFromDateString(dateString: attendanceObj.dateString)
+				}
                 cell.countLabel.text = String(describing: arrayOfAttendanceDates[indexPath.row].getCount())
             }
         }else{
