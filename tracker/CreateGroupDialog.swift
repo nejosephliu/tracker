@@ -13,7 +13,7 @@ protocol CreateGroupDialogDelegate: class{
     func createGroup(groupName: String)
 }
 
-class CreateGroupDialog: ParentDialog {
+class CreateGroupDialog: ParentDialog, UITextFieldDelegate {
     
     @IBOutlet weak var loggedInLabel: UILabel!
     @IBOutlet weak var nameTF: UITextField!
@@ -30,7 +30,9 @@ class CreateGroupDialog: ParentDialog {
         
         nameTF.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
         createButton.isEnabled = false
-        
+		
+		nameTF.delegate = self
+		
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(gestureRecognizer)
     }
@@ -61,4 +63,11 @@ class CreateGroupDialog: ParentDialog {
     func setIsFirstGroup(){
         isFirstGroup = true
     }
+	
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		let maxLength = 17
+		let currentString: NSString = textField.text! as NSString
+		let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+		return newString.length <= maxLength
+	}
 }

@@ -13,7 +13,7 @@ protocol EditGroupNameDialogDelegate: class{
     func editName(groupName: String)
 }
 
-class EditGroupNameDialog: ParentDialog {
+class EditGroupNameDialog: ParentDialog, UITextFieldDelegate {
     
     @IBOutlet weak var loggedInLabel: UILabel!
     @IBOutlet weak var nameTF: UITextField!
@@ -35,6 +35,8 @@ class EditGroupNameDialog: ParentDialog {
         addButton.isEnabled = false
         
         nameTF.text = defaultText
+		
+		nameTF.delegate = self
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(gestureRecognizer)
@@ -63,4 +65,11 @@ class EditGroupNameDialog: ParentDialog {
         delegate?.editName(groupName: nameTF.text!)
         dismissDialog()
     }
+	
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		let maxLength = 17
+		let currentString: NSString = textField.text! as NSString
+		let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+		return newString.length <= maxLength
+	}
 }
