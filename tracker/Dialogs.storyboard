@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -790,9 +791,107 @@
             </objects>
             <point key="canvasLocation" x="3598" y="194"/>
         </scene>
+        <!--View Record Dialog-->
+        <scene sceneID="ZEh-cu-I7I">
+            <objects>
+                <viewController storyboardIdentifier="viewRecordDialog" id="2iz-eV-CWN" customClass="ViewRecordDialog" customModule="tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U0C-8q-EjN"/>
+                        <viewControllerLayoutGuide type="bottom" id="I1T-Lj-fEM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YXA-Kb-YGQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zr-q9-vdu" userLabel="Background View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CyB-Ia-rAa">
+                                <rect key="frame" x="57" y="242" width="260" height="184"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePR-A0-zdf">
+                                        <rect key="frame" x="107" y="20.5" width="46" height="22"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="19"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNq-20-AUM">
+                                        <rect key="frame" x="111" y="52.5" width="38.5" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erl-0e-u1w">
+                                        <rect key="frame" x="100.5" y="135" width="60" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="VY8-MI-h4S"/>
+                                            <constraint firstAttribute="width" secondItem="erl-0e-u1w" secondAttribute="height" multiplier="233:133" id="Z2j-UN-AVX"/>
+                                        </constraints>
+                                        <state key="normal" image="okay_button"/>
+                                        <connections>
+                                            <action selector="cancelButtonPressed" destination="2iz-eV-CWN" eventType="touchUpInside" id="qBP-U1-LKg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4CU-0B-rMO">
+                                        <rect key="frame" x="100" y="86" width="60" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="fOI-WL-ihG"/>
+                                            <constraint firstAttribute="width" secondItem="4CU-0B-rMO" secondAttribute="height" multiplier="233:133" id="s6i-hK-qhx"/>
+                                        </constraints>
+                                        <state key="normal" image="share"/>
+                                        <connections>
+                                            <action selector="shareButtonPressed" destination="2iz-eV-CWN" eventType="touchUpInside" id="e7h-DC-t4L"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="erl-0e-u1w" secondAttribute="bottom" constant="15" id="6G0-Td-GYV"/>
+                                    <constraint firstItem="nNq-20-AUM" firstAttribute="centerX" secondItem="CyB-Ia-rAa" secondAttribute="centerX" id="B2K-bc-dtp"/>
+                                    <constraint firstAttribute="width" constant="260" id="OI5-5S-Qus"/>
+                                    <constraint firstItem="4CU-0B-rMO" firstAttribute="width" secondItem="4CU-0B-rMO" secondAttribute="height" multiplier="233:133" id="T0O-YI-lvl"/>
+                                    <constraint firstItem="erl-0e-u1w" firstAttribute="top" secondItem="4CU-0B-rMO" secondAttribute="bottom" constant="15" id="T6s-ty-rGA"/>
+                                    <constraint firstItem="ePR-A0-zdf" firstAttribute="centerX" secondItem="CyB-Ia-rAa" secondAttribute="centerX" id="UUO-Wm-dPt"/>
+                                    <constraint firstItem="4CU-0B-rMO" firstAttribute="top" secondItem="nNq-20-AUM" secondAttribute="bottom" constant="15" id="YLj-SQ-ClM"/>
+                                    <constraint firstItem="erl-0e-u1w" firstAttribute="centerX" secondItem="CyB-Ia-rAa" secondAttribute="centerX" id="Zja-LS-KDA"/>
+                                    <constraint firstItem="nNq-20-AUM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CyB-Ia-rAa" secondAttribute="leading" constant="10" id="dY4-PF-sHu"/>
+                                    <constraint firstItem="4CU-0B-rMO" firstAttribute="centerX" secondItem="CyB-Ia-rAa" secondAttribute="centerX" id="dz0-ar-L4l"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nNq-20-AUM" secondAttribute="trailing" constant="10" id="jIz-fz-MWq"/>
+                                    <constraint firstItem="ePR-A0-zdf" firstAttribute="top" secondItem="CyB-Ia-rAa" secondAttribute="top" constant="20" id="qUU-uB-NVg"/>
+                                    <constraint firstItem="nNq-20-AUM" firstAttribute="top" secondItem="ePR-A0-zdf" secondAttribute="bottom" constant="10" id="rpb-Yq-6jk"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="CyB-Ia-rAa" firstAttribute="centerY" secondItem="YXA-Kb-YGQ" secondAttribute="centerY" id="OG7-7i-eer"/>
+                            <constraint firstItem="CyB-Ia-rAa" firstAttribute="centerX" secondItem="YXA-Kb-YGQ" secondAttribute="centerX" id="Z2Q-Z4-H91"/>
+                            <constraint firstItem="I1T-Lj-fEM" firstAttribute="top" secondItem="4zr-q9-vdu" secondAttribute="bottom" id="a3T-pe-kT2"/>
+                            <constraint firstAttribute="trailing" secondItem="4zr-q9-vdu" secondAttribute="trailing" id="bAc-HJ-dqZ"/>
+                            <constraint firstItem="4zr-q9-vdu" firstAttribute="leading" secondItem="YXA-Kb-YGQ" secondAttribute="leading" id="nGF-RI-q18"/>
+                            <constraint firstItem="4zr-q9-vdu" firstAttribute="top" secondItem="YXA-Kb-YGQ" secondAttribute="top" id="qau-CC-4MG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="erl-0e-u1w" id="KUP-en-mYG"/>
+                        <outlet property="messageLabel" destination="nNq-20-AUM" id="5Ua-rq-E7I"/>
+                        <outlet property="titleLabel" destination="ePR-A0-zdf" id="gtv-zj-aTS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="leK-RG-scv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-906" y="194"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Left Chevron" width="512" height="512"/>
         <image name="Right Chevron" width="512" height="512"/>
+        <image name="okay_button" width="233" height="133"/>
+        <image name="share" width="233" height="133"/>
     </resources>
 </document>

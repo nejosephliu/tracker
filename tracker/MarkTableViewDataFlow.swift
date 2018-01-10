@@ -15,14 +15,19 @@ class MarkTableViewDataFlow{
         //let currentGroup = GroupsDataFlow.getCurrentGroup()
         //let groupID = currentGroup.id
         
-        Alamofire.request(RequestManager.urlEncode(url: Constants.baseURL + "members-key/" + gID)).responseJSON{ response in
-            if let json = response.result.value {
-                let responseArr = json as! NSArray
+        //Alamofire.request(RequestManager.urlEncode(url: Constants.baseURL + "members-key/" + gID)).responseJSON{ response in
+		Alamofire.request("http://localhost:3000/members_key?cg=" + gID).responseJSON{ response in
+            if let json = response.result.value as? NSDictionary{
+				print("worked??")
+				print(json)
+                let responseArr = json["data"] as! NSArray
                 var membersArr : [Member] = []
-                
+				
+				print(json)
+				
                 for individual in responseArr{
                     let individualArr = individual as! NSDictionary
-                    let id = individualArr["_id"] as! String
+					let id = individualArr["_id"] as! String
                     let name = individualArr["name"] as! String
                     let g_id = individualArr["g_id"] as! String
                     
@@ -43,16 +48,20 @@ class MarkTableViewDataFlow{
 		
         var dateParameters: Parameters
 		
-		if(recordName.characters.count == 0){
+		if(recordName.count == 0){
 			dateParameters = ["dateString": ["dateString": dateString, "g_id": GroupsDataFlow.getCurrentGroupID()]]
 		}else{
 			dateParameters = ["dateString": ["dateString": dateString, "g_id": GroupsDataFlow.getCurrentGroupID(), "name": recordName]]
 		}
 		
-        Alamofire.request(Constants.baseURL + "create-attendance-record", method: .post, parameters: dateParameters, encoding: JSONEncoding.default).responseJSON { (response) in
-            
-            if let dateID = response.result.value{
-                let dateIDString = dateID as! NSArray
+        //Alamofire.request(Constants.baseURL + "create-attendance-record", method: .post, parameters: dateParameters, encoding: JSONEncoding.default).responseJSON { (response) in
+		Alamofire.request("http://localhost:3000/create_attendance_record", method: .post, parameters: dateParameters, encoding: JSONEncoding.default).responseJSON { (response) in
+			
+			print("worked?")
+			print(response)
+			
+            if let dateID = response.result.value as? NSDictionary{
+                let dateIDString = dateID["data"] as! NSArray
                 
                 if let dateIDString = dateIDString.firstObject{
                     for member in attendanceArr{

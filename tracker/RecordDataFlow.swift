@@ -12,13 +12,13 @@ import Alamofire
 
 class RecordDataFlow{
     class func getMongoArrayOfDates(groupID: String, completion:@escaping ([[String]])-> Void){
-        Alamofire.request(Constants.baseURL + "dates/" + groupID).responseJSON{ response in
-            
-            if let dateJson = response.result.value {
+        //Alamofire.request(Constants.baseURL + "dates/" + groupID).responseJSON{ response in
+		Alamofire.request("http://localhost:3000/dates?g_id=" + groupID).responseJSON{ response in
+            if let dateJson = response.result.value as? NSDictionary{
                 
                 var arrayOfDates : [[String]] = []
                 
-                let dateResponseArr = dateJson as! NSArray
+                let dateResponseArr = dateJson["data"] as! NSArray
                 
                 for date in dateResponseArr{
                     let dateArr = date as! NSDictionary
@@ -38,9 +38,10 @@ class RecordDataFlow{
     }
     
     class func getMongoMembersArrayByDate(dateId: String, completion:@escaping ([String])-> Void){
-        Alamofire.request(Constants.baseURL + "attendance-by-date/" + dateId).responseJSON{ response in
-            if let json = response.result.value {
-                let responseArr = json as! NSArray
+        //Alamofire.request(Constants.baseURL + "attendance-by-date/" + dateId).responseJSON{ response in
+		Alamofire.request("http://localhost:3000/attendance_by_date?date_id=" + dateId).responseJSON{ response in
+            if let json = response.result.value as? NSDictionary{
+                let responseArr = json["data"] as! NSArray
                 
                 var idArray : [String] = []
                 
@@ -56,9 +57,10 @@ class RecordDataFlow{
     
     class func getMongoMemberInfoById(memberId: String, completion:@escaping (Member)-> Void){
         
-        Alamofire.request(Constants.baseURL + "member-by-id/" + memberId).responseJSON{ response in
-            if let memberJson = response.result.value{
-                let memberResponseArr = memberJson as! NSArray
+        //Alamofire.request(Constants.baseURL + "member-by-id/" + memberId).responseJSON{ response in
+		Alamofire.request("http://localhost:3000/member_by_id?id=" + memberId).responseJSON{ response in
+            if let memberJson = response.result.value as? NSDictionary{
+                let memberResponseArr = memberJson["data"] as! NSArray
                 if(memberResponseArr.count > 0){
                     let memberIndividualArr = memberResponseArr.firstObject as! NSDictionary
                     let id = memberIndividualArr["_id"] as! String

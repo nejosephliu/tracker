@@ -23,4 +23,19 @@ class CustomAlertHelper{
         menuDialog.setCompletion(completion: completion)
         viewController.present(menuDialog, animated: true, completion: nil)
     }
+	
+	static func presentRecordCustomAlert(title: String, message: String, viewController: UIViewController){
+		let menuDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "viewRecordDialog") as! ViewRecordDialog
+		menuDialog.setTitle(title: title)
+		menuDialog.setMessage(message: message)
+		viewController.present(menuDialog, animated: true, completion: nil)
+	}
+	
+	static func presentRecordCustomAlert(title: String, message: String, viewController: UIViewController, completion:@escaping ()-> Void){
+		let menuDialog = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(withIdentifier: "viewRecordDialog") as! ViewRecordDialog
+		menuDialog.setTitle(title: title)
+		menuDialog.setMessage(message: message)
+		menuDialog.setCompletion(completion: completion)
+		viewController.present(menuDialog, animated: true, completion: nil)
+	}
 }

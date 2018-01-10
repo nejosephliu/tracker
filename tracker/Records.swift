@@ -191,12 +191,12 @@ extension Records: UITableViewDelegate{
         if(currentModeIsDates){
             if(arrayOfAttendanceDates.count > 0){
                 let attendanceObj = arrayOfAttendanceDates[indexPath.row]
-                CustomAlertHelper.presentCustomAlert(title: Helpers.getFormattedDateFromDateString(dateString: attendanceObj.dateString), message: attendanceObj.getMembers(), viewController: self)
+                CustomAlertHelper.presentRecordCustomAlert(title: Helpers.getFormattedDateFromDateString(dateString: attendanceObj.dateString), message: attendanceObj.getMembers(), viewController: self)
                 
             }
         }else{
             let memberObj = arrayOfMembers[indexPath.row]
-            CustomAlertHelper.presentCustomAlert(title: memberObj.name, message: String(describing: memberObj.getAttendanceString()), viewController: self)
+            CustomAlertHelper.presentRecordCustomAlert(title: memberObj.name, message: String(describing: memberObj.getAttendanceString()), viewController: self)
         }
     }
     
